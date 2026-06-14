@@ -27,9 +27,11 @@ model Pharmacy {
 
   pharmacyClaims             PharmacyClaim[]
   reservations                Reservation[]
+  drugPrices                 DrugPrice[]
 
   @@index([state])
 }
+
 
 model PharmacyClaim {
   id              String   @id @default(cuid())
@@ -75,4 +77,34 @@ model ReservationCounter {
   nextNumber  Int      @default(1)
   updatedAt    DateTime @updatedAt
 }
+
+model DrugPrice {
+  id            String   @id
+  pharmacyId   String
+  pharmacyNpi  String
+  drugName     String
+  strength     String
+  quantity     Int
+  cashPriceCents Int
+  ndc           String?
+  source        String   @default("manual")
+  status        String   @default("active")
+  effectiveDate DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  pharmacy      Pharmacy @relation(fields: [pharmacyNpi], references: [npi])
+
+  // Convenience relation: Pharmacy has many DrugPrices.
+  // DrugPrice belongs to a Pharmacy via pharmacyNpi.
+
+  @@index([pharmacyNpi])
+
+  @@index([drugName])
+  @@index([strength])
+  @@index([quantity])
+  @@index([status])
+  @@unique([pharmacyNpi, drugName, strength, quantity, status])
+}
+
 
