@@ -47,13 +47,14 @@ export async function POST(req: Request) {
     const email = getString(form, "email").trim();
     const notes = getString(form, "notes").trim();
 
-    const reservePriceRaw = getString(form, "reservePrice").trim();
-    const priceLowRaw = getString(form, "priceLow").trim();
-    const priceHighRaw = getString(form, "priceHigh").trim();
+    // Client-submitted pricing must not be trusted.
+    // Reservations must be backed by ACTIVE DrugPrice rows.
+    // We still accept these fields for backward compatibility with the UI,
+    // but they are ignored on the server.
+    getString(form, "reservePrice");
+    getString(form, "priceLow");
+    getString(form, "priceHigh");
 
-    const reservePrice = Number(reservePriceRaw || "0");
-    const priceLow = Number(priceLowRaw || "0");
-    const priceHigh = Number(priceHighRaw || "0");
 
     if (!pharmacyNpi) return NextResponse.json({ error: "Missing pharmacy npi" }, { status: 400 });
     if (!drug) return NextResponse.json({ error: "Missing drug" }, { status: 400 });
@@ -83,6 +84,41 @@ export async function POST(req: Request) {
     const nextNumber = counter?.nextNumber ?? 1;
 
     const reservationNumber = reservationNumberFromParts(yyMMdd, nextNumber);
+
+    // Validate DrugPrice existence and compute reservation price from stored cash prices only.
+    // We use the ACTIVE cash price cents for the exact (pharmacyNpi, drugName, strength, quantity).
+    const status = "active";
+    if (!strength) {
+      return NextResponse.json({ error: "Missing strength" }, { status: 400 });
+    }
+
+    const activePrice = await db.drugPrice.findUnique({
+      where: {
+        pharmacyNpi_drugName_strength_quantity_status: {
+          pharmacyNpi,
+          drugName: drug,
+          strength,
+          quantity,
+          status,
+        },
+      },
+    });
+
+    if (!activePrice) {
+      return NextResponse.json(
+        {
+          error: "No active DrugPrice published for this reservation (CSV/Wizard required).",
+        },
+        { status: 400 },
+      );
+    }
+
+    const cashDollars = activePrice.cashPriceCents / 100;
+    const reservePrice = Math.round(cashDollars * 100) / 100;
+
+    // Current MVP UI expects low/high. With a single stored cash price we persist it into both.
+    const priceLow = reservePrice;
+    const priceHigh = reservePrice;
 
     const created = await db.reservation.create({
       data: {
@@ -123,6 +159,7 @@ export async function POST(req: Request) {
         reservationFeeStatus: true,
       },
     });
+
 
     await db.reservationCounter.upsert({
       where: { yyMMdd },
