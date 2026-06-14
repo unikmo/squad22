@@ -1,0 +1,750 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head id="Head1"><title>
+	Amiodarone - Drug Usage Statistics, ClinCalc DrugStats Database
+</title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="author" content="Sean P. Kane, PharmD, BCPS" /><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//fonts.googleapis.com/css?family=Titillium+Web:400,700|Open+Sans:400,700" rel="stylesheet" type="text/css" />
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="/style/foundation5.min.css" />
+        <link rel="stylesheet" href="/style/css-bundle.min.css" />
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JP4Q0TZL7P"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-JP4Q0TZL7P');
+        </script>
+
+        
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <style>
+        h3,h4 {
+            margin-top: 1.5em;
+        }
+        .dividerRow td {
+            background: #76923c;
+            padding: 0;
+            line-height: 3px;
+        }
+        #NADAC_pending {
+            border: 1px solid #ddd;
+            padding: 2rem 0;
+            font-size: 5em; color: #bababa; text-align: center;
+        }
+        #NADAC_result {
+            display: none;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        #NADAC_result_table {
+            width: 100%;
+        }
+        #NADAC_error {
+            text-align: center;
+            color: #808080;
+            font-weight: bold;
+            padding: 2rem 0;
+            display: none;
+        }
+
+/* https://github.com/tristen/tablesort */
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #404040 transparent;
+	user-select: none;
+}
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 4px 4px 0;
+}
+th[aria-sort]:not(.no-sort):after {
+	opacity: 0.4;
+}
+th[role=columnheader]:not(.no-sort):hover:after {
+}
+    </style>
+
+<meta name="description" content="Amiodarone drug usage statistics for the United States (2014 - 2023). Statistics include drug synonyms and therapeutic classes, including: Amiodarone Hydrochloride, Amiodarone, Cordarone, Nexterone, Pacerone, Antiarrhythmic." /><meta name="keywords" content="drug, medication, medicine, prescription, prescriptions, usage, statistics, most popular, most common, number of prescriptions, Amiodarone Hydrochloride, Amiodarone, Cordarone, Nexterone, Pacerone, Antiarrhythmic" /></head>
+    <body>
+        <form method="post" action="./Amiodarone?d=Amiodarone" id="Form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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tQFLYW5lIFNQLiBBbWlvZGFyb25lLCBDbGluQ2FsYyBEcnVnU3RhdHMgRGF0YWJhc2UsIFZlcnNpb24gMjAyNS4wOC4gQ2xpbkNhbGM6IDx1Pmh0dHBzOi8vY2xpbmNhbGMuY29tL0RydWdTdGF0cy9EcnVncy9BbWlvZGFyb25lPC91Pi4gVXBkYXRlZCBBdWd1c3QgMTAsIDIwMjUuIEFjY2Vzc2VkIEp1bmUgMTEsIDIwMjYuZAIMD2QWAmYPFgIfAAXTBDxhIGhyZWY9Imh0dHBzOi8vYWNhZGVteS5jbGluY2FsYy5jb20vZW5yb2xsLWJpb3N0YXRpc3RpY3MtcngvIiBvbkNsaWNrPSJndGFnKCdldmVudCcsICdjbGljaycsIHsnZXZlbnRfY2F0ZWdvcnknOiAnQ2xpbkNhbGNQcm9tbycsJ2V2ZW50X2xhYmVsJzogJ2Jpb3N0YXRzX2Zvcm11bGFzJ30pOyI+PGltZyBzcmM9Ii8vY2xpbmNhbGMuY29tL2ltYWdlcy9wcm9tby9iaW9zdGF0c19mb3JtdWxhcy5qcGciIGFsdD0iQmlvc3RhdGlzdGljcyBSeCAtIE1lZGljYWwgbGl0ZXJhdHVyZSBldmFsdWF0aW9uIGFuZCBiaW9zdGF0cyBXSVRIT1VUIHRoZSBjb21wbGV4IG1hdGggYW5kIGZvcm11bGFzIiB3aWR0aD0iMzM2IiBoZWlnaHQ9IjI4MCIgLz48aW1nIHdpZHRoPSIwIiBoZWlnaHQ9IjAiIHNyYz0iZGF0YTppbWFnZS9naWY7YmFzZTY0LFIwbEdPRGxoQVFBQkFJQUFBUC8vLy8vLy95SDVCQUVLQUFFQUxBQUFBQUFCQUFFQUFBSUNUQUVBT3c9PSIgb25sb2FkPSJndGFnKCdldmVudCcsICdpbXByZXNzaW9uJywgeydldmVudF9jYXRlZ29yeSc6ICdDbGluQ2FsY1Byb21vJywnZXZlbnRfbGFiZWwnOiAnYmlvc3RhdHNfZm9ybXVsYXMnfSk7IiAvPjwvYT5kAhQPDxYCHwAFDEFwciAxNSwgMjAyNWRkAhUPZBYCZg8QZBAVABUAFCsDABYAZGRm1sKxbs2jdawA6qErphqBx/eEUbXq0PZG73137tggGA==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4BFEAB0E" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAWjc8ph+VxHlINwQxm/I5PN4+3WpZQNb82rzs2KnT3rh43JAH+fv5m7AuIzxqoA2p9eH5OyRA79lK+C1H/KoZ2MQNAoipTDHCS5V71UwILVZULYYxxpzOyn75f0BcCQddkFZthElg+c0a8PzHShzzfN" />
+            <div class="off-canvas-wrap"><div class="inner-wrap">
+
+    <section class="main-section">
+
+        <!-- Nav Bar (big screens) -->
+        <div class="headerGradient">
+            <div class="row hide-for-medium hide-for-small headerPattern"> <!-- Big Screens -->
+                <div class="large-5 small-5 columns">
+                    <a href="/"><div class="headerCalcLogo" title="ClinCalc.com"></div></a>
+                </div>
+                <div class="large-7 small-7 columns" style="text-align: right;">
+                    <a class="navElement gradient" href="../../About.aspx">
+                        <i class="fa fa-info-circle fa-fw"></i>
+                        <div>About</div>
+                    </a>
+
+                    <a class="navElement gradient" href="../../blog">
+                        <i class="fa fa-pencil-square-o fa-fw"></i>
+                        <div>Blog</div>
+                    </a>
+
+                    <a class="navElement gradient" href="https://academy.clincalc.com">
+                        <i class="fa fa-graduation-cap fa-fw"></i>
+                        <div>Academy</div>
+                    </a>
+                    
+                    <a class="navElement gradient" href="../../">
+                        <i class="fa fa-home fa-fw"></i>
+                        <div>Home</div>
+                    </a>
+
+                    
+                </div>
+            </div>
+
+            <div class="row show-for-medium-down headerPattern"> <!-- Small Screens -->
+                <div class="small-5 columns">
+                    <div class="row show-for-medium hide-for-small"><a href="/Default.aspx"><div class="headerCalcLogo" title="ClinCalc.com"></div></a></div>
+                    <div class="row show-for-small hide-for-medium"><a href="/Default.aspx"><div class="headerCalcLogo_Mobile" title="ClinCalc.com"></div></a></div>
+                </div>
+                <div class="small-7 columns" style="text-align: right;">
+                    <a class="myleft-off-canvas-toggle" onclick="$(this).closest('.off-canvas-wrap').toggleClass('move-right');"><i class="fa fa-bars"></i> <span class="hide-for-small">Menu</span></a>
+                </div>
+            </div>
+        </div> <!-- Nav bar-->
+        <div class="bodyGradientTop"></div>
+
+        <div class="row">
+            <!-- Main content -->         
+            <div class="large-8 columns">
+                <h1 class="HeadingText">
+    Amiodarone
+</h1>
+                
+    <h2 class="SubheadingText">Drug Usage Statistics, United States, 2014 - 2023</h2>
+    <h3 class="breadcrumb"><a href="/">ClinCalc.com</a> &raquo; <a href="/Pharmacy">Pharmacy</a> &raquo; <a href="/DrugStats">ClinCalc DrugStats</a> &raquo; Amiodarone</h3>
+
+
+                
+
+    <h3>Amiodarone Summary for 2023</h3>
+    <table style="width: 90%;">
+        <tr>
+            <td>Top drug rank</td>
+            <td>#218 (<span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;19</span>)</td>
+        </tr>
+
+        <tr>
+            <td>Estimated number of prescriptions in the United States (2023)</td>
+            <td>1,974,861</td>
+        </tr>
+
+        <tr>
+            <td>Estimated number of patients in the United States (2023)</td>
+            <td>678,884</td>
+        </tr>
+
+        <tr class="dividerRow"><td colspan="2">&nbsp;</tr>
+
+        <tr>
+            <td>Average total drug cost (USD)</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 5em;">Per prescription</td>
+            <td>$44.83</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 5em;">Per day of therapy</td>
+            <td>$1.33/day</td>
+        </tr>
+
+        <tr>
+            <td>Average out-of-pocket cost (USD)</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 5em;">Per prescription</td>
+            <td>$8.82</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 5em;">Per day of therapy</td>
+            <td>$0.21/day</td>
+        </tr>
+    </table>
+
+    <h3>Total Prescriptions and Patients Per Year (2014 - 2023)</h3>
+    <div id="divPrescriptionsOverTime" style="margin: 0em auto; background: #fff; height: 250px;" class="GChartSave"></div>
+    <script>
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawPrescriptionsOverTime);
+
+        function drawPrescriptionsOverTime() {
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Total Prescriptions');
+            data.addColumn('number', 'Total Patients');
+            data.addRows([
+                ['2014',3641444,666644],['2015',3162723,675657],['2016',2934681,722209],['2017',2908848,598902],['2018',3171077,721402],['2019',3185474,714249],['2020',2445496,677240],['2021',1713448,473164],['2022',1501094,431294],['2023',1974861,678884]
+            ]);
+
+            var options = {
+                curveType: 'function',
+                vAxis: {viewWindow: {min:0} },
+                legend: 'bottom',
+                pointSize: '10',
+                pointShape: 'diamond'
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('divPrescriptionsOverTime'));
+            chart.draw(data, options);
+            $('#divPrescriptionsOverTime').prepend('<div class="GChartSaveButton"><a download href="' + chart.getImageURI() + '" target="_blank">Save Image</a></div>');
+        }
+    </script>
+
+    <h3>Rank of Top Drugs Over Time</h3>
+    <p><strong>"Rank" refers to the frequency that a given medication is prescribed within a calendar year compared to all other medications.  A rank of "4" would indicate that the medication was the fourth most commonly prescribed medication.</strong></p>
+    <div class="row">
+    
+            <div class="large-6 columns">
+            <table style="width: 90%;">
+                <thead>
+                    <tr><td>Year</td> <td>Rank</td> <td>Change</td></tr>
+                </thead>
+        
+            <tr>
+                <td>2014</td>
+                <td>179</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;11</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2015</td>
+                <td>196</td>
+                <td><span style="color: #ad0000;"><i class="fa fa-arrow-circle-down"></i>&nbsp;17</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2016</td>
+                <td>197</td>
+                <td><span style="color: #ad0000;"><i class="fa fa-arrow-circle-down"></i>&nbsp;1</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2017</td>
+                <td>197</td>
+                <td>0</td>
+            </tr>
+            
+        
+            <tr>
+                <td>2018</td>
+                <td>190</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;7</span></td>
+            </tr>
+            </table></div> <div class="large-6 columns"><table style="width: 90%;"><thead> <tr><td>Year</td> <td>Rank</td> <td>Change</td></tr></thead>
+        
+            <tr>
+                <td>2019</td>
+                <td>184</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;6</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2020</td>
+                <td>198</td>
+                <td><span style="color: #ad0000;"><i class="fa fa-arrow-circle-down"></i>&nbsp;14</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2021</td>
+                <td>235</td>
+                <td><span style="color: #ad0000;"><i class="fa fa-arrow-circle-down"></i>&nbsp;37</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2022</td>
+                <td>237</td>
+                <td><span style="color: #ad0000;"><i class="fa fa-arrow-circle-down"></i>&nbsp;2</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2023</td>
+                <td>218</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;19</span></td>
+            </tr>
+            
+        
+            </table></div>
+        
+    </div>
+
+    <h3>Drug Cost Over Time (2014 - 2023)</h3>
+
+    <div class="panel">
+        <ul style="font-size: 0.9rem;">
+            <li><strong>Cost Per Prescription Fill:</strong> Average cost per filled prescription regardless of how many days of therapy the prescription is filled for (e.g. 10 days, 30 days, 90 days, etc.)</li>
+            <li><strong>Cost per Day of Therapy:</strong> The average cost per prescription fill divided by the days of therapy. For example, a 10-day antibiotic course costing $30 would be $3 per day.  Similarly, a 30-day supply of an oral antihypertensive costing $30 would be $1 per day.</li>
+        </ul>
+        <hr />
+        <ul style="font-size: 0.9rem;">
+            <li><strong>Total cost:</strong> The average total cost of the medication including the out-of-pocket cost (see below) plus the amount paid by other parties (Medicare, Medicaid, private insurance, Veterans Administration, TRICARE, other state/federal sources, Worker's compensation, and other miscellaneous sources)</li>
+            <li><strong>Out-of-pocket cost:</strong> The average payment made by the patient which may include deductibles, coinsurance, copayments, or the cash price paid without insurance coverage.</li>
+        </ul>
+    </div>
+
+    <h4>Cost Per Prescription Fill (USD)</h4>
+    <div id="divPrescriptionCostOverTime" style="margin: 0em auto; background: #fff; height: 250px;"></div>
+    <script>
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawPrescriptionCostOverTime);
+
+        function drawPrescriptionCostOverTime() {
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Total Cost');
+            data.addColumn('number', 'Out-Of-Pocket Cost');
+            data.addRows([['2014',33.59,7.62],['2015',25.31,5.78],['2016',39.97,7.76],['2017',30.47,6.4],['2018',52.21,9.64],['2019',46.75,12.9],['2020',38,7.93],['2021',36.8,8.02],['2022',57.25,8.4],['2023',44.83,8.82]]);
+
+            var formatter = new google.visualization.NumberFormat({ groupingSymbol: ',', prefix: '$' });
+            formatter.format(data, 1);
+            formatter.format(data, 2);
+
+            var options = {
+                curveType: 'function',
+                legend: 'bottom',
+                pointSize: '10',
+                pointShape: 'diamond',
+                vAxis: {
+                    format: 'currency',
+                    viewWindow: {min:0} 
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('divPrescriptionCostOverTime'));
+            chart.draw(data, options);
+            $('#divPrescriptionCostOverTime').prepend('<div class="GChartSaveButton"><a download href="' + chart.getImageURI() + '" target="_blank">Save Image</a></div>');
+
+        }
+    </script>
+
+    <h4>Cost Per Day of Therapy (USD/day)</h4>
+    <div id="divCostPerDayOverTime" style="margin: 0em auto; background: #fff; height: 250px;"></div>
+    <script>
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawCostPerDayOverTime);
+
+        function drawCostPerDayOverTime() {
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Total Cost Per Day');
+            data.addColumn('number', 'Out-Of-Pocket Cost Per Day');
+            data.addRows([['2014',0.9,0.16],['2015',0.89,0.13],['2016',1.05,0.17],['2017',0.64,0.13],['2018',0.92,0.2],['2019',1.22,0.3],['2020',0.54,0.16],['2021',0.64,0.16],['2022',0.82,0.17],['2023',1.33,0.21]]);
+
+            var formatter = new google.visualization.NumberFormat({ groupingSymbol: ',', prefix: '$' });
+            formatter.format(data, 1);
+            formatter.format(data, 2);
+
+            var options = {
+                curveType: 'function',
+                legend: 'bottom',
+                pointSize: '10',
+                pointShape: 'diamond',
+                vAxis: {
+                    format: 'currency',
+                    viewWindow: { min: 0 }
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('divCostPerDayOverTime'));
+            chart.draw(data, options);
+            $('#divCostPerDayOverTime').prepend('<div class="GChartSaveButton"><a download href="' + chart.getImageURI() + '" target="_blank">Save Image</a></div>');
+
+        }
+    </script>
+
+
+
+    <h3 style="margin-top: 1em;">Distribution of Dispensed Dosage Forms (2023)</h3>
+    <table style="width: 100%;">
+    <thead>
+<tr>
+    <th>Dosage Form</th> <th>Strength</th> <th>% of Dispensed Products</th>
+</tr>
+    </thead>
+    <tbody>
+<tr><td>Tablet/capsule</td> <td>200 mg</td> <td>82.6%</td></tr><tr><td>Tablet/capsule</td> <td>100 mg</td> <td>11.8%</td></tr><tr><td>Tablet/capsule</td> <td>400 mg</td> <td>5.6%</td></tr></tbody></table>
+
+    <h3 style="margin-top: 1em;">Distribution of Days Supplied (2023)</h3>
+    <p>"Days supply" is defined as the number of days that a prescription should last.  For example, a prescription of 60 tablets that is taken twice daily has a day supply of 30 days.</p>
+    <div id="divDaySupplyGraph" style="margin: 0em auto; background: #fff; height: 400px;"></div>
+    <script>
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawDaySupplyGraph);
+
+        function drawDaySupplyGraph() {
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Days Supplied');
+            data.addColumn('number', 'Percent');
+            data.addRows([['30 days',51.4],['90 days',39],['Other/unspecified',9.6]]);
+
+            var options = {
+                pieSliceText: 'label',
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('divDaySupplyGraph'));
+            chart.draw(data, options);
+            $('#divDaySupplyGraph').prepend('<div class="GChartSaveButton"><a download href="' + chart.getImageURI() + '" target="_blank">Save Image</a></div>');
+
+        }
+    </script>
+
+    <div class="row">
+        <div class="columns large-6">
+            <h3>Related Drugs</h3>
+            
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Drug Name</td>  <td>Total Prescriptions (2023)</td>
+                            </tr>
+                        </thead>
+                
+                    
+                    <div id="cphMainContent_rptRelatedDrugs_pnIndexDrug_0">
+	
+                        <tr style="background-color: #ffff99; font-weight: bold;">
+                            <td>Amiodarone <em>(this drug)</em></td>
+                            <td>1,974,862</td>
+                        </tr>
+                    
+</div>
+                
+                    <div id="cphMainContent_rptRelatedDrugs_pnNotIndexDrug_1">
+	
+                        <tr>
+                            <td><a href="/DrugStats/Drugs/Flecainide">Flecainide</a></td>
+                            <td>1,805,937</td>
+                        </tr>
+                    
+</div>
+                    
+                
+                    <div id="cphMainContent_rptRelatedDrugs_pnNotIndexDrug_2">
+	
+                        <tr>
+                            <td><a href="/DrugStats/Drugs/Lidocaine">Lidocaine</a></td>
+                            <td>810,187</td>
+                        </tr>
+                    
+</div>
+                    
+                
+                    
+                    </table>
+                
+        </div>
+        <div class="columns large-6">
+            <h3>Therapeutic Classes</h3>
+            <ul><li><a href="/DrugStats/TC/CardiovascularAgents">Cardiovascular Agents</a></li><li><a href="/DrugStats/TC/AntiarrhythmicAgents">Antiarrhythmic Agents</a></li><li><a href="/DrugStats/TC/GroupIIIAntiarrhythmics">Group III Antiarrhythmics</a></li></ul>
+        </div>
+    </div>
+
+    <h3>Drug Synonyms</h3>
+    <p><strong>Drug synonyms are used during the sanitation and standardization process of "cleaning" the original data source (MEPS). Occassionally, brand names may be listed below that are no longer on the market or are very infrequently used.</strong></p>
+    <div class="row">
+        <div class="columns large-6">
+            <h5>Brand Name Synonyms</h5>
+            <ul><li>Cordarone</li><li>Nexterone</li><li>Pacerone</li></ul>
+        </div>
+        <div class="columns large-6">
+            <h5>Generic Drug Synonyms and Salts</h5>
+            <ul><li>Amiodarone Hydrochloride</li><li>Amiodarone</li></ul>
+        </div>
+    </div>
+
+    <h3>FDA Approval Information</h3>
+    <table style="width: 90%;">
+        <tr>
+            <td><strong>Established Pharmacologic Class (EPC):</strong></td>    <td><a href="/DrugStats/EPC/Antiarrhythmic">Antiarrhythmic</a></td>
+        </tr>
+        <tr>
+            <td><strong>Initial FDA approval date:</strong></td> <td>12/24/1985</td>
+        </tr>
+        <tr>
+            <td><strong>First FDA applicant:</strong></td>  <td>Discn</td>
+        </tr>
+        <tr>
+            <td><strong>First dosage form:</strong></td>    <td>Tablet (oral)</td>
+        </tr>
+    </table>
+
+    
+<hr style="margin-top: 2em;" />
+<p style="font-size: 0.7em;">Prescription data source: Medical Expenditure Panel Survey (MEPS) 2014-2023. Agency for Healthcare Research and Quality (AHRQ), Rockville, MD. ClinCalc DrugStats Database version 2025.08. <a href="/DrugStats/About.aspx">Read more about the ClinCalc DrugStats database</a>.</p>
+
+<p style="font-size: 0.7em; font-style: italic; color: #565656;">
+    All ClinCalc DrugStats figures and graphs on this page are licensed under <a rel="license" style="font-weight: normal;" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.
+</p>
+
+
+
+            </div>
+
+            <!-- Sidebar -->
+            <div class="large-4 columns sidebarContainer"><div class="panel radius" style="padding-bottom: 0;">
+                <div class="hide-for-medium hide-for-small">
+                    <h3 style="margin-top:0 !important;"><i class="fa fa-search"></i> Search</h3>
+                    <div id="pnSearch">
+	
+                        <input name="ctl00$txtSearch" type="text" id="txtSearch" class="Search SearchText" placeholder="Enter search term ..." />
+                        <a id="cmdSearch" href="javascript:__doPostBack(&#39;ctl00$cmdSearch&#39;,&#39;&#39;)"><i class="fa fa-search Search SearchButton"></i></a>
+                    
+</div>
+                </div>
+
+                
+
+    <h3><i class="fa fa-external-link"></i> Related Links</h3>
+	<ul>
+        <li><a href="/DrugStats/Top200Drugs.aspx">The Top 200 Drug List</a></li>
+        <li><a href="/DrugStats/Top300Drugs.aspx">The Top 300 Drug List</a></li>
+	</ul>
+
+
+
+                <div class="hide-for-medium hide-for-small">
+                    <h3><i class="fa fa-envelope"></i> Mailing List</h3>
+
+                    <div style="text-align: center;">
+                        <a href="http://eepurl.com/mXpuL" class="button" style="font-weight: bold;">
+                            <i class="fa fa-envelope-o "></i> Get Email Updates
+                        </a>
+                    </div>
+
+                    <h3><i class="fa fa-lightbulb-o"></i> New and Popular</h3>
+                    <div id="divRecentAndPopular">
+                        <p style="text-align: center; font-weight: bold; font-size: 1.1em;">
+                            Loading...
+                        </p>
+                    </div>
+                </div> <!-- end hiding for medium/small screens -->
+                <div class="row show-for-medium-down button secondary left-off-canvas-toggle" style="font-size: 1.5em;" onclick=" $('body,html').animate({ scrollTop: 0 }, 100);">
+                    <i class="fa fa-bars"></i> Open Menu
+                </div>
+
+                <div id="pnCiteThisPage">
+	
+                    <h3><i class="fa fa-pencil-square-o"></i> Cite This Page</h3>
+
+                    <p style="text-align:center;">
+                        <a class="secondary button" style="border: 1px solid #535353;" href="#" id="pnCiteThisPage_Link" onclick="$('#pnCiteThisPage_Link').hide(); $('#pnCiteThisPage_Citation').fadeIn(); return false;">Show AMA citation</a>
+                    </p>
+
+                    <div id="pnCiteThisPage_Citation" style="display:none; border: 1px solid #c0c0c0; margin: 5px; padding: 5px; word-wrap: break-word; overflow-wrap: break-word; background: #fff;">
+                        Kane SP. Amiodarone, ClinCalc DrugStats Database, Version 2025.08. ClinCalc: <u>https://clincalc.com/DrugStats/Drugs/Amiodarone</u>. Updated August 10, 2025. Accessed June 11, 2026.
+                    </div>
+                
+</div>
+
+                
+
+
+                </div> <!-- End sidebar colored box -->
+
+                <div style="text-align: center; margin: 1.25em 0;" class="hide-for-medium hide-for-small">
+                    <a href="https://academy.clincalc.com/enroll-biostatistics-rx/" onClick="gtag('event', 'click', {'event_category': 'ClinCalcPromo','event_label': 'biostats_formulas'});"><img src="//clincalc.com/images/promo/biostats_formulas.jpg" alt="Biostatistics Rx - Medical literature evaluation and biostats WITHOUT the complex math and formulas" width="336" height="280" /><img width="0" height="0" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="gtag('event', 'impression', {'event_category': 'ClinCalcPromo','event_label': 'biostats_formulas'});" /></a>
+<div id="bottom-ad" style="width: 1px; height: 1px;">&nbsp;</div>
+<script type="text/javascript">
+    var sentAdblock;
+    $(function () {
+        if ((document.getElementById('bottom-ad').offsetHeight === 0) && (!sentAdblock)) {
+            sentAdblock = true;
+            $.ajax({
+                data: 'promoblock=true',
+                type: 'GET',
+                timeout: 5000,
+                url: '/UserControls/PromoHandler.aspx'
+            });
+        }
+    });
+</script>
+                </div>
+            </div> <!-- End Sidebar -->
+
+        </div>
+
+        <div class="footerContainer">
+            <div class="row">
+                <div class="large-4 small-4 columns">
+                    &copy;2026 - ClinCalc LLC. All rights reserved.
+                </div>
+
+                <div class="large-8 small-8 columns NavigationFooterItems">
+                    <ul class="large-block-grid-4">
+                        <li><a href="../../"><i class="fa fa-home fa-fw"></i> Home</a></li>
+                        <li><a href="https://academy.clincalc.com"><i class="fa fa-graduation-cap fa-fw"></i> Academy</a></li>
+                        <li><a href="../../blog"><i class="fa fa-pencil-square-o fa-fw"></i> Blog</a></li>
+                        <li><a href="../../About.aspx"><i class="fa fa-info-circle fa-fw"></i> About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12" style="font-size: 0.8em; text-align: center;">
+                    <a id="lnkDisclaimer" href="../../Disclaimer.aspx" style="font-weight: normal;">Disclaimer</a> - <a id="HyperLink1" href="../../Privacy.aspx" style="font-weight: normal;">Privacy Policy</a> - <a id="HyperLink2" href="../../About.aspx" style="font-weight: normal;">Contact Us</a>
+                    <br />Updated <span id="lblLastUpdated">Apr 15, 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Site-specific javascript code -->
+        <script type="text/javascript">
+            // jQuery
+            $(function () {
+                // Ajax calls
+                
+                $.ajax({
+                    success: function (result) {
+                        $('#divRecentAndPopular').html(result);
+
+                        result_li = result.replace('<ul>','').replace('</ul>','');
+
+                        $('#liNewAndPopular').html(result_li);
+                    },
+                    data: 'data=recentandpopular',
+                    type: 'GET',
+                    timeout: 8000,
+                    url: '/AjaxRequests.ashx'
+            });
+            
+
+                $('img[title], i[title], abbr[title], .qtipme').qtip({ position: { target: 'mouse', adjust: { x: 10, y: 10}} });
+
+                // Back to top (http://agyuku.net/2009/05/back-to-top-link-using-jquery/)
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > $(window).height()) {
+                        $('#toTop').fadeIn();
+                    } else {
+                        $('#toTop').fadeOut();
+                    }
+                });
+
+                $('#toTop').click(function () {
+                    $('body,html').animate({ scrollTop: 0 }, 350);
+                });
+            });
+        </script>
+
+        
+
+        
+
+        <div id="toTop">
+            <div class="hide-for-small"><i class="fa fa-chevron-circle-up"></i> Back to Top</div>
+            <div class="show-for-small"><i class="fa fa-chevron-circle-up"></i> Top</div>
+        </div>
+
+        <div class="cphDialog">
+</div>
+
+        
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js" integrity="sha512-F/gIMdDfda6OD2rnzt/Iyp2V9JLHlFQ+EUyixDg9+rkwjqgW1snpkpx7FD5FV1+gG2fmFj7I3r6ReQDUidHelA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/sorts/tablesort.number.min.js" integrity="sha512-dRD755QRxlybm0h3LXXIGrFcjNakuxW3reZqnPtUkMv6YsSWoJf+slPjY5v4lZvx2ss+wBZQFegepmA7a2W9eA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+        <script>
+            // Required to keep all form elements with the form tag in ASP.NET
+            $(document).on('opened', '[data-reveal]', function () {
+                var modal = $(this);
+                $('form').append(modal);
+            });
+
+            $(function () {
+                $(document).foundation('reflow');
+            });
+        </script>
+
+
+                </section> <!-- main-section -->
+
+            <aside class="left-off-canvas-menu">
+              <ul class="off-canvas-list">
+                <li><label>Navigation</label></li>
+                <li><a href="../../"><i class="fa fa-home fa-fw"></i> Home</a></li>
+                <li><a href="../../academy"><i class="fa fa-graduation-cap fa-fw"></i> Academy</a></li>
+                <li><a href="../../blog"><i class="fa fa-pencil-square-o fa-fw"></i> Blog</a></li>
+                <li><a href="../../About.aspx"><i class="fa fa-info-circle fa-fw"></i> About</a></li>
+
+                <li><label>Search</label></li>
+                <li>
+                    <div id="pnOffCanvasSearch" style="color: #c0c0c0;">
+	
+                        <input name="ctl00$txtOffcanvasSearch" type="text" id="txtOffcanvasSearch" placeholder="Enter search term ..." style="background: #ececec; width: 70%; margin-left: 10px; display: inline;" />
+                        <a id="lnkOffcanvasSearch" href="javascript:__doPostBack(&#39;ctl00$lnkOffcanvasSearch&#39;,&#39;&#39;)" style="font-size: 1.4em; display: inline;"><i class="fa fa-search"></i></a>
+                    
+</div>
+                </li>
+
+                <li><label>Follow Us!</label></li>
+                <li><a href="http://eepurl.com/mXpuL"><i class="fa fa-envelope fa-fw"></i> Get Email Updates</a></li>
+
+                <li><label>New and Popular</label></li>
+                <li id="liNewAndPopular"><div style="text-align: center; padding: 0.66667rem; color: rgba(255,255,255,0.7);">Loading...</div></li>
+
+              </ul>
+            </aside>
+
+                <a class="exit-off-canvas"></a>
+
+            </div> <!-- inner-wrap -->
+        </div> <!-- off-canvas-wrap -->
+    </form>
+
+    <script src="/js/foundation/foundation-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/js-bundle.min.js"></script>
+    <script>
+        $(document).foundation();
+        $(document).trigger("dynamic_textbox_width");
+    </script>
+
+    </body>
+</html>

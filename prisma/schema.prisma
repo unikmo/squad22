@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+
+model Pharmacy {
+  id                          String   @id
+  npi                         String   @unique
+  name                        String
+  address1                    String
+  address2                    String?
+  city                        String
+  state                       String
+  zip                          String
+  phone                       String
+
+  profileStatus               String   @default("unclaimed") // MVP mapping from existing UI
+  pricingPublished            Boolean  @default(false)
+  reservationsEnabled         Boolean  @default(false)
+
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+
+  pharmacyClaims             PharmacyClaim[]
+  reservations                Reservation[]
+
+  @@index([state])
+}
+
+model PharmacyClaim {
+  id              String   @id @default(cuid())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  pharmacyNpi     String
+  pharmacy        Pharmacy @relation(fields: [pharmacyNpi], references: [npi])
+
+  status          String   @default("unclaimed") // MVP: store request status
+
+  // Store submitted payload for MVP auditing
+  submittedPayload Json
+
+  @@index([pharmacyNpi])
+}
+
+model Reservation {
+  id                String   @id
+  reservationNumber String   @unique
+  createdAt         DateTime @default(now())
+
+  status            String   @default("pending")
+
+  // Reservation fee policy preparation for future activation.
+  // Defaults today to a refundable deposit, but no payment is charged.
+  reservationFeeCents  Int     @default(500)
+  reservationFeeStatus String  @default("waived")
+
+  // Denormalized FK to simplify MVP
+  pharmacyNpi       String
+  pharmacy          Pharmacy @relation(fields: [pharmacyNpi], references: [npi])
+
+  // Store submitted payload
+  reservationInput Json
+  priceResult       Json
+}
+
+
+model ReservationCounter {
+  id           String   @id // YYYYMMDD
+  yyMMdd      String   @unique
+  nextNumber  Int      @default(1)
+  updatedAt    DateTime @updatedAt
+}
+

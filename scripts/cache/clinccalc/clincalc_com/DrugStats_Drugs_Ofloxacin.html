@@ -1,0 +1,760 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head id="Head1"><title>
+	Ofloxacin - Drug Usage Statistics, ClinCalc DrugStats Database
+</title><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="author" content="Sean P. Kane, PharmD, BCPS" /><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" /><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /><link href="//fonts.googleapis.com/css?family=Titillium+Web:400,700|Open+Sans:400,700" rel="stylesheet" type="text/css" />
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="/style/foundation5.min.css" />
+        <link rel="stylesheet" href="/style/css-bundle.min.css" />
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JP4Q0TZL7P"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-JP4Q0TZL7P');
+        </script>
+
+        
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <style>
+        h3,h4 {
+            margin-top: 1.5em;
+        }
+        .dividerRow td {
+            background: #76923c;
+            padding: 0;
+            line-height: 3px;
+        }
+        #NADAC_pending {
+            border: 1px solid #ddd;
+            padding: 2rem 0;
+            font-size: 5em; color: #bababa; text-align: center;
+        }
+        #NADAC_result {
+            display: none;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        #NADAC_result_table {
+            width: 100%;
+        }
+        #NADAC_error {
+            text-align: center;
+            color: #808080;
+            font-weight: bold;
+            padding: 2rem 0;
+            display: none;
+        }
+
+/* https://github.com/tristen/tablesort */
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #404040 transparent;
+	user-select: none;
+}
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 4px 4px 0;
+}
+th[aria-sort]:not(.no-sort):after {
+	opacity: 0.4;
+}
+th[role=columnheader]:not(.no-sort):hover:after {
+}
+    </style>
+
+<meta name="description" content="Ofloxacin drug usage statistics for the United States (2014 - 2023). Statistics include drug synonyms and therapeutic classes, including: Ofloxacin, Floxin, Floxin IN Dextrose 5%, Floxin IN Dextrose 5% IN Plastic Container, Floxin Otic, Ocuflox, Quinolone Antimicrobial." /><meta name="keywords" content="drug, medication, medicine, prescription, prescriptions, usage, statistics, most popular, most common, number of prescriptions, Ofloxacin, Floxin, Floxin IN Dextrose 5%, Floxin IN Dextrose 5% IN Plastic Container, Floxin Otic, Ocuflox, Quinolone Antimicrobial" /></head>
+    <body>
+        <form method="post" action="./Ofloxacin?d=Ofloxacin" id="Form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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aW4MTW94aWZsb3hhY2luCTEsNTA0LDI0MmQCAw8PFgIfAmhkFgJmDxUCDE1veGlmbG94YWNpbgkxLDUwNCwyNDJkAgQPZBYEAgEPZBYCZg8VAysvRHJ1Z1N0YXRzL0RydWdzL0NpcHJvZmxveGFjaW5EZXhhbWV0aGFzb25lHENpcHJvZmxveGFjaW47IERleGFtZXRoYXNvbmUHNzIzLDQ4NmQCAw8PFgIfAmhkFgJmDxUCHENpcHJvZmxveGFjaW47IERleGFtZXRoYXNvbmUHNzIzLDQ4NmQCBQ9kFgICAQ8PFgIfAmhkZAIKD2QWAgIBDxYCHwAFswFLYW5lIFNQLiBPZmxveGFjaW4sIENsaW5DYWxjIERydWdTdGF0cyBEYXRhYmFzZSwgVmVyc2lvbiAyMDI1LjA4LiBDbGluQ2FsYzogPHU+aHR0cHM6Ly9jbGluY2FsYy5jb20vRHJ1Z1N0YXRzL0RydWdzL09mbG94YWNpbjwvdT4uIFVwZGF0ZWQgQXVndXN0IDEwLCAyMDI1LiBBY2Nlc3NlZCBKdW5lIDExLCAyMDI2LmQCDA9kFgJmDxYCHwAFzQQ8YSBocmVmPSIvL2NsaW5jYWxjLmNvbS9tb2JpbGUvUnhIZXJvLmFzcHgiIG9uQ2xpY2s9Imd0YWcoJ2V2ZW50JywgJ2NsaWNrJywgeydldmVudF9jYXRlZ29yeSc6ICdDbGluQ2FsY1Byb21vJywnZXZlbnRfbGFiZWwnOiAnUnhIZXJvX1F1ZXN0c18yMDB4NTM0X0JlbG93U2lkZWJhcid9KTsiPjxpbWcgc3JjPSIvL2NsaW5jYWxjLmNvbS9pbWFnZXMvcHJvbW8vcnhoZXJvX3F1ZXN0cy5qcGciIGFsdD0iUnhIZXJvIC0gQ29tcGxldGUgcXVlc3RzLCBlYXJuIHBvaW50cyAuLi4gRGV2ZWxvcCByb2NrLXNvbGlkIGRydWcgdGhlcmFweSBrbm93bGVkZ2UiIHdpZHRoPSIyMDAiIGhlaWdodD0iNTM0IiAvPjxpbWcgd2lkdGg9IjAiIGhlaWdodD0iMCIgc3JjPSJkYXRhOmltYWdlL2dpZjtiYXNlNjQsUjBsR09EbGhBUUFCQUlBQUFQLy8vLy8vL3lINUJBRUtBQUVBTEFBQUFBQUJBQUVBQUFJQ1RBRUFPdz09IiBvbmxvYWQ9Imd0YWcoJ2V2ZW50JywgJ2ltcHJlc3Npb24nLCB7J2V2ZW50X2NhdGVnb3J5JzogJ0NsaW5DYWxjUHJvbW8nLCdldmVudF9sYWJlbCc6ICdSeEhlcm9fUXVlc3RzXzIwMHg1MzRfQmVsb3dTaWRlYmFyJ30pOyIgLz48L2E+ZAIUDw8WAh8ABQxBcHIgMTUsIDIwMjVkZAIVD2QWAmYPEGQQFQAVABQrAwAWAGRkOHEeTcLFFy/5o89OcO6kFVFTTkZktBZhWEin+eFN+QA=" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4BFEAB0E" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAVPb2zxCaV0pkgZx+N9o3rb4+3WpZQNb82rzs2KnT3rh43JAH+fv5m7AuIzxqoA2p9eH5OyRA79lK+C1H/KoZ2MQNAoipTDHCS5V71UwILVZTAXP3qGC6Ga143M+/oyi7uYPhwiw5eeUWmv4ECJ/kU3" />
+            <div class="off-canvas-wrap"><div class="inner-wrap">
+
+    <section class="main-section">
+
+        <!-- Nav Bar (big screens) -->
+        <div class="headerGradient">
+            <div class="row hide-for-medium hide-for-small headerPattern"> <!-- Big Screens -->
+                <div class="large-5 small-5 columns">
+                    <a href="/"><div class="headerCalcLogo" title="ClinCalc.com"></div></a>
+                </div>
+                <div class="large-7 small-7 columns" style="text-align: right;">
+                    <a class="navElement gradient" href="../../About.aspx">
+                        <i class="fa fa-info-circle fa-fw"></i>
+                        <div>About</div>
+                    </a>
+
+                    <a class="navElement gradient" href="../../blog">
+                        <i class="fa fa-pencil-square-o fa-fw"></i>
+                        <div>Blog</div>
+                    </a>
+
+                    <a class="navElement gradient" href="https://academy.clincalc.com">
+                        <i class="fa fa-graduation-cap fa-fw"></i>
+                        <div>Academy</div>
+                    </a>
+                    
+                    <a class="navElement gradient" href="../../">
+                        <i class="fa fa-home fa-fw"></i>
+                        <div>Home</div>
+                    </a>
+
+                    
+                </div>
+            </div>
+
+            <div class="row show-for-medium-down headerPattern"> <!-- Small Screens -->
+                <div class="small-5 columns">
+                    <div class="row show-for-medium hide-for-small"><a href="/Default.aspx"><div class="headerCalcLogo" title="ClinCalc.com"></div></a></div>
+                    <div class="row show-for-small hide-for-medium"><a href="/Default.aspx"><div class="headerCalcLogo_Mobile" title="ClinCalc.com"></div></a></div>
+                </div>
+                <div class="small-7 columns" style="text-align: right;">
+                    <a class="myleft-off-canvas-toggle" onclick="$(this).closest('.off-canvas-wrap').toggleClass('move-right');"><i class="fa fa-bars"></i> <span class="hide-for-small">Menu</span></a>
+                </div>
+            </div>
+        </div> <!-- Nav bar-->
+        <div class="bodyGradientTop"></div>
+
+        <div class="row">
+            <!-- Main content -->         
+            <div class="large-8 columns">
+                <h1 class="HeadingText">
+    Ofloxacin
+</h1>
+                
+    <h2 class="SubheadingText">Drug Usage Statistics, United States, 2014 - 2023</h2>
+    <h3 class="breadcrumb"><a href="/">ClinCalc.com</a> &raquo; <a href="/Pharmacy">Pharmacy</a> &raquo; <a href="/DrugStats">ClinCalc DrugStats</a> &raquo; Ofloxacin</h3>
+
+
+                
+
+    <h3>Ofloxacin Summary for 2023</h3>
+    <table style="width: 90%;">
+        <tr>
+            <td>Top drug rank</td>
+            <td>#169 (<span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;37</span>)</td>
+        </tr>
+
+        <tr>
+            <td>Estimated number of prescriptions in the United States (2023)</td>
+            <td>2,987,657</td>
+        </tr>
+
+        <tr>
+            <td>Estimated number of patients in the United States (2023)</td>
+            <td>2,127,082</td>
+        </tr>
+
+        <tr class="dividerRow"><td colspan="2">&nbsp;</tr>
+
+        <tr>
+            <td>Average total drug cost (USD)</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 5em;">Per prescription</td>
+            <td>$24.80</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 5em;">Per day of therapy</td>
+            <td>$2.77/day</td>
+        </tr>
+
+        <tr>
+            <td>Average out-of-pocket cost (USD)</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 5em;">Per prescription</td>
+            <td>$10.78</td>
+        </tr>
+        <tr>
+            <td style="padding-left: 5em;">Per day of therapy</td>
+            <td>$0.70/day</td>
+        </tr>
+    </table>
+
+    <h3>Total Prescriptions and Patients Per Year (2014 - 2023)</h3>
+    <div id="divPrescriptionsOverTime" style="margin: 0em auto; background: #fff; height: 250px;" class="GChartSave"></div>
+    <script>
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawPrescriptionsOverTime);
+
+        function drawPrescriptionsOverTime() {
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Total Prescriptions');
+            data.addColumn('number', 'Total Patients');
+            data.addRows([
+                ['2014',1598453,1138426],['2015',1307430,914216],['2016',1232863,893853],['2017',1448901,1094290],['2018',2164888,1418096],['2019',2051823,1422882],['2020',1844982,1245552],['2021',1596736,1291221],['2022',1963626,1577360],['2023',2987657,2127082]
+            ]);
+
+            var options = {
+                curveType: 'function',
+                vAxis: {viewWindow: {min:0} },
+                legend: 'bottom',
+                pointSize: '10',
+                pointShape: 'diamond'
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('divPrescriptionsOverTime'));
+            chart.draw(data, options);
+            $('#divPrescriptionsOverTime').prepend('<div class="GChartSaveButton"><a download href="' + chart.getImageURI() + '" target="_blank">Save Image</a></div>');
+        }
+    </script>
+
+    <h3>Rank of Top Drugs Over Time</h3>
+    <p><strong>"Rank" refers to the frequency that a given medication is prescribed within a calendar year compared to all other medications.  A rank of "4" would indicate that the medication was the fourth most commonly prescribed medication.</strong></p>
+    <div class="row">
+    
+            <div class="large-6 columns">
+            <table style="width: 90%;">
+                <thead>
+                    <tr><td>Year</td> <td>Rank</td> <td>Change</td></tr>
+                </thead>
+        
+            <tr>
+                <td>2014</td>
+                <td>287</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;24</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2015</td>
+                <td>313</td>
+                <td><span style="color: #ad0000;"><i class="fa fa-arrow-circle-down"></i>&nbsp;26</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2016</td>
+                <td>305</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;8</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2017</td>
+                <td>287</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;18</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2018</td>
+                <td>239</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;48</span></td>
+            </tr>
+            </table></div> <div class="large-6 columns"><table style="width: 90%;"><thead> <tr><td>Year</td> <td>Rank</td> <td>Change</td></tr></thead>
+        
+            <tr>
+                <td>2019</td>
+                <td>233</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;6</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2020</td>
+                <td>242</td>
+                <td><span style="color: #ad0000;"><i class="fa fa-arrow-circle-down"></i>&nbsp;9</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2021</td>
+                <td>240</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;2</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2022</td>
+                <td>206</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;34</span></td>
+            </tr>
+            
+        
+            <tr>
+                <td>2023</td>
+                <td>169</td>
+                <td><span  style="color: #00ad00;"><i class="fa fa-arrow-circle-up"></i>&nbsp;37</span></td>
+            </tr>
+            
+        
+            </table></div>
+        
+    </div>
+
+    <h3>Drug Cost Over Time (2014 - 2023)</h3>
+
+    <div class="panel">
+        <ul style="font-size: 0.9rem;">
+            <li><strong>Cost Per Prescription Fill:</strong> Average cost per filled prescription regardless of how many days of therapy the prescription is filled for (e.g. 10 days, 30 days, 90 days, etc.)</li>
+            <li><strong>Cost per Day of Therapy:</strong> The average cost per prescription fill divided by the days of therapy. For example, a 10-day antibiotic course costing $30 would be $3 per day.  Similarly, a 30-day supply of an oral antihypertensive costing $30 would be $1 per day.</li>
+        </ul>
+        <hr />
+        <ul style="font-size: 0.9rem;">
+            <li><strong>Total cost:</strong> The average total cost of the medication including the out-of-pocket cost (see below) plus the amount paid by other parties (Medicare, Medicaid, private insurance, Veterans Administration, TRICARE, other state/federal sources, Worker's compensation, and other miscellaneous sources)</li>
+            <li><strong>Out-of-pocket cost:</strong> The average payment made by the patient which may include deductibles, coinsurance, copayments, or the cash price paid without insurance coverage.</li>
+        </ul>
+    </div>
+
+    <h4>Cost Per Prescription Fill (USD)</h4>
+    <div id="divPrescriptionCostOverTime" style="margin: 0em auto; background: #fff; height: 250px;"></div>
+    <script>
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawPrescriptionCostOverTime);
+
+        function drawPrescriptionCostOverTime() {
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Total Cost');
+            data.addColumn('number', 'Out-Of-Pocket Cost');
+            data.addRows([['2014',23.53,8.82],['2015',33.64,11.13],['2016',51.12,8.4],['2017',54.3,8.95],['2018',54.15,15.89],['2019',38.03,10.16],['2020',44.47,12.45],['2021',31.97,11.66],['2022',29.45,9.15],['2023',24.8,10.78]]);
+
+            var formatter = new google.visualization.NumberFormat({ groupingSymbol: ',', prefix: '$' });
+            formatter.format(data, 1);
+            formatter.format(data, 2);
+
+            var options = {
+                curveType: 'function',
+                legend: 'bottom',
+                pointSize: '10',
+                pointShape: 'diamond',
+                vAxis: {
+                    format: 'currency',
+                    viewWindow: {min:0} 
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('divPrescriptionCostOverTime'));
+            chart.draw(data, options);
+            $('#divPrescriptionCostOverTime').prepend('<div class="GChartSaveButton"><a download href="' + chart.getImageURI() + '" target="_blank">Save Image</a></div>');
+
+        }
+    </script>
+
+    <h4>Cost Per Day of Therapy (USD/day)</h4>
+    <div id="divCostPerDayOverTime" style="margin: 0em auto; background: #fff; height: 250px;"></div>
+    <script>
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawCostPerDayOverTime);
+
+        function drawCostPerDayOverTime() {
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'Total Cost Per Day');
+            data.addColumn('number', 'Out-Of-Pocket Cost Per Day');
+            data.addRows([['2014',1.45,0.56],['2015',2.58,0.92],['2016',6.79,0.92],['2017',8.22,0.72],['2018',7.89,1.04],['2019',3.9,0.88],['2020',4.11,1.2],['2021',3.04,0.86],['2022',4.03,0.61],['2023',2.77,0.7]]);
+
+            var formatter = new google.visualization.NumberFormat({ groupingSymbol: ',', prefix: '$' });
+            formatter.format(data, 1);
+            formatter.format(data, 2);
+
+            var options = {
+                curveType: 'function',
+                legend: 'bottom',
+                pointSize: '10',
+                pointShape: 'diamond',
+                vAxis: {
+                    format: 'currency',
+                    viewWindow: { min: 0 }
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('divCostPerDayOverTime'));
+            chart.draw(data, options);
+            $('#divCostPerDayOverTime').prepend('<div class="GChartSaveButton"><a download href="' + chart.getImageURI() + '" target="_blank">Save Image</a></div>');
+
+        }
+    </script>
+
+
+
+    <h3 style="margin-top: 1em;">Distribution of Dispensed Dosage Forms (2023)</h3>
+    <table style="width: 100%;">
+    <thead>
+<tr>
+    <th>Dosage Form</th> <th>Strength</th> <th>% of Dispensed Products</th>
+</tr>
+    </thead>
+    <tbody>
+<tr><td>Solution</td> <td>0.3%</td> <td>100.0%</td></tr></tbody></table>
+
+    <h3 style="margin-top: 1em;">Distribution of Days Supplied (2023)</h3>
+    <p>"Days supply" is defined as the number of days that a prescription should last.  For example, a prescription of 60 tablets that is taken twice daily has a day supply of 30 days.</p>
+    <div id="divDaySupplyGraph" style="margin: 0em auto; background: #fff; height: 400px;"></div>
+    <script>
+        google.load('visualization', '1.0', { 'packages': ['corechart'] });
+        google.setOnLoadCallback(drawDaySupplyGraph);
+
+        function drawDaySupplyGraph() {
+            var data = new google.visualization.DataTable();
+
+            data.addColumn('string', 'Days Supplied');
+            data.addColumn('number', 'Percent');
+            data.addRows([['25 days',20],['10 days',12.4],['19 days',9.5],['7 days',7.6],['5 days',6.7],['31 days',5.7],['50 days',5.7],['Other/unspecified',32.4]]);
+
+            var options = {
+                pieSliceText: 'label',
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('divDaySupplyGraph'));
+            chart.draw(data, options);
+            $('#divDaySupplyGraph').prepend('<div class="GChartSaveButton"><a download href="' + chart.getImageURI() + '" target="_blank">Save Image</a></div>');
+
+        }
+    </script>
+
+    <div class="row">
+        <div class="columns large-6">
+            <h3>Related Drugs</h3>
+            
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Drug Name</td>  <td>Total Prescriptions (2023)</td>
+                            </tr>
+                        </thead>
+                
+                    <div id="cphMainContent_rptRelatedDrugs_pnNotIndexDrug_0">
+	
+                        <tr>
+                            <td><a href="/DrugStats/Drugs/Ciprofloxacin">Ciprofloxacin</a></td>
+                            <td>3,513,624</td>
+                        </tr>
+                    
+</div>
+                    
+                
+                    
+                    <div id="cphMainContent_rptRelatedDrugs_pnIndexDrug_1">
+	
+                        <tr style="background-color: #ffff99; font-weight: bold;">
+                            <td>Ofloxacin <em>(this drug)</em></td>
+                            <td>2,987,658</td>
+                        </tr>
+                    
+</div>
+                
+                    <div id="cphMainContent_rptRelatedDrugs_pnNotIndexDrug_2">
+	
+                        <tr>
+                            <td><a href="/DrugStats/Drugs/Moxifloxacin">Moxifloxacin</a></td>
+                            <td>1,504,242</td>
+                        </tr>
+                    
+</div>
+                    
+                
+                    <div id="cphMainContent_rptRelatedDrugs_pnNotIndexDrug_3">
+	
+                        <tr>
+                            <td><a href="/DrugStats/Drugs/CiprofloxacinDexamethasone">Ciprofloxacin; Dexamethasone</a></td>
+                            <td>723,486</td>
+                        </tr>
+                    
+</div>
+                    
+                
+                    
+                    </table>
+                
+        </div>
+        <div class="columns large-6">
+            <h3>Therapeutic Classes</h3>
+            <ul><li><a href="/DrugStats/TC/TopicalAgents">Topical Agents</a></li><li><a href="/DrugStats/TC/OphthalmicPreparations">Ophthalmic Preparations</a></li><li><a href="/DrugStats/TC/OphthalmicAntiinfectives">Ophthalmic Anti-infectives</a></li><li><a href="/DrugStats/TC/OticPreparations">Otic Preparations</a></li><li><a href="/DrugStats/TC/OticAntiinfectives">Otic Anti-infectives</a></li></ul>
+        </div>
+    </div>
+
+    <h3>Drug Synonyms</h3>
+    <p><strong>Drug synonyms are used during the sanitation and standardization process of "cleaning" the original data source (MEPS). Occassionally, brand names may be listed below that are no longer on the market or are very infrequently used.</strong></p>
+    <div class="row">
+        <div class="columns large-6">
+            <h5>Brand Name Synonyms</h5>
+            <ul><li>Floxin</li><li>Floxin IN Dextrose 5%</li><li>Floxin IN Dextrose 5% IN Plastic Container</li><li>Floxin Otic</li><li>Ocuflox</li></ul>
+        </div>
+        <div class="columns large-6">
+            <h5>Generic Drug Synonyms and Salts</h5>
+            <ul><li>Ofloxacin</li></ul>
+        </div>
+    </div>
+
+    <h3>FDA Approval Information</h3>
+    <table style="width: 90%;">
+        <tr>
+            <td><strong>Established Pharmacologic Class (EPC):</strong></td>    <td><a href="/DrugStats/EPC/QuinoloneAntimicrobial">Quinolone Antimicrobial</a></td>
+        </tr>
+        <tr>
+            <td><strong>Initial FDA approval date:</strong></td> <td>12/28/1990</td>
+        </tr>
+        <tr>
+            <td><strong>First FDA applicant:</strong></td>  <td>Discn</td>
+        </tr>
+        <tr>
+            <td><strong>First dosage form:</strong></td>    <td>Tablet (oral)</td>
+        </tr>
+    </table>
+
+    
+<hr style="margin-top: 2em;" />
+<p style="font-size: 0.7em;">Prescription data source: Medical Expenditure Panel Survey (MEPS) 2014-2023. Agency for Healthcare Research and Quality (AHRQ), Rockville, MD. ClinCalc DrugStats Database version 2025.08. <a href="/DrugStats/About.aspx">Read more about the ClinCalc DrugStats database</a>.</p>
+
+<p style="font-size: 0.7em; font-style: italic; color: #565656;">
+    All ClinCalc DrugStats figures and graphs on this page are licensed under <a rel="license" style="font-weight: normal;" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a>.
+</p>
+
+
+
+            </div>
+
+            <!-- Sidebar -->
+            <div class="large-4 columns sidebarContainer"><div class="panel radius" style="padding-bottom: 0;">
+                <div class="hide-for-medium hide-for-small">
+                    <h3 style="margin-top:0 !important;"><i class="fa fa-search"></i> Search</h3>
+                    <div id="pnSearch">
+	
+                        <input name="ctl00$txtSearch" type="text" id="txtSearch" class="Search SearchText" placeholder="Enter search term ..." />
+                        <a id="cmdSearch" href="javascript:__doPostBack(&#39;ctl00$cmdSearch&#39;,&#39;&#39;)"><i class="fa fa-search Search SearchButton"></i></a>
+                    
+</div>
+                </div>
+
+                
+
+    <h3><i class="fa fa-external-link"></i> Related Links</h3>
+	<ul>
+        <li><a href="/DrugStats/Top200Drugs.aspx">The Top 200 Drug List</a></li>
+        <li><a href="/DrugStats/Top300Drugs.aspx">The Top 300 Drug List</a></li>
+	</ul>
+
+
+
+                <div class="hide-for-medium hide-for-small">
+                    <h3><i class="fa fa-envelope"></i> Mailing List</h3>
+
+                    <div style="text-align: center;">
+                        <a href="http://eepurl.com/mXpuL" class="button" style="font-weight: bold;">
+                            <i class="fa fa-envelope-o "></i> Get Email Updates
+                        </a>
+                    </div>
+
+                    <h3><i class="fa fa-lightbulb-o"></i> New and Popular</h3>
+                    <div id="divRecentAndPopular">
+                        <p style="text-align: center; font-weight: bold; font-size: 1.1em;">
+                            Loading...
+                        </p>
+                    </div>
+                </div> <!-- end hiding for medium/small screens -->
+                <div class="row show-for-medium-down button secondary left-off-canvas-toggle" style="font-size: 1.5em;" onclick=" $('body,html').animate({ scrollTop: 0 }, 100);">
+                    <i class="fa fa-bars"></i> Open Menu
+                </div>
+
+                <div id="pnCiteThisPage">
+	
+                    <h3><i class="fa fa-pencil-square-o"></i> Cite This Page</h3>
+
+                    <p style="text-align:center;">
+                        <a class="secondary button" style="border: 1px solid #535353;" href="#" id="pnCiteThisPage_Link" onclick="$('#pnCiteThisPage_Link').hide(); $('#pnCiteThisPage_Citation').fadeIn(); return false;">Show AMA citation</a>
+                    </p>
+
+                    <div id="pnCiteThisPage_Citation" style="display:none; border: 1px solid #c0c0c0; margin: 5px; padding: 5px; word-wrap: break-word; overflow-wrap: break-word; background: #fff;">
+                        Kane SP. Ofloxacin, ClinCalc DrugStats Database, Version 2025.08. ClinCalc: <u>https://clincalc.com/DrugStats/Drugs/Ofloxacin</u>. Updated August 10, 2025. Accessed June 11, 2026.
+                    </div>
+                
+</div>
+
+                
+
+
+                </div> <!-- End sidebar colored box -->
+
+                <div style="text-align: center; margin: 1.25em 0;" class="hide-for-medium hide-for-small">
+                    <a href="//clincalc.com/mobile/RxHero.aspx" onClick="gtag('event', 'click', {'event_category': 'ClinCalcPromo','event_label': 'RxHero_Quests_200x534_BelowSidebar'});"><img src="//clincalc.com/images/promo/rxhero_quests.jpg" alt="RxHero - Complete quests, earn points ... Develop rock-solid drug therapy knowledge" width="200" height="534" /><img width="0" height="0" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" onload="gtag('event', 'impression', {'event_category': 'ClinCalcPromo','event_label': 'RxHero_Quests_200x534_BelowSidebar'});" /></a>
+<div id="bottom-ad" style="width: 1px; height: 1px;">&nbsp;</div>
+<script type="text/javascript">
+    var sentAdblock;
+    $(function () {
+        if ((document.getElementById('bottom-ad').offsetHeight === 0) && (!sentAdblock)) {
+            sentAdblock = true;
+            $.ajax({
+                data: 'promoblock=true',
+                type: 'GET',
+                timeout: 5000,
+                url: '/UserControls/PromoHandler.aspx'
+            });
+        }
+    });
+</script>
+                </div>
+            </div> <!-- End Sidebar -->
+
+        </div>
+
+        <div class="footerContainer">
+            <div class="row">
+                <div class="large-4 small-4 columns">
+                    &copy;2026 - ClinCalc LLC. All rights reserved.
+                </div>
+
+                <div class="large-8 small-8 columns NavigationFooterItems">
+                    <ul class="large-block-grid-4">
+                        <li><a href="../../"><i class="fa fa-home fa-fw"></i> Home</a></li>
+                        <li><a href="https://academy.clincalc.com"><i class="fa fa-graduation-cap fa-fw"></i> Academy</a></li>
+                        <li><a href="../../blog"><i class="fa fa-pencil-square-o fa-fw"></i> Blog</a></li>
+                        <li><a href="../../About.aspx"><i class="fa fa-info-circle fa-fw"></i> About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12" style="font-size: 0.8em; text-align: center;">
+                    <a id="lnkDisclaimer" href="../../Disclaimer.aspx" style="font-weight: normal;">Disclaimer</a> - <a id="HyperLink1" href="../../Privacy.aspx" style="font-weight: normal;">Privacy Policy</a> - <a id="HyperLink2" href="../../About.aspx" style="font-weight: normal;">Contact Us</a>
+                    <br />Updated <span id="lblLastUpdated">Apr 15, 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Site-specific javascript code -->
+        <script type="text/javascript">
+            // jQuery
+            $(function () {
+                // Ajax calls
+                
+                $.ajax({
+                    success: function (result) {
+                        $('#divRecentAndPopular').html(result);
+
+                        result_li = result.replace('<ul>','').replace('</ul>','');
+
+                        $('#liNewAndPopular').html(result_li);
+                    },
+                    data: 'data=recentandpopular',
+                    type: 'GET',
+                    timeout: 8000,
+                    url: '/AjaxRequests.ashx'
+            });
+            
+
+                $('img[title], i[title], abbr[title], .qtipme').qtip({ position: { target: 'mouse', adjust: { x: 10, y: 10}} });
+
+                // Back to top (http://agyuku.net/2009/05/back-to-top-link-using-jquery/)
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > $(window).height()) {
+                        $('#toTop').fadeIn();
+                    } else {
+                        $('#toTop').fadeOut();
+                    }
+                });
+
+                $('#toTop').click(function () {
+                    $('body,html').animate({ scrollTop: 0 }, 350);
+                });
+            });
+        </script>
+
+        
+
+        
+
+        <div id="toTop">
+            <div class="hide-for-small"><i class="fa fa-chevron-circle-up"></i> Back to Top</div>
+            <div class="show-for-small"><i class="fa fa-chevron-circle-up"></i> Top</div>
+        </div>
+
+        <div class="cphDialog">
+</div>
+
+        
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js" integrity="sha512-F/gIMdDfda6OD2rnzt/Iyp2V9JLHlFQ+EUyixDg9+rkwjqgW1snpkpx7FD5FV1+gG2fmFj7I3r6ReQDUidHelA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/sorts/tablesort.number.min.js" integrity="sha512-dRD755QRxlybm0h3LXXIGrFcjNakuxW3reZqnPtUkMv6YsSWoJf+slPjY5v4lZvx2ss+wBZQFegepmA7a2W9eA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
+        <script>
+            // Required to keep all form elements with the form tag in ASP.NET
+            $(document).on('opened', '[data-reveal]', function () {
+                var modal = $(this);
+                $('form').append(modal);
+            });
+
+            $(function () {
+                $(document).foundation('reflow');
+            });
+        </script>
+
+
+                </section> <!-- main-section -->
+
+            <aside class="left-off-canvas-menu">
+              <ul class="off-canvas-list">
+                <li><label>Navigation</label></li>
+                <li><a href="../../"><i class="fa fa-home fa-fw"></i> Home</a></li>
+                <li><a href="../../academy"><i class="fa fa-graduation-cap fa-fw"></i> Academy</a></li>
+                <li><a href="../../blog"><i class="fa fa-pencil-square-o fa-fw"></i> Blog</a></li>
+                <li><a href="../../About.aspx"><i class="fa fa-info-circle fa-fw"></i> About</a></li>
+
+                <li><label>Search</label></li>
+                <li>
+                    <div id="pnOffCanvasSearch" style="color: #c0c0c0;">
+	
+                        <input name="ctl00$txtOffcanvasSearch" type="text" id="txtOffcanvasSearch" placeholder="Enter search term ..." style="background: #ececec; width: 70%; margin-left: 10px; display: inline;" />
+                        <a id="lnkOffcanvasSearch" href="javascript:__doPostBack(&#39;ctl00$lnkOffcanvasSearch&#39;,&#39;&#39;)" style="font-size: 1.4em; display: inline;"><i class="fa fa-search"></i></a>
+                    
+</div>
+                </li>
+
+                <li><label>Follow Us!</label></li>
+                <li><a href="http://eepurl.com/mXpuL"><i class="fa fa-envelope fa-fw"></i> Get Email Updates</a></li>
+
+                <li><label>New and Popular</label></li>
+                <li id="liNewAndPopular"><div style="text-align: center; padding: 0.66667rem; color: rgba(255,255,255,0.7);">Loading...</div></li>
+
+              </ul>
+            </aside>
+
+                <a class="exit-off-canvas"></a>
+
+            </div> <!-- inner-wrap -->
+        </div> <!-- off-canvas-wrap -->
+    </form>
+
+    <script src="/js/foundation/foundation-bundle.min.js"></script>
+    <script type="text/javascript" src="/js/js-bundle.min.js"></script>
+    <script>
+        $(document).foundation();
+        $(document).trigger("dynamic_textbox_width");
+    </script>
+
+    </body>
+</html>

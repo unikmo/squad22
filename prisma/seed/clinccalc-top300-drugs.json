@@ -1,0 +1,5410 @@
+{
+  "generatedAtISO": "2026-06-11T07:22:30.945Z",
+  "source": {
+    "clinccalc": {
+      "top300IndexUrl": "https://clincalc.com/DrugStats/Top300Drugs.aspx"
+    }
+  },
+  "drugs": [
+    {
+      "rank": 1,
+      "canonicalGenericName": "Atorvastatin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 115271514,
+        "totalPatients": 29359439,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Atorvastatin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "canonicalGenericName": "Metformin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 85685925,
+        "totalPatients": 20439610,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Metformin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "canonicalGenericName": "Levothyroxine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 80930390,
+        "totalPatients": 18222687,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Levothyroxine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "canonicalGenericName": "Lisinopril",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 76055039,
+        "totalPatients": 18501311,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lisinopril"
+          }
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "canonicalGenericName": "Amlodipine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 68743650,
+        "totalPatients": 17890210,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Amlodipine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 6,
+      "canonicalGenericName": "Metoprolol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 59547256,
+        "totalPatients": 14849955,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Metoprolol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 7,
+      "canonicalGenericName": "Albuterol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 59546183,
+        "totalPatients": 19491794,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Albuterol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 8,
+      "canonicalGenericName": "Losartan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 56174734,
+        "totalPatients": 14084276,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Losartan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 9,
+      "canonicalGenericName": "Gabapentin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 45964505,
+        "totalPatients": 11372821,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Gabapentin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 10,
+      "canonicalGenericName": "Omeprazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 45290895,
+        "totalPatients": 12767473,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Omeprazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 11,
+      "canonicalGenericName": "Sertraline",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 42578018,
+        "totalPatients": 9388487,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Sertraline"
+          }
+        }
+      }
+    },
+    {
+      "rank": 12,
+      "canonicalGenericName": "Rosuvastatin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 42103429,
+        "totalPatients": 11790764,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Rosuvastatin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 13,
+      "canonicalGenericName": "Pantoprazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 37101751,
+        "totalPatients": 9335363,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Pantoprazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 14,
+      "canonicalGenericName": "Escitalopram",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 37088584,
+        "totalPatients": 8758483,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Escitalopram"
+          }
+        }
+      }
+    },
+    {
+      "rank": 15,
+      "canonicalGenericName": "Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 32566892,
+        "totalPatients": 4718419,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/DextroamphetamineDextroamphetamineSaccharateAmphetamineAmphetamineAspartate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 16,
+      "canonicalGenericName": "Hydrochlorothiazide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 31775977,
+        "totalPatients": 8891444,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Hydrochlorothiazide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 17,
+      "canonicalGenericName": "Bupropion",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 30349390,
+        "totalPatients": 6316963,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Bupropion"
+          }
+        }
+      }
+    },
+    {
+      "rank": 18,
+      "canonicalGenericName": "Fluoxetine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 27518944,
+        "totalPatients": 5723737,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Fluoxetine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 19,
+      "canonicalGenericName": "Semaglutide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 25954066,
+        "totalPatients": 5453051,
+        "annualChange": 29,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Semaglutide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 20,
+      "canonicalGenericName": "Montelukast",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 25893501,
+        "totalPatients": 6495486,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Montelukast"
+          }
+        }
+      }
+    },
+    {
+      "rank": 21,
+      "canonicalGenericName": "Trazodone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 24708571,
+        "totalPatients": 5601459,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Trazodone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 22,
+      "canonicalGenericName": "Simvastatin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 24585762,
+        "totalPatients": 6448427,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Simvastatin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 23,
+      "canonicalGenericName": "Amoxicillin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 23510711,
+        "totalPatients": 18545966,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Amoxicillin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 24,
+      "canonicalGenericName": "Tamsulosin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 22898080,
+        "totalPatients": 6660839,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Tamsulosin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 25,
+      "canonicalGenericName": "Acetaminophen; Hydrocodone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 21506768,
+        "totalPatients": 7545384,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AcetaminophenHydrocodone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 26,
+      "canonicalGenericName": "Fluticasone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 21041607,
+        "totalPatients": 8198679,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Fluticasone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 27,
+      "canonicalGenericName": "Meloxicam",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 20703689,
+        "totalPatients": 6804169,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Meloxicam"
+          }
+        }
+      }
+    },
+    {
+      "rank": 28,
+      "canonicalGenericName": "Apixaban",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 19829711,
+        "totalPatients": 4903848,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Apixaban"
+          }
+        }
+      }
+    },
+    {
+      "rank": 29,
+      "canonicalGenericName": "Furosemide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 19138347,
+        "totalPatients": 5488921,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Furosemide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 30,
+      "canonicalGenericName": "Insulin Glargine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 18424802,
+        "totalPatients": 4007889,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/InsulinGlargine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 31,
+      "canonicalGenericName": "Duloxetine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 18067156,
+        "totalPatients": 4261516,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Duloxetine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 32,
+      "canonicalGenericName": "Ibuprofen",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 17525800,
+        "totalPatients": 9910191,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ibuprofen"
+          }
+        }
+      }
+    },
+    {
+      "rank": 33,
+      "canonicalGenericName": "Famotidine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 16883437,
+        "totalPatients": 5210639,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Famotidine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 34,
+      "canonicalGenericName": "Empagliflozin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 16744581,
+        "totalPatients": 3796361,
+        "annualChange": 22,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Empagliflozin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 35,
+      "canonicalGenericName": "Carvedilol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 16566781,
+        "totalPatients": 4288833,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Carvedilol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 36,
+      "canonicalGenericName": "Tramadol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 16010294,
+        "totalPatients": 4995781,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Tramadol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 37,
+      "canonicalGenericName": "Alprazolam",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 15881366,
+        "totalPatients": 3296320,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Alprazolam"
+          }
+        }
+      }
+    },
+    {
+      "rank": 38,
+      "canonicalGenericName": "Prednisone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 15794243,
+        "totalPatients": 9128022,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Prednisone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 39,
+      "canonicalGenericName": "Hydroxyzine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 15272377,
+        "totalPatients": 4112936,
+        "annualChange": 7,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Hydroxyzine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 40,
+      "canonicalGenericName": "Buspirone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 15229212,
+        "totalPatients": 3587235,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Buspirone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 41,
+      "canonicalGenericName": "Clopidogrel",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 15227565,
+        "totalPatients": 4090131,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Clopidogrel"
+          }
+        }
+      }
+    },
+    {
+      "rank": 42,
+      "canonicalGenericName": "Glipizide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 15173475,
+        "totalPatients": 3896020,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Glipizide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 43,
+      "canonicalGenericName": "Citalopram",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 14769554,
+        "totalPatients": 3176952,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Citalopram"
+          }
+        }
+      }
+    },
+    {
+      "rank": 44,
+      "canonicalGenericName": "Potassium Chloride",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 14514606,
+        "totalPatients": 4177294,
+        "annualChange": 9,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/PotassiumChloride"
+          }
+        }
+      }
+    },
+    {
+      "rank": 45,
+      "canonicalGenericName": "Allopurinol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 14311839,
+        "totalPatients": 3349088,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Allopurinol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 46,
+      "canonicalGenericName": "Aspirin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 14095181,
+        "totalPatients": 5257546,
+        "annualChange": 10,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Aspirin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 47,
+      "canonicalGenericName": "Cyclobenzaprine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 13973843,
+        "totalPatients": 5283574,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cyclobenzaprine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 48,
+      "canonicalGenericName": "Ergocalciferol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 13705855,
+        "totalPatients": 4459410,
+        "annualChange": 10,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ergocalciferol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 49,
+      "canonicalGenericName": "Oxycodone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 13502066,
+        "totalPatients": 5654494,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Oxycodone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 50,
+      "canonicalGenericName": "Methylphenidate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 13248734,
+        "totalPatients": 2350510,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Methylphenidate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 51,
+      "canonicalGenericName": "Venlafaxine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 13234839,
+        "totalPatients": 2973726,
+        "annualChange": 7,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Venlafaxine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 52,
+      "canonicalGenericName": "Spironolactone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 12777045,
+        "totalPatients": 3515708,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Spironolactone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 53,
+      "canonicalGenericName": "Ondansetron",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 12503157,
+        "totalPatients": 6097220,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ondansetron"
+          }
+        }
+      }
+    },
+    {
+      "rank": 54,
+      "canonicalGenericName": "Zolpidem",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 11424127,
+        "totalPatients": 2405571,
+        "annualChange": 12,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Zolpidem"
+          }
+        }
+      }
+    },
+    {
+      "rank": 55,
+      "canonicalGenericName": "Cetirizine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 11399497,
+        "totalPatients": 3931282,
+        "annualChange": 12,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cetirizine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 56,
+      "canonicalGenericName": "Estradiol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 11289112,
+        "totalPatients": 3347560,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Estradiol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 57,
+      "canonicalGenericName": "Pravastatin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 11060711,
+        "totalPatients": 3160612,
+        "annualChange": 20,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Pravastatin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 58,
+      "canonicalGenericName": "Hydrochlorothiazide; Lisinopril",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 10986814,
+        "totalPatients": 2395399,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/HydrochlorothiazideLisinopril"
+          }
+        }
+      }
+    },
+    {
+      "rank": 59,
+      "canonicalGenericName": "Lamotrigine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 10895178,
+        "totalPatients": 2048990,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lamotrigine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 60,
+      "canonicalGenericName": "Quetiapine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 10655017,
+        "totalPatients": 1940616,
+        "annualChange": 22,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Quetiapine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 61,
+      "canonicalGenericName": "Fluticasone; Salmeterol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 10648080,
+        "totalPatients": 2739984,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/FluticasoneSalmeterol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 62,
+      "canonicalGenericName": "Clonazepam",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 10614830,
+        "totalPatients": 2195742,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Clonazepam"
+          }
+        }
+      }
+    },
+    {
+      "rank": 63,
+      "canonicalGenericName": "Dulaglutide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 10358270,
+        "totalPatients": 2228365,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Dulaglutide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 64,
+      "canonicalGenericName": "Azithromycin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 10337595,
+        "totalPatients": 8348688,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Azithromycin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 65,
+      "canonicalGenericName": "Hydrochlorothiazide; Losartan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9882017,
+        "totalPatients": 2369334,
+        "annualChange": 10,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/HydrochlorothiazideLosartan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 66,
+      "canonicalGenericName": "Amoxicillin; Clavulanate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9831525,
+        "totalPatients": 7511826,
+        "annualChange": 30,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AmoxicillinClavulanate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 67,
+      "canonicalGenericName": "Latanoprost",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9792338,
+        "totalPatients": 2715551,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Latanoprost"
+          }
+        }
+      }
+    },
+    {
+      "rank": 68,
+      "canonicalGenericName": "Cholecalciferol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9737465,
+        "totalPatients": 3328507,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cholecalciferol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 69,
+      "canonicalGenericName": "Propranolol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9699272,
+        "totalPatients": 2436578,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Propranolol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 70,
+      "canonicalGenericName": "Ezetimibe",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9686244,
+        "totalPatients": 2860227,
+        "annualChange": 9,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ezetimibe"
+          }
+        }
+      }
+    },
+    {
+      "rank": 71,
+      "canonicalGenericName": "Topiramate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9619219,
+        "totalPatients": 2029275,
+        "annualChange": 13,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Topiramate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 72,
+      "canonicalGenericName": "Paroxetine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9577610,
+        "totalPatients": 1753057,
+        "annualChange": 20,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Paroxetine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 73,
+      "canonicalGenericName": "Diclofenac",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9438696,
+        "totalPatients": 3411516,
+        "annualChange": 22,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Diclofenac"
+          }
+        }
+      }
+    },
+    {
+      "rank": 74,
+      "canonicalGenericName": "Budesonide; Formoterol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9346242,
+        "totalPatients": 2269426,
+        "annualChange": 9,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/BudesonideFormoterol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 75,
+      "canonicalGenericName": "Atenolol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9235305,
+        "totalPatients": 2669869,
+        "annualChange": 12,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Atenolol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 76,
+      "canonicalGenericName": "Lisdexamfetamine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 9134058,
+        "totalPatients": 1477908,
+        "annualChange": 7,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lisdexamfetamine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 77,
+      "canonicalGenericName": "Doxycycline",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 8823028,
+        "totalPatients": 5847755,
+        "annualChange": 9,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Doxycycline"
+          }
+        }
+      }
+    },
+    {
+      "rank": 78,
+      "canonicalGenericName": "Pregabalin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 8644140,
+        "totalPatients": 1726535,
+        "annualChange": 13,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Pregabalin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 79,
+      "canonicalGenericName": "Ethinyl Estradiol; Norethindrone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 8611956,
+        "totalPatients": 2206708,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/EthinylEstradiolNorethindrone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 80,
+      "canonicalGenericName": "Glimepiride",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 8459350,
+        "totalPatients": 2078077,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Glimepiride"
+          }
+        }
+      }
+    },
+    {
+      "rank": 81,
+      "canonicalGenericName": "Tizanidine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 8292865,
+        "totalPatients": 2502146,
+        "annualChange": 13,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Tizanidine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 82,
+      "canonicalGenericName": "Clonidine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 8128031,
+        "totalPatients": 1740033,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Clonidine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 83,
+      "canonicalGenericName": "Fenofibrate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 8093230,
+        "totalPatients": 1938765,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Fenofibrate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 84,
+      "canonicalGenericName": "Insulin Lispro",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 8053451,
+        "totalPatients": 1834930,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/InsulinLispro"
+          }
+        }
+      }
+    },
+    {
+      "rank": 85,
+      "canonicalGenericName": "Valsartan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7983441,
+        "totalPatients": 2158502,
+        "annualChange": 32,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Valsartan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 86,
+      "canonicalGenericName": "Cephalexin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7869737,
+        "totalPatients": 5838328,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cephalexin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 87,
+      "canonicalGenericName": "Baclofen",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7753150,
+        "totalPatients": 1590627,
+        "annualChange": 17,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Baclofen"
+          }
+        }
+      }
+    },
+    {
+      "rank": 88,
+      "canonicalGenericName": "Rivaroxaban",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7743941,
+        "totalPatients": 1936505,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Rivaroxaban"
+          }
+        }
+      }
+    },
+    {
+      "rank": 89,
+      "canonicalGenericName": "Ferrous Sulfate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7699088,
+        "totalPatients": 2668685,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/FerrousSulfate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 90,
+      "canonicalGenericName": "Amitriptyline",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7568933,
+        "totalPatients": 1658411,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Amitriptyline"
+          }
+        }
+      }
+    },
+    {
+      "rank": 91,
+      "canonicalGenericName": "Finasteride",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7546064,
+        "totalPatients": 2365922,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Finasteride"
+          }
+        }
+      }
+    },
+    {
+      "rank": 92,
+      "canonicalGenericName": "Dapagliflozin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7444831,
+        "totalPatients": 1793760,
+        "annualChange": 23,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Dapagliflozin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 93,
+      "canonicalGenericName": "Acetaminophen; Oxycodone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7283471,
+        "totalPatients": 2355340,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AcetaminophenOxycodone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 94,
+      "canonicalGenericName": "Folic Acid",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7276938,
+        "totalPatients": 2168940,
+        "annualChange": 29,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/FolicAcid"
+          }
+        }
+      }
+    },
+    {
+      "rank": 95,
+      "canonicalGenericName": "Aripiprazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7197548,
+        "totalPatients": 1608575,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Aripiprazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 96,
+      "canonicalGenericName": "Olmesartan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7175746,
+        "totalPatients": 1957158,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Olmesartan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 97,
+      "canonicalGenericName": "Ethinyl Estradiol; Norgestimate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7175433,
+        "totalPatients": 1866523,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/EthinylEstradiolNorgestimate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 98,
+      "canonicalGenericName": "Valacyclovir",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 7121821,
+        "totalPatients": 2794911,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Valacyclovir"
+          }
+        }
+      }
+    },
+    {
+      "rank": 99,
+      "canonicalGenericName": "Mirtazapine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6977141,
+        "totalPatients": 1616829,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Mirtazapine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 100,
+      "canonicalGenericName": "Lorazepam",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6963899,
+        "totalPatients": 2048781,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lorazepam"
+          }
+        }
+      }
+    },
+    {
+      "rank": 101,
+      "canonicalGenericName": "Levetiracetam",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6904402,
+        "totalPatients": 1111637,
+        "annualChange": 22,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Levetiracetam"
+          }
+        }
+      }
+    },
+    {
+      "rank": 102,
+      "canonicalGenericName": "Insulin Aspart",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6835070,
+        "totalPatients": 1683030,
+        "annualChange": 26,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/InsulinAspart"
+          }
+        }
+      }
+    },
+    {
+      "rank": 103,
+      "canonicalGenericName": "Naproxen",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6808486,
+        "totalPatients": 3219878,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Naproxen"
+          }
+        }
+      }
+    },
+    {
+      "rank": 104,
+      "canonicalGenericName": "Cyanocobalamin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6727915,
+        "totalPatients": 2081388,
+        "annualChange": 27,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cyanocobalamin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 105,
+      "canonicalGenericName": "Loratadine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6699690,
+        "totalPatients": 2271288,
+        "annualChange": 33,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Loratadine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 106,
+      "canonicalGenericName": "Diltiazem",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6562727,
+        "totalPatients": 1869478,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Diltiazem"
+          }
+        }
+      }
+    },
+    {
+      "rank": 107,
+      "canonicalGenericName": "Sumatriptan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6484249,
+        "totalPatients": 2083076,
+        "annualChange": 12,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Sumatriptan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 108,
+      "canonicalGenericName": "Triamcinolone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6476980,
+        "totalPatients": 4343165,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Triamcinolone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 109,
+      "canonicalGenericName": "Hydralazine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6327003,
+        "totalPatients": 1863936,
+        "annualChange": 12,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Hydralazine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 110,
+      "canonicalGenericName": "Tirzepatide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6310173,
+        "totalPatients": 1324240,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Tirzepatide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 111,
+      "canonicalGenericName": "Celecoxib",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 6190143,
+        "totalPatients": 2201329,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Celecoxib"
+          }
+        }
+      }
+    },
+    {
+      "rank": 112,
+      "canonicalGenericName": "Acetaminophen",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5984654,
+        "totalPatients": 3351953,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Acetaminophen"
+          }
+        }
+      }
+    },
+    {
+      "rank": 113,
+      "canonicalGenericName": "Alendronate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5876378,
+        "totalPatients": 1928468,
+        "annualChange": 10,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Alendronate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 114,
+      "canonicalGenericName": "Oxybutynin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5874390,
+        "totalPatients": 1572156,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Oxybutynin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 115,
+      "canonicalGenericName": "Hydrochlorothiazide; Triamterene",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5806865,
+        "totalPatients": 1619114,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/HydrochlorothiazideTriamterene"
+          }
+        }
+      }
+    },
+    {
+      "rank": 116,
+      "canonicalGenericName": "Warfarin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5793664,
+        "totalPatients": 1369433,
+        "annualChange": 31,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Warfarin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 117,
+      "canonicalGenericName": "Progesterone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5570117,
+        "totalPatients": 1431497,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Progesterone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 118,
+      "canonicalGenericName": "Fluticasone; Umeclidinium; Vilanterol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5533174,
+        "totalPatients": 1137243,
+        "annualChange": 26,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/FluticasoneUmeclidiniumVilanterol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 119,
+      "canonicalGenericName": "Testosterone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5337521,
+        "totalPatients": 1320614,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Testosterone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 120,
+      "canonicalGenericName": "Nifedipine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5318746,
+        "totalPatients": 1327349,
+        "annualChange": 31,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Nifedipine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 121,
+      "canonicalGenericName": "Methocarbamol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5288774,
+        "totalPatients": 2566436,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Methocarbamol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 122,
+      "canonicalGenericName": "Benzonatate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5225510,
+        "totalPatients": 3848465,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Benzonatate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 123,
+      "canonicalGenericName": "Sitagliptin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5171309,
+        "totalPatients": 1377092,
+        "annualChange": 37,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Sitagliptin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 124,
+      "canonicalGenericName": "Chlorthalidone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5041667,
+        "totalPatients": 1459485,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Chlorthalidone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 125,
+      "canonicalGenericName": "Isosorbide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 5038468,
+        "totalPatients": 1347588,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Isosorbide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 126,
+      "canonicalGenericName": "Donepezil",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4919269,
+        "totalPatients": 1249510,
+        "annualChange": 20,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Donepezil"
+          }
+        }
+      }
+    },
+    {
+      "rank": 127,
+      "canonicalGenericName": "Dexmethylphenidate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4826840,
+        "totalPatients": 944279,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Dexmethylphenidate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 128,
+      "canonicalGenericName": "Sulfamethoxazole; Trimethoprim",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4667341,
+        "totalPatients": 3025952,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/SulfamethoxazoleTrimethoprim"
+          }
+        }
+      }
+    },
+    {
+      "rank": 129,
+      "canonicalGenericName": "Clobetasol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4643351,
+        "totalPatients": 2351795,
+        "annualChange": 27,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Clobetasol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 130,
+      "canonicalGenericName": "Methotrexate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4611809,
+        "totalPatients": 1103153,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Methotrexate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 131,
+      "canonicalGenericName": "Hydroxychloroquine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4438796,
+        "totalPatients": 1199079,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Hydroxychloroquine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 132,
+      "canonicalGenericName": "Lovastatin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4392660,
+        "totalPatients": 1167788,
+        "annualChange": 21,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lovastatin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 133,
+      "canonicalGenericName": "Pioglitazone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4381830,
+        "totalPatients": 1045289,
+        "annualChange": 13,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Pioglitazone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 134,
+      "canonicalGenericName": "Irbesartan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4225718,
+        "totalPatients": 1003836,
+        "annualChange": 66,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Irbesartan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 135,
+      "canonicalGenericName": "Methylprednisolone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4190064,
+        "totalPatients": 3315587,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Methylprednisolone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 136,
+      "canonicalGenericName": "Norethindrone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4162876,
+        "totalPatients": 1470696,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Norethindrone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 137,
+      "canonicalGenericName": "Meclizine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4086408,
+        "totalPatients": 1598165,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Meclizine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 138,
+      "canonicalGenericName": "Ethinyl Estradiol; Levonorgestrel",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4052882,
+        "totalPatients": 1217443,
+        "annualChange": 10,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/EthinylEstradiolLevonorgestrel"
+          }
+        }
+      }
+    },
+    {
+      "rank": 139,
+      "canonicalGenericName": "Fluticasone; Vilanterol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 4032315,
+        "totalPatients": 731680,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/FluticasoneVilanterol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 140,
+      "canonicalGenericName": "Ketoconazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3987777,
+        "totalPatients": 1837309,
+        "annualChange": 35,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ketoconazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 141,
+      "canonicalGenericName": "Thyroid",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3945403,
+        "totalPatients": 793936,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Thyroid"
+          }
+        }
+      }
+    },
+    {
+      "rank": 142,
+      "canonicalGenericName": "Azelastine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3932233,
+        "totalPatients": 1790839,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Azelastine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 143,
+      "canonicalGenericName": "Nitrofurantoin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3917548,
+        "totalPatients": 2471873,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Nitrofurantoin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 144,
+      "canonicalGenericName": "Adalimumab",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3900241,
+        "totalPatients": 591018,
+        "annualChange": 97,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Adalimumab"
+          }
+        }
+      }
+    },
+    {
+      "rank": 145,
+      "canonicalGenericName": "Memantine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3853517,
+        "totalPatients": 1033550,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Memantine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 146,
+      "canonicalGenericName": "Prednisolone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3839256,
+        "totalPatients": 2456200,
+        "annualChange": 10,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Prednisolone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 147,
+      "canonicalGenericName": "Esomeprazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3828168,
+        "totalPatients": 1097633,
+        "annualChange": 25,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Esomeprazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 148,
+      "canonicalGenericName": "Docusate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3798215,
+        "totalPatients": 1680843,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Docusate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 149,
+      "canonicalGenericName": "Clindamycin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3775741,
+        "totalPatients": 2471485,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Clindamycin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 150,
+      "canonicalGenericName": "Acyclovir",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3766454,
+        "totalPatients": 1117946,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Acyclovir"
+          }
+        }
+      }
+    },
+    {
+      "rank": 151,
+      "canonicalGenericName": "Sildenafil",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3760682,
+        "totalPatients": 1215572,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Sildenafil"
+          }
+        }
+      }
+    },
+    {
+      "rank": 152,
+      "canonicalGenericName": "Insulin Degludec",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3663825,
+        "totalPatients": 907113,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/InsulinDegludec"
+          }
+        }
+      }
+    },
+    {
+      "rank": 153,
+      "canonicalGenericName": "Insulin Detemir",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3584061,
+        "totalPatients": 817923,
+        "annualChange": 26,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/InsulinDetemir"
+          }
+        }
+      }
+    },
+    {
+      "rank": 154,
+      "canonicalGenericName": "Drospirenone; Ethinyl Estradiol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3566507,
+        "totalPatients": 880241,
+        "annualChange": 12,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/DrospirenoneEthinylEstradiol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 155,
+      "canonicalGenericName": "Ciprofloxacin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3513623,
+        "totalPatients": 2777272,
+        "annualChange": 26,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ciprofloxacin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 156,
+      "canonicalGenericName": "Morphine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3500073,
+        "totalPatients": 647436,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Morphine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 157,
+      "canonicalGenericName": "Insulin Human; Insulin Isophane Human",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3487065,
+        "totalPatients": 540782,
+        "annualChange": 35,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/InsulinHumanInsulinIsophaneHuman"
+          }
+        }
+      }
+    },
+    {
+      "rank": 158,
+      "canonicalGenericName": "Levocetirizine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3461897,
+        "totalPatients": 982120,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Levocetirizine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 159,
+      "canonicalGenericName": "Nirmatrelvir; Ritonavir",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3453516,
+        "totalPatients": 3261698,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/NirmatrelvirRitonavir"
+          }
+        }
+      }
+    },
+    {
+      "rank": 160,
+      "canonicalGenericName": "Valproate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3442917,
+        "totalPatients": 625116,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Valproate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 161,
+      "canonicalGenericName": "Atomoxetine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3431315,
+        "totalPatients": 755464,
+        "annualChange": 52,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Atomoxetine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 162,
+      "canonicalGenericName": "Budesonide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3366337,
+        "totalPatients": 890477,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Budesonide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 163,
+      "canonicalGenericName": "Tiotropium",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3305177,
+        "totalPatients": 731805,
+        "annualChange": 9,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Tiotropium"
+          }
+        }
+      }
+    },
+    {
+      "rank": 164,
+      "canonicalGenericName": "Melatonin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3256782,
+        "totalPatients": 728331,
+        "annualChange": 53,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Melatonin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 165,
+      "canonicalGenericName": "Cefdinir",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3168051,
+        "totalPatients": 2519650,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cefdinir"
+          }
+        }
+      }
+    },
+    {
+      "rank": 166,
+      "canonicalGenericName": "Doxepin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3122267,
+        "totalPatients": 604157,
+        "annualChange": 52,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Doxepin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 167,
+      "canonicalGenericName": "Olanzapine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3091702,
+        "totalPatients": 591423,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Olanzapine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 168,
+      "canonicalGenericName": "Phentermine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 3003107,
+        "totalPatients": 1074539,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Phentermine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 169,
+      "canonicalGenericName": "Ofloxacin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2987657,
+        "totalPatients": 2127082,
+        "annualChange": 37,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ofloxacin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 170,
+      "canonicalGenericName": "Ethinyl Estradiol; Etonogestrel",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2987624,
+        "totalPatients": 690197,
+        "annualChange": 24,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/EthinylEstradiolEtonogestrel"
+          }
+        }
+      }
+    },
+    {
+      "rank": 171,
+      "canonicalGenericName": "Mupirocin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2982603,
+        "totalPatients": 2180313,
+        "annualChange": 9,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Mupirocin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 172,
+      "canonicalGenericName": "Benazepril",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2965135,
+        "totalPatients": 712858,
+        "annualChange": 13,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Benazepril"
+          }
+        }
+      }
+    },
+    {
+      "rank": 173,
+      "canonicalGenericName": "Timolol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2946884,
+        "totalPatients": 823663,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Timolol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 174,
+      "canonicalGenericName": "Magnesium Salts",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2903672,
+        "totalPatients": 821090,
+        "annualChange": 33,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/MagnesiumSalts"
+          }
+        }
+      }
+    },
+    {
+      "rank": 175,
+      "canonicalGenericName": "Fluconazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2871500,
+        "totalPatients": 2079348,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Fluconazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 176,
+      "canonicalGenericName": "Risperidone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2865210,
+        "totalPatients": 586343,
+        "annualChange": 7,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Risperidone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 177,
+      "canonicalGenericName": "Verapamil",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2819767,
+        "totalPatients": 632561,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Verapamil"
+          }
+        }
+      }
+    },
+    {
+      "rank": 178,
+      "canonicalGenericName": "Linaclotide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2817174,
+        "totalPatients": 720731,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Linaclotide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 179,
+      "canonicalGenericName": "Cyclosporine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2796137,
+        "totalPatients": 1250521,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cyclosporine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 180,
+      "canonicalGenericName": "Doxazosin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2735065,
+        "totalPatients": 765542,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Doxazosin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 181,
+      "canonicalGenericName": "Albuterol; Ipratropium",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2727765,
+        "totalPatients": 788302,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AlbuterolIpratropium"
+          }
+        }
+      }
+    },
+    {
+      "rank": 182,
+      "canonicalGenericName": "Hydrocortisone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2711652,
+        "totalPatients": 1381068,
+        "annualChange": 20,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Hydrocortisone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 183,
+      "canonicalGenericName": "Diazepam",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2711267,
+        "totalPatients": 902266,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Diazepam"
+          }
+        }
+      }
+    },
+    {
+      "rank": 184,
+      "canonicalGenericName": "Telmisartan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2693425,
+        "totalPatients": 661282,
+        "annualChange": 44,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Telmisartan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 185,
+      "canonicalGenericName": "Carbamazepine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2687079,
+        "totalPatients": 512106,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Carbamazepine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 186,
+      "canonicalGenericName": "Amlodipine; Benazepril",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2681344,
+        "totalPatients": 770245,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AmlodipineBenazepril"
+          }
+        }
+      }
+    },
+    {
+      "rank": 187,
+      "canonicalGenericName": "Lithium",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2680151,
+        "totalPatients": 464216,
+        "annualChange": 25,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lithium"
+          }
+        }
+      }
+    },
+    {
+      "rank": 188,
+      "canonicalGenericName": "Evolocumab",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2633257,
+        "totalPatients": 457388,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Evolocumab"
+          }
+        }
+      }
+    },
+    {
+      "rank": 189,
+      "canonicalGenericName": "Desvenlafaxine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2585138,
+        "totalPatients": 491566,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Desvenlafaxine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 190,
+      "canonicalGenericName": "Dorzolamide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2569413,
+        "totalPatients": 609942,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Dorzolamide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 191,
+      "canonicalGenericName": "Nebivolol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2568389,
+        "totalPatients": 844304,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Nebivolol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 192,
+      "canonicalGenericName": "Dicyclomine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2561309,
+        "totalPatients": 1016843,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Dicyclomine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 193,
+      "canonicalGenericName": "Torsemide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2545175,
+        "totalPatients": 700275,
+        "annualChange": 9,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Torsemide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 194,
+      "canonicalGenericName": "Anastrozole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2536493,
+        "totalPatients": 670491,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Anastrozole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 195,
+      "canonicalGenericName": "Enalapril",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2507125,
+        "totalPatients": 594999,
+        "annualChange": 54,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Enalapril"
+          }
+        }
+      }
+    },
+    {
+      "rank": 196,
+      "canonicalGenericName": "Polyethylene Glycol 3350",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2491296,
+        "totalPatients": 1215999,
+        "annualChange": 13,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/PolyethyleneGlycol3350"
+          }
+        }
+      }
+    },
+    {
+      "rank": 197,
+      "canonicalGenericName": "Tretinoin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2454022,
+        "totalPatients": 1349696,
+        "annualChange": 41,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Tretinoin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 198,
+      "canonicalGenericName": "Tadalafil",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2443768,
+        "totalPatients": 911096,
+        "annualChange": 26,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Tadalafil"
+          }
+        }
+      }
+    },
+    {
+      "rank": 199,
+      "canonicalGenericName": "Sacubitril; Valsartan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2442361,
+        "totalPatients": 657646,
+        "annualChange": 34,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/SacubitrilValsartan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 200,
+      "canonicalGenericName": "Calcium",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2427416,
+        "totalPatients": 763301,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Calcium"
+          }
+        }
+      }
+    },
+    {
+      "rank": 201,
+      "canonicalGenericName": "Pramipexole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2398374,
+        "totalPatients": 551096,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Pramipexole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 202,
+      "canonicalGenericName": "Mesalamine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2365207,
+        "totalPatients": 600187,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Mesalamine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 203,
+      "canonicalGenericName": "Metronidazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2318178,
+        "totalPatients": 1737004,
+        "annualChange": 70,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Metronidazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 204,
+      "canonicalGenericName": "Nortriptyline",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2314282,
+        "totalPatients": 574267,
+        "annualChange": 13,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Nortriptyline"
+          }
+        }
+      }
+    },
+    {
+      "rank": 205,
+      "canonicalGenericName": "Emtricitabine; Tenofovir",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2273387,
+        "totalPatients": 413965,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/EmtricitabineTenofovir"
+          }
+        }
+      }
+    },
+    {
+      "rank": 206,
+      "canonicalGenericName": "Rimegepant",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2263880,
+        "totalPatients": 455115,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Rimegepant"
+          }
+        }
+      }
+    },
+    {
+      "rank": 207,
+      "canonicalGenericName": "Nitroglycerin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2238376,
+        "totalPatients": 1017732,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Nitroglycerin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 208,
+      "canonicalGenericName": "Rizatriptan",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2219594,
+        "totalPatients": 862728,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Rizatriptan"
+          }
+        }
+      }
+    },
+    {
+      "rank": 209,
+      "canonicalGenericName": "Liraglutide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2191691,
+        "totalPatients": 671031,
+        "annualChange": 70,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Liraglutide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 210,
+      "canonicalGenericName": "Acetaminophen; Codeine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2189480,
+        "totalPatients": 1131229,
+        "annualChange": 44,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AcetaminophenCodeine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 211,
+      "canonicalGenericName": "Ramipril",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2148133,
+        "totalPatients": 576128,
+        "annualChange": 24,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ramipril"
+          }
+        }
+      }
+    },
+    {
+      "rank": 212,
+      "canonicalGenericName": "Ropinirole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2086907,
+        "totalPatients": 707906,
+        "annualChange": 49,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ropinirole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 213,
+      "canonicalGenericName": "Brimonidine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2061060,
+        "totalPatients": 479974,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Brimonidine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 214,
+      "canonicalGenericName": "Mirabegron",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2045781,
+        "totalPatients": 660130,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Mirabegron"
+          }
+        }
+      }
+    },
+    {
+      "rank": 215,
+      "canonicalGenericName": "Colchicine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2010102,
+        "totalPatients": 798172,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Colchicine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 216,
+      "canonicalGenericName": "Ticagrelor",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 2006287,
+        "totalPatients": 541032,
+        "annualChange": 13,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ticagrelor"
+          }
+        }
+      }
+    },
+    {
+      "rank": 217,
+      "canonicalGenericName": "Terazosin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1989756,
+        "totalPatients": 573398,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Terazosin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 218,
+      "canonicalGenericName": "Amiodarone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1974861,
+        "totalPatients": 678884,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Amiodarone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 219,
+      "canonicalGenericName": "Fexofenadine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1951572,
+        "totalPatients": 542033,
+        "annualChange": 38,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Fexofenadine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 220,
+      "canonicalGenericName": "Liothyronine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1884613,
+        "totalPatients": 568396,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Liothyronine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 221,
+      "canonicalGenericName": "Bisoprolol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1816701,
+        "totalPatients": 562441,
+        "annualChange": 28,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Bisoprolol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 222,
+      "canonicalGenericName": "Omega-3-acid Ethyl Esters",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1810280,
+        "totalPatients": 602843,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Omega3AcidEthylEsters"
+          }
+        }
+      }
+    },
+    {
+      "rank": 223,
+      "canonicalGenericName": "Flecainide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1805937,
+        "totalPatients": 501667,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Flecainide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 224,
+      "canonicalGenericName": "Oxcarbazepine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1763679,
+        "totalPatients": 391344,
+        "annualChange": 57,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Oxcarbazepine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 225,
+      "canonicalGenericName": "Desogestrel; Ethinyl Estradiol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1722386,
+        "totalPatients": 581721,
+        "annualChange": 64,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/DesogestrelEthinylEstradiol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 226,
+      "canonicalGenericName": "Ascorbic Acid",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1705386,
+        "totalPatients": 623102,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AscorbicAcid"
+          }
+        }
+      }
+    },
+    {
+      "rank": 227,
+      "canonicalGenericName": "Sodium Salts",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1698017,
+        "totalPatients": 591392,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/SodiumSalts"
+          }
+        }
+      }
+    },
+    {
+      "rank": 228,
+      "canonicalGenericName": "Ketorolac",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1627126,
+        "totalPatients": 1045788,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ketorolac"
+          }
+        }
+      }
+    },
+    {
+      "rank": 229,
+      "canonicalGenericName": "Dorzolamide; Timolol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1620620,
+        "totalPatients": 460097,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/DorzolamideTimolol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 230,
+      "canonicalGenericName": "Promethazine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1611034,
+        "totalPatients": 805538,
+        "annualChange": 32,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Promethazine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 231,
+      "canonicalGenericName": "Levofloxacin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1583754,
+        "totalPatients": 1094753,
+        "annualChange": 20,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Levofloxacin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 232,
+      "canonicalGenericName": "Labetalol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1555592,
+        "totalPatients": 539610,
+        "annualChange": 17,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Labetalol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 233,
+      "canonicalGenericName": "Nystatin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1528640,
+        "totalPatients": 856580,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Nystatin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 234,
+      "canonicalGenericName": "Cyproheptadine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1522003,
+        "totalPatients": 292977,
+        "annualChange": 59,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cyproheptadine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 235,
+      "canonicalGenericName": "Erythromycin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1513465,
+        "totalPatients": 1086795,
+        "annualChange": 36,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Erythromycin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 236,
+      "canonicalGenericName": "Dutasteride",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1505889,
+        "totalPatients": 471334,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Dutasteride"
+          }
+        }
+      }
+    },
+    {
+      "rank": 237,
+      "canonicalGenericName": "Moxifloxacin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1504242,
+        "totalPatients": 1012790,
+        "annualChange": 36,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Moxifloxacin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 238,
+      "canonicalGenericName": "Bimatoprost",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1491206,
+        "totalPatients": 433473,
+        "annualChange": 43,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Bimatoprost"
+          }
+        }
+      }
+    },
+    {
+      "rank": 239,
+      "canonicalGenericName": "Primidone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1488529,
+        "totalPatients": 433038,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Primidone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 240,
+      "canonicalGenericName": "Sucralfate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1487376,
+        "totalPatients": 527574,
+        "annualChange": 26,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Sucralfate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 241,
+      "canonicalGenericName": "Betamethasone; Clotrimazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1470861,
+        "totalPatients": 649237,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/BetamethasoneClotrimazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 242,
+      "canonicalGenericName": "Senna; Docusate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1440174,
+        "totalPatients": 571667,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/SennaDocusate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 243,
+      "canonicalGenericName": "Bumetanide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1419204,
+        "totalPatients": 389856,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Bumetanide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 244,
+      "canonicalGenericName": "Icosapent Ethyl",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1378688,
+        "totalPatients": 399887,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/IcosapentEthyl"
+          }
+        }
+      }
+    },
+    {
+      "rank": 245,
+      "canonicalGenericName": "Solifenacin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1292098,
+        "totalPatients": 435495,
+        "annualChange": 35,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Solifenacin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 246,
+      "canonicalGenericName": "Dexamethasone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1251533,
+        "totalPatients": 660725,
+        "annualChange": 12,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Dexamethasone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 247,
+      "canonicalGenericName": "Epinephrine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1248425,
+        "totalPatients": 722247,
+        "annualChange": 7,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Epinephrine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 248,
+      "canonicalGenericName": "Penicillin V",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1240696,
+        "totalPatients": 1042246,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/PenicillinV"
+          }
+        }
+      }
+    },
+    {
+      "rank": 249,
+      "canonicalGenericName": "Calcitriol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1217012,
+        "totalPatients": 320997,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Calcitriol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 250,
+      "canonicalGenericName": "Oseltamivir",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1207283,
+        "totalPatients": 1018277,
+        "annualChange": 45,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Oseltamivir"
+          }
+        }
+      }
+    },
+    {
+      "rank": 251,
+      "canonicalGenericName": "Polymyxin B; Trimethoprim",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1200830,
+        "totalPatients": 1105738,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/PolymyxinBTrimethoprim"
+          }
+        }
+      }
+    },
+    {
+      "rank": 252,
+      "canonicalGenericName": "Dextromethorphan; Promethazine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1195581,
+        "totalPatients": 958832,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/DextromethorphanPromethazine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 253,
+      "canonicalGenericName": "Terbinafine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1181009,
+        "totalPatients": 722494,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Terbinafine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 254,
+      "canonicalGenericName": "Linagliptin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1158876,
+        "totalPatients": 440093,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Linagliptin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 255,
+      "canonicalGenericName": "Methimazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1128558,
+        "totalPatients": 350343,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Methimazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 256,
+      "canonicalGenericName": "Metoclopramide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1116507,
+        "totalPatients": 495884,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Metoclopramide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 257,
+      "canonicalGenericName": "Medroxyprogesterone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1095997,
+        "totalPatients": 417258,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Medroxyprogesterone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 258,
+      "canonicalGenericName": "Pancrelipase Amylase; Pancrelipase Lipase; Pancrelipase Protease",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1076565,
+        "totalPatients": 269108,
+        "annualChange": 5,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/PancrelipaseAmylasePancrelipaseLipasePancrelipaseProtease"
+          }
+        }
+      }
+    },
+    {
+      "rank": 259,
+      "canonicalGenericName": "Clotrimazole",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1058881,
+        "totalPatients": 569947,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Clotrimazole"
+          }
+        }
+      }
+    },
+    {
+      "rank": 260,
+      "canonicalGenericName": "Dexamethasone; Neomycin; Polymyxin B",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1049128,
+        "totalPatients": 832122,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/DexamethasoneNeomycinPolymyxinB"
+          }
+        }
+      }
+    },
+    {
+      "rank": 261,
+      "canonicalGenericName": "Calcium Phosphate; Cholecalciferol",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1043667,
+        "totalPatients": 418270,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/CalciumPhosphateCholecalciferol"
+          }
+        }
+      }
+    },
+    {
+      "rank": 262,
+      "canonicalGenericName": "Acetaminophen; Butalbital; Caffeine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1039901,
+        "totalPatients": 655619,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AcetaminophenButalbitalCaffeine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 263,
+      "canonicalGenericName": "Guanfacine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1039054,
+        "totalPatients": 176625,
+        "annualChange": 12,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Guanfacine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 264,
+      "canonicalGenericName": "Sodium Fluoride",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 1037661,
+        "totalPatients": 559898,
+        "annualChange": 43,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/SodiumFluoride"
+          }
+        }
+      }
+    },
+    {
+      "rank": 265,
+      "canonicalGenericName": "Codeine; Guaifenesin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 972224,
+        "totalPatients": 834325,
+        "annualChange": 7,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/CodeineGuaifenesin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 266,
+      "canonicalGenericName": "Lactulose",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 966210,
+        "totalPatients": 388255,
+        "annualChange": 1,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lactulose"
+          }
+        }
+      }
+    },
+    {
+      "rank": 267,
+      "canonicalGenericName": "Fluorouracil",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 964215,
+        "totalPatients": 793472,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Fluorouracil"
+          }
+        }
+      }
+    },
+    {
+      "rank": 268,
+      "canonicalGenericName": "Ipratropium",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 944080,
+        "totalPatients": 538618,
+        "annualChange": 49,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ipratropium"
+          }
+        }
+      }
+    },
+    {
+      "rank": 269,
+      "canonicalGenericName": "Olopatadine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 930171,
+        "totalPatients": 377675,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Olopatadine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 270,
+      "canonicalGenericName": "Chlorhexidine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 912485,
+        "totalPatients": 777371,
+        "annualChange": 40,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Chlorhexidine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 271,
+      "canonicalGenericName": "Nabumetone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 869463,
+        "totalPatients": 270062,
+        "annualChange": 32,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Nabumetone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 272,
+      "canonicalGenericName": "Mometasone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 865193,
+        "totalPatients": 545150,
+        "annualChange": 39,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Mometasone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 273,
+      "canonicalGenericName": "Polyethylene Glycol 3350 With Electrolytes",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 842997,
+        "totalPatients": 785849,
+        "annualChange": 9,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/PolyethyleneGlycol3350WithElectrolytes"
+          }
+        }
+      }
+    },
+    {
+      "rank": 274,
+      "canonicalGenericName": "Hydroquinone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 835288,
+        "totalPatients": 449868,
+        "annualChange": 6,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Hydroquinone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 275,
+      "canonicalGenericName": "Phenazopyridine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 827433,
+        "totalPatients": 633150,
+        "annualChange": 0,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Phenazopyridine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 276,
+      "canonicalGenericName": "Loperamide",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 822307,
+        "totalPatients": 351347,
+        "annualChange": 21,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Loperamide"
+          }
+        }
+      }
+    },
+    {
+      "rank": 277,
+      "canonicalGenericName": "Lidocaine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 810186,
+        "totalPatients": 482428,
+        "annualChange": 15,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lidocaine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 278,
+      "canonicalGenericName": "Ciclopirox",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 787556,
+        "totalPatients": 502983,
+        "annualChange": 31,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ciclopirox"
+          }
+        }
+      }
+    },
+    {
+      "rank": 279,
+      "canonicalGenericName": "Cefuroxime",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 783926,
+        "totalPatients": 626445,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Cefuroxime"
+          }
+        }
+      }
+    },
+    {
+      "rank": 280,
+      "canonicalGenericName": "Betamethasone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 760520,
+        "totalPatients": 569106,
+        "annualChange": 17,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Betamethasone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 281,
+      "canonicalGenericName": "Brompheniramine; Dextromethorphan; Pseudoephedrine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 748649,
+        "totalPatients": 578476,
+        "annualChange": 16,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/BrompheniramineDextromethorphanPseudoephedrine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 282,
+      "canonicalGenericName": "Ethinyl Estradiol; Norgestrel",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 726740,
+        "totalPatients": 176164,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/EthinylEstradiolNorgestrel"
+          }
+        }
+      }
+    },
+    {
+      "rank": 283,
+      "canonicalGenericName": "Ciprofloxacin; Dexamethasone",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 723485,
+        "totalPatients": 664539,
+        "annualChange": 3,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/CiprofloxacinDexamethasone"
+          }
+        }
+      }
+    },
+    {
+      "rank": 284,
+      "canonicalGenericName": "Diphenhydramine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 707624,
+        "totalPatients": 278928,
+        "annualChange": 26,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Diphenhydramine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 285,
+      "canonicalGenericName": "Ethinyl Estradiol; Norelgestromin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 658000,
+        "totalPatients": 219111,
+        "annualChange": 18,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/EthinylEstradiolNorelgestromin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 286,
+      "canonicalGenericName": "Atropine; Diphenoxylate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 614352,
+        "totalPatients": 222391,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/AtropineDiphenoxylate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 287,
+      "canonicalGenericName": "Indomethacin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 593608,
+        "totalPatients": 310001,
+        "annualChange": 31,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Indomethacin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 288,
+      "canonicalGenericName": "Niacin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 534979,
+        "totalPatients": 138204,
+        "annualChange": 29,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Niacin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 289,
+      "canonicalGenericName": "Lactate",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 533902,
+        "totalPatients": 210534,
+        "annualChange": 2,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Lactate"
+          }
+        }
+      }
+    },
+    {
+      "rank": 290,
+      "canonicalGenericName": "Vitamin E",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 519661,
+        "totalPatients": 265241,
+        "annualChange": 46,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/VitaminE"
+          }
+        }
+      }
+    },
+    {
+      "rank": 291,
+      "canonicalGenericName": "Guaifenesin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 511688,
+        "totalPatients": 252124,
+        "annualChange": 4,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Guaifenesin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 292,
+      "canonicalGenericName": "Pseudoephedrine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 497307,
+        "totalPatients": 260899,
+        "annualChange": 14,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Pseudoephedrine"
+          }
+        }
+      }
+    },
+    {
+      "rank": 293,
+      "canonicalGenericName": "Bisacodyl",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 481188,
+        "totalPatients": 210150,
+        "annualChange": 22,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Bisacodyl"
+          }
+        }
+      }
+    },
+    {
+      "rank": 294,
+      "canonicalGenericName": "Riboflavin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 451739,
+        "totalPatients": 87204,
+        "annualChange": 8,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Riboflavin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 295,
+      "canonicalGenericName": "Ivermectin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 450417,
+        "totalPatients": 117070,
+        "annualChange": 19,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ivermectin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 296,
+      "canonicalGenericName": "Etodolac",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 450221,
+        "totalPatients": 232690,
+        "annualChange": 17,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Etodolac"
+          }
+        }
+      }
+    },
+    {
+      "rank": 297,
+      "canonicalGenericName": "Lactobacillus Acidophilus",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 445216,
+        "totalPatients": 193744,
+        "annualChange": 77,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/LactobacillusAcidophilus"
+          }
+        }
+      }
+    },
+    {
+      "rank": 298,
+      "canonicalGenericName": "Tobramycin",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 424144,
+        "totalPatients": 281102,
+        "annualChange": 17,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Tobramycin"
+          }
+        }
+      }
+    },
+    {
+      "rank": 299,
+      "canonicalGenericName": "Ketotifen",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 409520,
+        "totalPatients": 185557,
+        "annualChange": 56,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/Ketotifen"
+          }
+        }
+      }
+    },
+    {
+      "rank": 300,
+      "canonicalGenericName": "Loratadine; Pseudoephedrine",
+      "aliases": [],
+      "therapeuticClasses": [],
+      "dispensedDosageForms": [],
+      "metadata": {
+        "totalPrescriptions": 408298,
+        "totalPatients": 118353,
+        "annualChange": 11,
+        "source": {
+          "clinccalc": {
+            "top300IndexUrl": "(seed script)",
+            "drugDetailUrl": "https://clincalc.com/DrugStats/Drugs/LoratadinePseudoephedrine"
+          }
+        }
+      }
+    }
+  ]
+}
