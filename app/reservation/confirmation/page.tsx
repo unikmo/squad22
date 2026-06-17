@@ -91,6 +91,10 @@ export default async function ConfirmationPage({
           </div>
 
           <div className="mt-6 text-xs text-gray-500">
+            Earn 1% back in pending IPNUS points after the pharmacy completes the reservation.
+          </div>
+
+          <div className="mt-6 text-xs text-gray-500">
             Prescription policy: Prescription drugs require a valid prescription before reservation confirmation. OTC products do not require prescriptions.
           </div>
 

@@ -2,24 +2,30 @@ import { NextResponse } from "next/server";
 import { db } from "../../lib/ipn-db";
 
 function getString(form: FormData, key: string) {
-  const v = form.get(key);
-  if (typeof v !== "string") return "";
-  return v;
+  const value = form.get(key);
+
+  if (typeof value !== "string") {
+    return "";
+  }
+
+  return value;
 }
 
-function pad2(n: number) {
-  return String(n).padStart(2, "0");
+function pad2(value: number) {
+  return String(value).padStart(2, "0");
 }
 
-function todayYYMMDD(d = new Date()) {
-  const yy = String(d.getFullYear()).slice(-2);
-  const mm = pad2(d.getMonth() + 1);
-  const dd = pad2(d.getDate());
+function todayYYMMDD(date = new Date()) {
+  const yy = String(date.getFullYear()).slice(-2);
+  const mm = pad2(date.getMonth() + 1);
+  const dd = pad2(date.getDate());
+
   return `${yy}${mm}${dd}`;
 }
 
-function reservationNumberFromParts(yyMMdd: string, seq: number) {
-  const suffix = String(seq).padStart(6, "0");
+function reservationNumberFromParts(yyMMdd: string, sequence: number) {
+  const suffix = String(sequence).padStart(6, "0");
+
   return `${yyMMdd}${suffix}`;
 }
 
@@ -27,39 +33,79 @@ function createdIdForReservation(reservationNumber: string, pharmacyNpi: string)
   return `r-${pharmacyNpi}-${reservationNumber}`;
 }
 
+function parseDeliveryAddress(raw: string) {
+  if (!raw) {
+    return null;
+  }
+
+  try {
+    const parsed = JSON.parse(raw);
+
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return null;
+    }
+
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
 export async function POST(req: Request) {
   try {
     const form = await req.formData();
 
-    const npi = getString(form, "npi").trim();
-    const pharmacyNpi = npi; // alias
-
+    const pharmacyNpi = getString(form, "npi").trim();
     const drug = getString(form, "drug").trim();
     const strength = getString(form, "strength").trim();
     const quantity = Math.max(1, Number(getString(form, "quantity") || "30"));
     const zip = getString(form, "zip").trim();
 
+    const fulfillmentMethodRaw = getString(form, "fulfillmentMethod").trim();
+    const allowedFulfillmentMethods = new Set(["pickup", "local_delivery"]);
+    const fulfillmentMethod = fulfillmentMethodRaw || "pickup";
+
+    const deliveryAddressRaw = getString(form, "deliveryAddress").trim();
+    const deliveryAddress = parseDeliveryAddress(deliveryAddressRaw);
+
+    const rxOnFile = getString(form, "rxOnFile").trim() === "true";
+    const rxUploadAcknowledged =
+      getString(form, "rxUploadAcknowledged").trim() === "true";
+
     const firstName = getString(form, "firstName").trim();
     const lastName = getString(form, "lastName").trim();
-    const fullName = [firstName, lastName].filter(Boolean).join(" ").trim() || "Patient";
+    const fullName =
+      [firstName, lastName].filter(Boolean).join(" ").trim() || "Patient";
 
     const phone = getString(form, "phone").trim();
     const email = getString(form, "email").trim();
     const notes = getString(form, "notes").trim();
 
-    // Client-submitted pricing must not be trusted.
-    // Reservations must be backed by ACTIVE DrugPrice rows.
-    // We still accept these fields for backward compatibility with the UI,
-    // but they are ignored on the server.
-    getString(form, "reservePrice");
-    getString(form, "priceLow");
-    getString(form, "priceHigh");
+    const doctorName = getString(form, "doctorName").trim();
+    const doctorCity = getString(form, "doctorCity").trim();
+    const doctorState = getString(form, "doctorState").trim();
+    const referralCode = getString(form, "referralCode").trim();
 
+    if (!pharmacyNpi) {
+      return NextResponse.json({ error: "Missing pharmacy npi" }, { status: 400 });
+    }
 
-    if (!pharmacyNpi) return NextResponse.json({ error: "Missing pharmacy npi" }, { status: 400 });
-    if (!drug) return NextResponse.json({ error: "Missing drug" }, { status: 400 });
+    if (!drug) {
+      return NextResponse.json({ error: "Missing drug" }, { status: 400 });
+    }
 
-    await db.pharmacy.upsert({
+    if (!strength) {
+      return NextResponse.json({ error: "Missing strength" }, { status: 400 });
+    }
+
+    if (!allowedFulfillmentMethods.has(fulfillmentMethod)) {
+      return NextResponse.json(
+        { error: "Invalid fulfillmentMethod" },
+        { status: 400 },
+      );
+    }
+
+    const pharmacy = await db.pharmacy.upsert({
       where: { npi: pharmacyNpi },
       update: {},
       create: {
@@ -76,20 +122,45 @@ export async function POST(req: Request) {
         pricingPublished: false,
         reservationsEnabled: true,
       },
+      select: {
+        npi: true,
+        deliveryEnabled: true,
+        deliveryRadiusMiles: true,
+        deliveryFeeCents: true,
+      },
     });
 
-    const yyMMdd = todayYYMMDD();
+    if (fulfillmentMethod === "local_delivery") {
+      if (!pharmacy.deliveryEnabled) {
+        return NextResponse.json(
+          { error: "Local delivery is not enabled for this pharmacy" },
+          { status: 400 },
+        );
+      }
 
-    const counter = await db.reservationCounter.findUnique({ where: { yyMMdd } });
-    const nextNumber = counter?.nextNumber ?? 1;
+      if (
+        pharmacy.deliveryRadiusMiles === null ||
+        pharmacy.deliveryRadiusMiles === undefined
+      ) {
+        return NextResponse.json(
+          { error: "deliveryRadiusMiles must be set for local delivery" },
+          { status: 400 },
+        );
+      }
 
-    const reservationNumber = reservationNumberFromParts(yyMMdd, nextNumber);
+      if (pharmacy.deliveryRadiusMiles > 20) {
+        return NextResponse.json(
+          { error: "deliveryRadiusMiles must be 20 miles or less" },
+          { status: 400 },
+        );
+      }
 
-    // Validate DrugPrice existence and compute reservation price from stored cash prices only.
-    // We use the ACTIVE cash price cents for the exact (pharmacyNpi, drugName, strength, quantity).
-    const status = "active";
-    if (!strength) {
-      return NextResponse.json({ error: "Missing strength" }, { status: 400 });
+      if (!deliveryAddress) {
+        return NextResponse.json(
+          { error: "deliveryAddress is required for local delivery" },
+          { status: 400 },
+        );
+      }
     }
 
     const activePrice = await db.drugPrice.findUnique({
@@ -99,26 +170,100 @@ export async function POST(req: Request) {
           drugName: drug,
           strength,
           quantity,
-          status,
+          status: "active",
         },
+      },
+      select: {
+        id: true,
+        drugName: true,
+        strength: true,
+        quantity: true,
+        pharmacyNpi: true,
+        cashPriceCents: true,
+        productType: true,
       },
     });
 
     if (!activePrice) {
       return NextResponse.json(
         {
-          error: "No active DrugPrice published for this reservation (CSV/Wizard required).",
+          error:
+            "No active DrugPrice published for this reservation. CSV upload or wizard pricing is required.",
         },
         { status: 400 },
       );
     }
 
-    const cashDollars = activePrice.cashPriceCents / 100;
-    const reservePrice = Math.round(cashDollars * 100) / 100;
+    const cashPriceCents = activePrice.cashPriceCents;
+    const reservePrice = Math.round((cashPriceCents / 100) * 100) / 100;
+    const productType = activePrice.productType;
 
-    // Current MVP UI expects low/high. With a single stored cash price we persist it into both.
-    const priceLow = reservePrice;
-    const priceHigh = reservePrice;
+    let prescriptionStatus: string;
+
+    if (productType === "otc") {
+      prescriptionStatus = "not_required";
+    } else {
+      if (!rxOnFile && !rxUploadAcknowledged) {
+        return NextResponse.json(
+          {
+            error:
+              "Prescription reservations require rxOnFile=true or rxUploadAcknowledged=true",
+          },
+          { status: 400 },
+        );
+      }
+
+      prescriptionStatus = rxOnFile
+        ? "on_file"
+        : "required_pending_verification";
+    }
+
+    const rewardRateBps = 100;
+    const rewardPointsEstimated = Math.floor(
+      (cashPriceCents * rewardRateBps) / 10000,
+    );
+    const rewardStatus = "pending";
+
+    const yyMMdd = todayYYMMDD();
+
+    const counter = await db.reservationCounter.findUnique({
+      where: { yyMMdd },
+      select: { nextNumber: true },
+    });
+
+    const nextNumber = counter?.nextNumber ?? 1;
+    const reservationNumber = reservationNumberFromParts(yyMMdd, nextNumber);
+
+    const deliveryAddressFinal =
+      fulfillmentMethod === "local_delivery" ? deliveryAddress : null;
+
+    const deliveryFeeCentsFinal =
+      fulfillmentMethod === "local_delivery"
+        ? pharmacy.deliveryFeeCents ?? 0
+        : null;
+
+    let doctorReferralId: string | null = null;
+    const shouldCreateDoctorReferral = Boolean(doctorName || referralCode);
+
+    if (shouldCreateDoctorReferral) {
+      const safeDoctorName = doctorName || "Unknown Doctor";
+      const safeCity = doctorCity || "";
+      const safeState = doctorState || "";
+      const safeReferralCode = referralCode || `REF_${pharmacyNpi}_${Date.now()}`;
+
+      const doctorReferral = await db.doctorReferral.create({
+        data: {
+          id: `dr-${safeReferralCode}`,
+          doctorName: safeDoctorName,
+          city: safeCity,
+          state: safeState,
+          referralCode: safeReferralCode,
+        },
+        select: { id: true },
+      });
+
+      doctorReferralId = doctorReferral.id;
+    }
 
     const created = await db.reservation.create({
       data: {
@@ -127,60 +272,85 @@ export async function POST(req: Request) {
         status: "pending",
         reservationFeeCents: 500,
         reservationFeeStatus: "waived",
+
         pharmacyNpi,
+
+        fulfillmentMethod,
+        deliveryAddress: deliveryAddressFinal,
+        deliveryFeeCents: deliveryFeeCentsFinal,
+
+        rewardRateBps,
+        rewardPointsEstimated,
+        rewardStatus,
+
+        prescriptionStatus,
+
         reservationInput: {
           fullName,
           phone,
           email: email || null,
           rxUpload: null,
           notes: notes || null,
-          strength: strength || null,
+          strength,
           quantity,
           zip,
           drug,
+          rxOnFile,
+          rxUploadAcknowledged,
+          doctorReferralId,
+          doctorName: doctorName || null,
+          referralCode: referralCode || null,
         },
+
         priceResult: {
+          drugPriceId: activePrice.id,
+          drugName: activePrice.drugName,
+          strength: activePrice.strength,
+          quantity: activePrice.quantity,
+          cashPriceCents,
+          pharmacyNpi: activePrice.pharmacyNpi,
+          priceSource: "pharmacy_submitted",
+          productType,
+
           reservePrice,
           currency: "USD",
-          priceLow,
-          priceHigh,
+          priceLow: reservePrice,
+          priceHigh: reservePrice,
           drug,
-          strength: strength || null,
-          quantity,
           zip,
         },
       },
       select: {
         id: true,
         reservationNumber: true,
-        createdAt: true,
-        status: true,
-        reservationFeeCents: true,
-        reservationFeeStatus: true,
       },
     });
-
 
     await db.reservationCounter.upsert({
       where: { yyMMdd },
       update: { nextNumber: nextNumber + 1 },
-      create: { id: yyMMdd, yyMMdd, nextNumber: nextNumber + 1 },
+      create: {
+        id: yyMMdd,
+        yyMMdd,
+        nextNumber: nextNumber + 1,
+      },
     });
 
     return NextResponse.redirect(
       new URL(
-        `/reservation/confirmation?reservationId=${encodeURIComponent(created.id)}&reservationNumber=${encodeURIComponent(
+        `/reservation/confirmation?reservationId=${encodeURIComponent(
+          created.id,
+        )}&reservationNumber=${encodeURIComponent(
           created.reservationNumber,
         )}&npi=${encodeURIComponent(pharmacyNpi)}`,
         req.url,
       ),
       303,
     );
-  } catch (e) {
+  } catch (error) {
     return NextResponse.json(
-      { error: e instanceof Error ? e.message : "Unknown error" },
+      { error: error instanceof Error ? error.message : "Unknown error" },
       { status: 500 },
     );
   }
 }
-

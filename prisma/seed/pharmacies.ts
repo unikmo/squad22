@@ -21,11 +21,8 @@ function normalize(value: string | undefined | null) {
 
 function get(row: Row, ...keys: string[]) {
   for (const key of keys) {
-    if (row[key] !== undefined) {
-      return row[key];
-    }
+    if (row[key] !== undefined) return row[key];
   }
-
   return "";
 }
 
@@ -58,14 +55,13 @@ async function main() {
     scanned++;
 
     const npi = normalize(get(row, "npi", "NPI"));
-
     if (!npi) {
       skipped++;
       continue;
     }
 
     const state = normalize(get(row, "state", "State")).toUpperCase();
-    stateCounts[state] = (stateCounts[state] ?? 0) + 1;
+    if (state) stateCounts[state] = (stateCounts[state] ?? 0) + 1;
 
     const id = `ph-${npi}`;
 
@@ -91,6 +87,7 @@ async function main() {
       await prisma.pharmacy.update({
         where: { npi },
         data: {
+          id: `ph-${npi}`,
           name,
           address1,
           address2: address2 || null,
@@ -98,6 +95,10 @@ async function main() {
           state,
           zip,
           phone,
+
+          // Keep onboarding fields lean and consistent
+          outreachStatus: "not_started",
+          enrichmentStatus: "missing",
         },
       });
 
@@ -114,6 +115,15 @@ async function main() {
           state,
           zip,
           phone,
+
+          outreachStatus: "not_started",
+          enrichmentStatus: "missing",
+          website: null,
+          email: null,
+          preferredContactMethod: null,
+          enrichmentSource: null,
+          outreachLastSentAt: null,
+          outreachAttempts: 0,
         },
       });
 
@@ -138,3 +148,4 @@ main()
     await prisma.$disconnect();
     process.exit(1);
   });
+

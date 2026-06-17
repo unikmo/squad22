@@ -21,8 +21,8 @@ export default function SearchPage() {
         <SearchFormClient drugs={drugs} />
 
         <div className="mt-8 rounded-2xl border bg-gray-50 p-4 text-sm text-gray-700">
-          <div className="font-semibold text-gray-900">MVP note</div>
-          <div>This version uses mocked in-memory data (no database yet). The UI + flow are production-shaped.</div>
+          <div className="font-semibold text-gray-900">Real pricing & reservations</div>
+          <div>Search cash prices and reserve with participating independent pharmacies.</div>
         </div>
       </div>
     </div>

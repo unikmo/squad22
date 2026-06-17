@@ -9,7 +9,7 @@ export default function Home() {
       <nav className="border-b bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="text-3xl font-bold text-emerald-600">IPN</div>
+            <div className="text-3xl font-bold text-emerald-600">IPNUS</div>
             <span className="text-gray-500 font-medium">Independent Pharmacy Network</span>
           </div>
           <div className="flex items-center gap-8 text-sm font-medium">
@@ -34,7 +34,7 @@ export default function Home() {
               <br />
               Search cash prices and reserve with confidence.
             </p>
-            <Link 
+            <Link
               href="/search"
               className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-4 rounded-2xl text-lg font-semibold transition-all"
             >
@@ -44,9 +44,9 @@ export default function Home() {
 
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src="https://images.unsplash.com/photo-1584308666744-7a4c2b6e0c0f" 
-              alt="Pharmacy" 
+            <img
+              src="https://images.unsplash.com/photo-1584308666744-7a4c2b6e0c0f"
+              alt="Pharmacy"
               className="w-full h-full object-cover"
             />
           </div>
@@ -55,3 +55,4 @@ export default function Home() {
     </div>
   );
 }
+

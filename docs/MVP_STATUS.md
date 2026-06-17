@@ -48,6 +48,12 @@
 - UI wiring of admin/pharmacy actions into the full confirmation flows (MVP supports actions at API + dashboards; the rest of the UI can be iterated).
 - Any authentication/authorization layer (admin/pharmacy actions are currently available without auth).
 
+## Phase 3/4 – Onboarding engine readiness
+- Implemented ClaimInvite token + `/claim-invite/[token]` page.
+- Updated `/api/claim-submissions` to bind inviteToken → ClaimInvite used + Pharmacy outreachStatus.
+- Added `/api/outreach-export` for CSV export of outreach pipeline.
+- Smoke test assertions extend Phase 3/4 foundations validation.
+
 ## Known limitations
 - Pharmacy reservation action transitions are a simple status update (no additional business-rule validation yet).
 - Reservation counter is per-day, and the sequential number is allocated optimistically within the submission flow (adequate for MVP; further concurrency-hardening may be added later).

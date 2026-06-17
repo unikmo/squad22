@@ -22,15 +22,65 @@ model Pharmacy {
   pricingPublished            Boolean  @default(false)
   reservationsEnabled         Boolean  @default(false)
 
-  createdAt                   DateTime @default(now())
-  updatedAt                   DateTime @updatedAt
+  // --- Phase 3 (lean onboarding) enrichment ---
+  website                     String? // nullable
+  email                       String? // nullable
+  preferredContactMethod     String? // nullable
 
+  outreachStatus              String   @default("not_started")
+  outreachLastSentAt         DateTime?
+  outreachAttempts           Int      @default(0)
+
+  enrichmentStatus           String   @default("missing")
+  enrichmentSource           String?
+
+  // --- Phase 4 (onboarding engine scaffolding) ---
+  // Local delivery support (max 20 miles treated as hard cap by API/UI/smoke)
+  deliveryEnabled            Boolean  @default(false)
+  deliveryRadiusMiles        Int?
+  deliveryFeeCents           Int?
+  deliveryMinimumOrderCents Int?
+  freeDeliveryThresholdCents Int?
+
+  // Founding pharmacy program
+  foundingPartner            Boolean @default(false)
+  freeTrialMonths            Int     @default(6)
+
+  // Relations
   pharmacyClaims             PharmacyClaim[]
   reservations                Reservation[]
   drugPrices                 DrugPrice[]
+  claimInvites               ClaimInvite[]
+
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
 
   @@index([state])
+  @@index([outreachStatus])
 }
+
+
+model ClaimInvite {
+  id            String   @id @default(cuid())
+  token         String   @unique
+
+  pharmacyNpi   String
+  pharmacy      Pharmacy @relation(fields: [pharmacyNpi], references: [npi])
+
+  status        String   @default("active") // active | used | revoked
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  expiresAt     DateTime?
+
+  usedClaimId   String?
+  metadata      Json? // optional batch metadata
+
+  @@index([pharmacyNpi])
+  @@index([status])
+  @@index([createdAt])
+}
+
 
 
 model PharmacyClaim {
@@ -61,6 +111,17 @@ model Reservation {
   reservationFeeCents  Int     @default(500)
   reservationFeeStatus String  @default("waived")
 
+  // --- Phase 4 fulfillment + rewards scaffolding ---
+  fulfillmentMethod String  @default("pickup") // pickup | local_delivery
+  deliveryAddress   Json?
+  deliveryFeeCents  Int?
+
+  rewardRateBps           Int @default(100) // 100 bps = 1%
+  rewardPointsEstimated   Int @default(0)
+  rewardStatus            String @default("pending")
+
+  prescriptionStatus      String @default("unknown") // unknown | not_required | required_pending_verification | on_file
+
   // Denormalized FK to simplify MVP
   pharmacyNpi       String
   pharmacy          Pharmacy @relation(fields: [pharmacyNpi], references: [npi])
@@ -71,6 +132,7 @@ model Reservation {
 }
 
 
+
 model ReservationCounter {
   id           String   @id // YYYYMMDD
   yyMMdd      String   @unique
@@ -79,19 +141,22 @@ model ReservationCounter {
 }
 
 model DrugPrice {
-  id            String   @id
-  pharmacyId   String
-  pharmacyNpi  String
-  drugName     String
-  strength     String
-  quantity     Int
+  id              String   @id
+  pharmacyId     String
+  pharmacyNpi    String
+  drugName       String
+  strength       String
+  quantity       Int
   cashPriceCents Int
-  ndc           String?
-  source        String   @default("manual")
-  status        String   @default("active")
-  effectiveDate DateTime @default(now())
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  ndc             String?
+
+  // Phase 4: product type supports prescription vs OTC reservation flows.
+  productType    String   @default("prescription") // prescription | otc
+  source         String   @default("manual")
+  status         String   @default("active")
+  effectiveDate  DateTime @default(now())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
   pharmacy      Pharmacy @relation(fields: [pharmacyNpi], references: [npi])
 
@@ -106,5 +171,20 @@ model DrugPrice {
   @@index([status])
   @@unique([pharmacyNpi, drugName, strength, quantity, status])
 }
+
+model DoctorReferral {
+  id                         String   @id
+  doctorName                 String
+  city                       String
+  state                      String
+  referralCode              String   @unique
+  referralCount             Int      @default(0)
+  estimatedPatientSavingsCents Int  @default(0)
+  status                     String   @default("active")
+
+  createdAt                  DateTime @default(now())
+  updatedAt                  DateTime @updatedAt
+}
+
 
 

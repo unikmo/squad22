@@ -19,19 +19,39 @@ export async function POST(req: Request) {
     const email = getString(form, "email").trim();
     const phone = getString(form, "phone").trim();
     const message = getString(form, "message").trim();
+    const inviteToken = getString(form, "inviteToken").trim();
 
-    if (!pharmacyNpiRaw) {
+    if (!pharmacyNpiRaw && !inviteToken) {
       return NextResponse.json({ error: "Missing npi" }, { status: 400 });
     }
+
+    // Invite-bound flow: derive pharmacyNpi from ClaimInvite.
+    let derivedPharmacyNpi: string | null = null;
+    let claimInvite: { token: string; pharmacyNpi: string; status: string; usedClaimId: string | null } | null = null;
+
+    if (inviteToken) {
+      claimInvite = await db.claimInvite.findUnique({
+        where: { token: inviteToken },
+        select: { token: true, pharmacyNpi: true, status: true, usedClaimId: true },
+      });
+
+
+      if (!claimInvite) return NextResponse.json({ error: "Invalid inviteToken" }, { status: 400 });
+      if (claimInvite.status !== "active") return NextResponse.json({ error: "Invite token not active" }, { status: 400 });
+
+      derivedPharmacyNpi = claimInvite.pharmacyNpi;
+    }
+
+    const finalPharmacyNpi = (derivedPharmacyNpi ?? pharmacyNpiRaw).trim();
 
     // For MVP: if pharmacy does not exist (seed not run yet), create a minimal placeholder.
     // Seed is expected to populate full address fields.
     const pharmacy = await db.pharmacy.upsert({
-      where: { npi: pharmacyNpiRaw },
+      where: { npi: finalPharmacyNpi },
       update: {},
       create: {
-        id: `ph-${pharmacyNpiRaw}`,
-        npi: pharmacyNpiRaw,
+        id: `ph-${finalPharmacyNpi}`,
+        npi: finalPharmacyNpi,
         name: pharmacyName || "Unknown pharmacy",
         address1: "",
         address2: null,
@@ -42,6 +62,14 @@ export async function POST(req: Request) {
         profileStatus: "unclaimed",
         pricingPublished: false,
         reservationsEnabled: false,
+        website: null,
+        email: null,
+        preferredContactMethod: null,
+        outreachStatus: "not_started",
+        outreachLastSentAt: null,
+        outreachAttempts: 0,
+        enrichmentStatus: "missing",
+        enrichmentSource: null,
       },
     });
 
@@ -57,15 +85,34 @@ export async function POST(req: Request) {
           email,
           phone,
           message: message || null,
+          inviteToken: inviteToken || null,
         },
       },
       select: { id: true, createdAt: true, pharmacyNpi: true, status: true },
     });
 
-    await db.pharmacy.update({
-      where: { npi: pharmacy.npi },
-      data: { profileStatus: "pending_claim" },
-    });
+    if (inviteToken && claimInvite) {
+      await db.$transaction(async (tx) => {
+        await tx.claimInvite.update({
+          where: { token: inviteToken },
+          data: { status: "used", usedClaimId: created.id },
+        });
+
+        await tx.pharmacy.update({
+          where: { npi: pharmacy.npi },
+          data: {
+            profileStatus: "pending_claim",
+            outreachStatus: "claim_submitted",
+          },
+        });
+      });
+    } else {
+      await db.pharmacy.update({
+        where: { npi: pharmacy.npi },
+        data: { profileStatus: "pending_claim" },
+      });
+    }
+
 
     return NextResponse.redirect(
       new URL(`/claim/confirmation?claimId=${encodeURIComponent(created.id)}&npi=${encodeURIComponent(pharmacy.npi)}`, req.url),
