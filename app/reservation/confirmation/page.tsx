@@ -30,6 +30,8 @@ export default async function ConfirmationPage({
   const feeStatus = reservation?.reservationFeeStatus ?? "waived";
   const feeDollars = Math.round(feeCents) / 100;
 
+  const estimatedPoints = reservation?.rewardPointsEstimated ?? null;
+  const hasEstimatedPoints = typeof estimatedPoints === "number" && Number.isFinite(estimatedPoints);
 
   return (
     <div className="min-h-screen bg-white">
@@ -37,10 +39,11 @@ export default async function ConfirmationPage({
 
       <div className="max-w-3xl mx-auto px-6 py-14">
         <div className="rounded-2xl border bg-white p-8 shadow-sm">
-          <div className="text-emerald-700 font-semibold">Reservation request sent</div>
+          <div className="text-emerald-700 font-semibold">Reservation submitted</div>
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 mt-2">
             We’ll contact you to confirm pickup.
           </h1>
+
 
           <div className="mt-6 grid md:grid-cols-2 gap-4">
             <div className="rounded-xl bg-gray-50 p-4">
@@ -63,7 +66,7 @@ export default async function ConfirmationPage({
                 This fee is not currently charged. The platform reserves the right to activate this policy in the future.
               </div>
               <div className="mt-3 text-sm text-gray-700">
-                Refund rules (policy preview):
+Prescription verification:
                 <ul className="list-disc pl-5 mt-1 space-y-1">
                   <li>Refunded if the pharmacy cannot fulfill the reservation.</li>
                   <li>Refunded after successful pickup.</li>
@@ -91,7 +94,13 @@ export default async function ConfirmationPage({
           </div>
 
           <div className="mt-6 text-xs text-gray-500">
-            Earn 1% back in pending IPNUS points after the pharmacy completes the reservation.
+            {hasEstimatedPoints ? (
+              <>
+                Earn <span className="font-medium text-gray-900">{estimatedPoints} pending IPNUS points</span> after the pharmacy completes the reservation.
+              </>
+            ) : (
+              <>Earn pending IPNUS points after the pharmacy completes the reservation.</>
+            )}
           </div>
 
           <div className="mt-6 text-xs text-gray-500">

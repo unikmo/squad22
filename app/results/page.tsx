@@ -153,29 +153,40 @@ export default async function ResultsPage({
                   <div className="flex flex-col sm:items-end gap-2">
                     {prof.tier === "claimed" && r.hasPublished && r.reservePrice != null ? (
                       <>
-                        <a
-                          href={
-                            `/reserve?pharmacyId=${encodeURIComponent(r.pharmacyId)}` +
-                            `&drug=${encodeURIComponent(r.drug)}` +
-                            `&strength=${encodeURIComponent(r.strength ?? "")}` +
-                            `&quantity=${encodeURIComponent(String(r.quantity))}` +
-                            `&zip=${encodeURIComponent(r.zip)}`
-                          }
-                          className="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-semibold transition"
-                        >
-                          Reserve at This Price
-                        </a>
-                        <div className="text-xs text-gray-500">No login. We’ll contact you to confirm.</div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="inline-flex items-center justify-center bg-white border border-amber-200 text-amber-800 px-6 py-3 rounded-xl font-semibold transition">
-                          Call pharmacy
-                        </div>
-                        <div className="text-xs text-gray-500">Price may not be published for this match.</div>
-                      </>
-                    )}
-                  </div>
+                        <div className="text-sm text-gray-600">
+                            <span className="text-gray-500">Pharmacy: </span>
+                            <span className="font-medium text-gray-900">{r.pharmacyNpi}</span>
+                            <div className="text-xs text-gray-500">Pickup/delivery availability: confirmed after reserve.</div>
+                          </div>
+                          <div className="text-sm text-gray-700">
+                            <span className="text-xs text-gray-500">Cash price</span>
+                            <div className="text-2xl font-bold text-gray-900 leading-tight">USD {r.reservePrice.toFixed(2)}</div>
+                          </div>
+                          <a
+                            href={
+                              `/reserve?pharmacyId=${encodeURIComponent(r.pharmacyId)}` +
+                              `&drug=${encodeURIComponent(r.drug)}` +
+                              `&strength=${encodeURIComponent(r.strength ?? "")}` +
+                              `&quantity=${encodeURIComponent(String(r.quantity))}` +
+                              `&zip=${encodeURIComponent(r.zip)}`
+                            }
+                            className="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-4 rounded-xl font-semibold text-base transition"
+                          >
+                            Reserve this price
+                          </a>
+                          <div className="text-xs text-gray-500">
+                            Pickup/Delivery: we’ll confirm availability after you reserve.
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="inline-flex items-center justify-center bg-white border border-amber-200 text-amber-800 px-6 py-3 rounded-xl font-semibold transition">
+                            Call pharmacy
+                          </div>
+                          <div className="text-xs text-gray-500">Price may not be published for this match.</div>
+                        </>
+                      )}
+                    </div>
                 </div>
               </div>
             );

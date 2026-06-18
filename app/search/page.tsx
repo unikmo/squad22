@@ -14,11 +14,12 @@ export default function SearchPage() {
         <div className="mb-6">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">Search real cash prices</h1>
           <p className="text-gray-600 mt-2">
-            Enter your medication and ZIP code. We’ll show independent pharmacies with realistic price ranges.
+            Search by medication and location (ZIP, street, or city). We’ll show independent pharmacies with realistic price ranges.
           </p>
         </div>
 
         <SearchFormClient drugs={drugs} />
+
 
         <div className="mt-8 rounded-2xl border bg-gray-50 p-4 text-sm text-gray-700">
           <div className="font-semibold text-gray-900">Real pricing & reservations</div>

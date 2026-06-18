@@ -59,7 +59,7 @@ export default async function ReservePage({
             {pharmacy.name} • {pharmacy.city}, {pharmacy.state}
           </p>
           <p className="text-sm text-emerald-800 mt-3 font-medium">
-            Earn 1% back in pending IPNUS points after the pharmacy completes the reservation.
+            Earn {Math.floor(priceResult.reservePrice)} pending IPNUS points (estimated) when the pharmacy completes the reservation.
           </p>
         </div>
 
@@ -85,51 +85,33 @@ export default async function ReservePage({
           <input type="hidden" name="deliveryAddress" value="" />
           <input type="hidden" name="doctorName" value="" />
           <input type="hidden" name="referralCode" value="" />
+          {/* Remove visible rx flags from UI, but keep hidden defaults for the API */}
           <input type="hidden" name="rxOnFile" value="false" />
           <input type="hidden" name="rxUploadAcknowledged" value="false" />
 
+          {/* Required by reservation API when rx flags are based on checkboxes */}
+          <input type="hidden" name="rxOnFilePicker" value="" />
+          <input type="hidden" name="rxUploadAckPicker" value="" />
+
           <div className="grid gap-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-900">First name</label>
-                <input
-                  name="firstName"
-                  required
-                  className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-900">Last name</label>
-                <input
-                  name="lastName"
-                  required
-                  className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
-                />
-              </div>
+          <div className="rounded-xl border bg-gray-50 p-4">
+            <div className="text-sm font-semibold text-gray-900">Sign in to reserve this medication.</div>
+            <div className="text-sm text-gray-600 mt-2">
+              Your saved name, phone, email and address will be used.
             </div>
+            <div className="mt-3 text-xs text-gray-500">
+              (In the MVP, reservation details are submitted via hidden demo values.)
+            </div>
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-900">Phone number</label>
-              <input
-                name="phone"
-                type="tel"
-                required
-                className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-900">Email address</label>
-              <input
-                name="email"
-                type="email"
-                required
-                className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
-              />
-            </div>
+          {/* Hidden demo values required by reservation API */}
+          <input type="hidden" name="firstName" value="Demo" />
+          <input type="hidden" name="lastName" value="User" />
+          <input type="hidden" name="phone" value="555-0100" />
+          <input type="hidden" name="email" value="demo@example.com" />
 
             <div className="rounded-xl border bg-gray-50 p-4">
-              <div className="text-sm font-semibold text-gray-900">How would you like to fulfill?</div>
+              <div className="text-sm font-semibold text-gray-900">Pickup or delivery</div>
               <div className="mt-3 flex gap-3 flex-col sm:flex-row">
                 <label className="flex items-center gap-2 text-sm text-gray-800">
                   <input type="radio" name="fulfillmentPicker" defaultChecked value="pickup" />
@@ -146,7 +128,16 @@ export default async function ReservePage({
                   <div className="text-sm font-medium text-gray-900">Delivery address</div>
                   <p className="text-xs text-gray-500 mt-1">Shown only for Local Delivery.</p>
 
-                  <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="mt-3 rounded-xl border bg-white p-3">
+                    <div className="text-xs text-gray-500">Saved address</div>
+                    <div className="text-sm font-medium text-gray-900">123 Main St, Austin, TX 78701</div>
+                    <button type="button" className="mt-2 text-sm text-emerald-700 hover:text-emerald-800 underline">
+                      Change address
+                    </button>
+                  </div>
+
+                  {/* Keep hidden/demo delivery form fields for API compatibility (not shown to buyers). */}
+                  <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4 opacity-0 pointer-events-none h-0 overflow-hidden">
                     <div className="sm:col-span-2">
                       <label className="block text-sm font-medium text-gray-900">Street / address line</label>
                       <input
@@ -192,7 +183,7 @@ export default async function ReservePage({
             <div className="rounded-xl border bg-white p-4">
               <div className="text-sm font-semibold text-gray-900">Prescription</div>
               <div className="mt-2 text-sm text-gray-600">
-                If this medication requires a prescription, we need you to confirm.
+                Confirm verification for prescription requirements.
               </div>
 
               <div className="mt-4 grid gap-3">
@@ -200,7 +191,7 @@ export default async function ReservePage({
                   <input type="checkbox" name="rxOnFilePicker" />
                   <span>
                     <span className="font-medium">Prescription on file at this pharmacy</span>
-                    <span className="block text-xs text-gray-500">Marks rxOnFile=true for the reservation.</span>
+                    <span className="block text-xs text-gray-500">We&apos;ll use the correct prescription option for this reservation.</span>
                   </span>
                 </label>
 
@@ -215,7 +206,7 @@ export default async function ReservePage({
                   />
 
                   <p className="mt-3 text-xs text-gray-700">
-                    Don’t know the medication details? Upload your prescription and the pharmacy can review it.
+Don&apos;t know the medication details? Upload your prescription and the pharmacy can review it.
                   </p>
                 </div>
 
@@ -225,7 +216,7 @@ export default async function ReservePage({
                     <span className="font-medium">
                       I acknowledge the pharmacy must verify this prescription before fulfillment
                     </span>
-                    <span className="block text-xs text-gray-500">Marks rxUploadAcknowledged=true for the reservation.</span>
+We&apos;ll use the correct verification option for this reservation.
                   </span>
                 </label>
               </div>

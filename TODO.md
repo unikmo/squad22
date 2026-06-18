@@ -1,17 +1,13 @@
-# TODO
-- [x] Update `app/pharmacy-dashboard/[npi]/page.tsx` to add missing MVP operational workflow alignment UI:
-  - [x] Pharmacy dashboard operational summary (name/NPI, profile/pricing/reservation statuses)
-  - [x] Founding partner + freeTrialMonths visibility
-  - [x] Local delivery settings summary + max 20 miles rule display
-  - [x] Price management section: CSV upload + manual repricing entry point (single engine)
-  - [x] Reservation management table: detailed fields + keep existing reservation status action buttons unchanged
-  - [x] Prescription review queue section placeholder for `required_pending_verification`
-  - [x] Branding: ensure IPNUS everywhere on pharmacy-facing pages
-  - [x] Remove any MVP/mock-data wording from pharmacy-facing pages (only if present)
+# TODO - UX cleanup remaining work
 
+## Step 1: Update files
+- [x] app/page.tsx: embed search card in homepage hero, remove CTA, add How it works section
+- [x] app/results/page.tsx: quick UX cleanup (cash price prominence, pharmacy label, reserve button prominent, pickup/delivery availability placeholder)
+- [ ] app/reserve/page.tsx: streamlined buyer flow, sign-in gate, remove visible first/last/phone/email inputs, rewards math via Math.floor(reservePrice), remove “Marks rx…” copy, pickup/delivery UI changes (keep hidden/demo values only if API requires)
+- [ ] app/reservation/confirmation/page.tsx: reservation number, pending points estimate (or generic), prescription verification message, remove policy/mock-data wording
 
-- [ ] Run checks:
-  - [ ] `npx tsc -p tsconfig.json --noEmit --pretty false`
-  - [ ] `npx eslint --max-warnings=0`
-  - [ ] `npm run build`
+## Step 2: Validate
+- [ ] npx tsc -p tsconfig.json --noEmit --pretty false
+- [ ] npx eslint --max-warnings=0
+- [ ] npm run build
 

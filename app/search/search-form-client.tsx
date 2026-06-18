@@ -110,15 +110,24 @@ export function SearchFormClient({ drugs }: Props) {
               className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-900">ZIP code</label>
-            <input
-              value={zip}
-              onChange={(e) => setZip(e.target.value)}
-              placeholder="e.g., 78701"
-              className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
-            />
+        <div>
+          <label className="block text-sm font-medium text-gray-900">Location</label>
+          <input
+            value={zip}
+            onChange={(e) => setZip(e.target.value)}
+            placeholder="ZIP, street, or city"
+            className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
+          />
+          <div className="mt-2">
+            <button
+              type="button"
+              className="text-sm text-emerald-700 hover:text-emerald-800 underline"
+            >
+              Use my current location
+            </button>
           </div>
+        </div>
+
         </div>
 
         <button

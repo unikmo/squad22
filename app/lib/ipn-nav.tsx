@@ -12,9 +12,6 @@ export function IPNNav() {
           <Link href="/search" className="hover:text-emerald-600">
             Search Prices
           </Link>
-          <Link href="/claim" className="hover:text-emerald-600">
-            Claim Your Pharmacy
-          </Link>
           <Link href="/pricing" className="hover:text-emerald-600">
             For Pharmacies
           </Link>
