@@ -29,17 +29,38 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-10">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <h1 className="text-6xl font-bold tracking-tighter text-gray-900 leading-tight mb-6">
-              Find affordable prescription prices<br />
-              at <span className="text-emerald-600">independent pharmacies</span>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 leading-tight mb-5">
+              Find real cash prices at independent pharmacies
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-lg">
-              Real Prices. No Coupons. No Fees. Support local pharmacies.
-              <br />
-              Search cash prices and reserve with confidence.
+            <p className="text-lg text-gray-600 mb-7 max-w-lg">
+              Search medication prices by ZIP code and reserve with confidence.
             </p>
 
-            <div className="mt-10">
+            <div className="mt-6">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
+                  <span aria-hidden>🏥</span> Real pharmacy prices
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
+                  <span aria-hidden>✅</span> No coupons
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
+                  <span aria-hidden>💳</span> No hidden fees
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
+                  <span aria-hidden>🤝</span> Support local pharmacies
+                </div>
+              </div>
+
+              <div className="relative rounded-2xl border border-emerald-100 bg-emerald-50 p-4 mb-6">
+                <div className="text-sm font-semibold text-emerald-900 flex items-center gap-2">
+                  <span aria-hidden>💊</span> Search • Compare • Reserve
+                </div>
+                <div className="text-sm text-emerald-800 mt-1">Enter a ZIP code to see cash prices from participating independent pharmacies.</div>
+              </div>
+            </div>
+
+            <div className="mt-8">
               <h2 className="text-lg font-semibold text-gray-900">How it works</h2>
               <ol className="mt-4 space-y-3">
                 <li className="flex gap-3">

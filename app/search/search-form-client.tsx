@@ -110,23 +110,32 @@ export function SearchFormClient({ drugs }: Props) {
               className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
             />
           </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-900">Location</label>
-          <input
-            value={zip}
-            onChange={(e) => setZip(e.target.value)}
-            placeholder="ZIP, street, or city"
-            className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
-          />
-          <div className="mt-2">
-            <button
-              type="button"
-              className="text-sm text-emerald-700 hover:text-emerald-800 underline"
-            >
-              Use my current location
-            </button>
+          <div>
+            <label className="block text-sm font-medium text-gray-900">ZIP code</label>
+            <input
+              value={zip}
+              onChange={(e) => setZip(e.target.value)}
+              placeholder="e.g. 22110"
+              className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
+              inputMode="numeric"
+              autoComplete="postal-code"
+            />
+            <div className="mt-2 text-xs text-gray-500">ZIP code works best for now.</div>
+            <div className="mt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  // No geolocation support in this MVP.
+                }}
+                className="text-sm text-gray-500 bg-gray-100 hover:bg-gray-200 border border-gray-200 px-3 py-1.5 rounded-lg"
+                aria-disabled="true"
+                title="Current location search is coming soon. Please enter a ZIP code."
+              >
+                Use my current location
+              </button>
+              <div className="mt-2 text-xs text-amber-800">Current location search is coming soon. Please enter a ZIP code.</div>
+            </div>
           </div>
-        </div>
 
         </div>
 

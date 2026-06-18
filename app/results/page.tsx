@@ -11,10 +11,12 @@ function getParam(params: URLSearchParams, key: keyof SearchParams): string | un
 export default async function ResultsPage({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
+  const params = await searchParams;
+
   const sp = new URLSearchParams();
-  for (const [k, v] of Object.entries(searchParams)) {
+  for (const [k, v] of Object.entries(params)) {
     if (typeof v === "string") sp.set(k, v);
   }
 
@@ -196,4 +198,6 @@ export default async function ResultsPage({
     </div>
   );
 }
+
+
 
