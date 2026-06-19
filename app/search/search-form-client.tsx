@@ -5,9 +5,10 @@ import { useRouter } from "next/navigation";
 
 type Props = {
   drugs: { name: string }[];
+  showLocationButton?: boolean;
 };
 
-export function SearchFormClient({ drugs }: Props) {
+export function SearchFormClient({ drugs, showLocationButton = true }: Props) {
   const [drug, setDrug] = useState("");
   const [strength, setStrength] = useState("");
   const [quantity, setQuantity] = useState<number>(30);
@@ -31,6 +32,7 @@ export function SearchFormClient({ drugs }: Props) {
 
     if (!drug.trim()) return;
     const safeZip = zip.trim();
+
     router.push(
       `/results?drug=${encodeURIComponent(drug.trim())}` +
         `&strength=${encodeURIComponent(strength.trim())}` +
@@ -40,12 +42,32 @@ export function SearchFormClient({ drugs }: Props) {
   }
 
   return (
-    <form onSubmit={submit} className="rounded-2xl border bg-white p-6 shadow-sm">
-      <div className="grid gap-5">
+    <form onSubmit={submit} className="rounded-2xl border bg-white p-4 shadow-sm">
+      <div className="grid gap-4">
+        <div className="space-y-1">
+          <label className="block text-sm font-medium text-gray-900">Medication</label>
+          <div className="text-xs text-gray-500">You can also scan your prescription (optional).</div>
+
+          <div className="mt-2 rounded-xl border bg-gray-50 p-3">
+            <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+              <span aria-hidden>📷</span>
+              <span>Scan / upload prescription</span>
+              <input
+                type="file"
+                accept="image/*,application/pdf"
+                className="hidden"
+                onChange={() => {
+                  // MVP: file is collected on the client, but pricing search still uses the entered fields.
+                }}
+              />
+            </label>
+          </div>
+        </div>
+
         <div>
-          <label className="block text-sm font-medium text-gray-900">Drug name</label>
           <div className="relative">
             <input
+              id="drug-search-input"
               value={query}
               onChange={(e) => {
                 setQuery(e.target.value);
@@ -90,37 +112,17 @@ export function SearchFormClient({ drugs }: Props) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-900">Dosage/strength (optional)</label>
+          <label className="block text-sm font-medium text-gray-900">ZIP code</label>
           <input
-            value={strength}
-            onChange={(e) => setStrength(e.target.value)}
-            placeholder="e.g., 10mg"
+            value={zip}
+            onChange={(e) => setZip(e.target.value)}
+            placeholder="e.g. 22110"
             className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
+            inputMode="numeric"
+            autoComplete="postal-code"
           />
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-900">Quantity</label>
-            <input
-              type="number"
-              min={1}
-              value={quantity}
-              onChange={(e) => setQuantity(Number(e.target.value))}
-              className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-900">ZIP code</label>
-            <input
-              value={zip}
-              onChange={(e) => setZip(e.target.value)}
-              placeholder="e.g. 22110"
-              className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
-              inputMode="numeric"
-              autoComplete="postal-code"
-            />
-            <div className="mt-2 text-xs text-gray-500">ZIP code works best for now.</div>
+          {showLocationButton ? (
             <div className="mt-2">
               <button
                 type="button"
@@ -133,10 +135,38 @@ export function SearchFormClient({ drugs }: Props) {
               >
                 Use my current location
               </button>
-              <div className="mt-2 text-xs text-amber-800">Current location search is coming soon. Please enter a ZIP code.</div>
+              <div className="mt-2 text-xs text-amber-800">
+                Current location search is coming soon. Please enter a ZIP code.
+              </div>
+            </div>
+          ) : null}
+
+          <div className="mt-2 text-xs text-gray-500">Optional details below</div>
+
+          <div className="mt-3 rounded-xl border bg-gray-50 p-3">
+            <div className="text-xs font-semibold text-gray-700 mb-2">Optional details</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-medium text-gray-900">Strength</label>
+                <input
+                  value={strength}
+                  onChange={(e) => setStrength(e.target.value)}
+                  placeholder="10mg"
+                  className="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-gray-900">Quantity</label>
+                <input
+                  type="number"
+                  min={1}
+                  value={quantity}
+                  onChange={(e) => setQuantity(Number(e.target.value))}
+                  className="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200"
+                />
+              </div>
             </div>
           </div>
-
         </div>
 
         <button
