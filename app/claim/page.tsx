@@ -1,30 +1,7 @@
-import { IPNNav } from "../lib/ipn-nav";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { PublicPage } from "../lib/public-page";
 
-export default function ClaimLandingPage() {
-  return (
-    <div className="min-h-screen bg-white">
-      <IPNNav />
-
-      <div className="max-w-2xl mx-auto px-6 py-14">
-        <div className="rounded-2xl border bg-white p-8 shadow-sm">
-          <div className="text-emerald-700 font-semibold">Claim Your Pharmacy</div>
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 mt-2">Start a claim request</h1>
-          <p className="text-gray-600 mt-3">
-            Pick an NPI (MVP) to preview the claim workflow.
-          </p>
-
-          <div className="mt-6 space-y-3">
-            <Link href="/claim/1111111112" className="block text-emerald-700 hover:underline">
-              Claim NPI 1111111112
-            </Link>
-            <Link href="/claim/4444444441" className="block text-emerald-700 hover:underline">
-              Claim NPI 4444444441
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
+export const metadata: Metadata = { title: "For Independent Pharmacies", description: "Claim your IPNUS pharmacy profile, publish cash prices, and receive reservation requests." };
+const sections = [["Why independent pharmacies join", "Reach local patients with transparent cash prices and a direct relationship—without coupon-card middlemen."], ["How claiming works", "Find your pharmacy, verify that you represent it, then complete your public profile and publish prices."], ["Founding pharmacy offer", "Founding pharmacies get 6 months free while IPNUS launches in selected markets."], ["What patients see", "Your pharmacy name, address, phone, published cash prices, reservation availability, and delivery availability when enabled."], ["FAQ", "Pricing is published by each participating pharmacy. Reservation requests always remain subject to pharmacy confirmation."]];
+export default function ClaimPage() { return <PublicPage><div className="mx-auto max-w-5xl px-6 py-16"><p className="font-bold uppercase tracking-widest text-emerald-700">For independent pharmacies</p><h1 className="mt-3 max-w-4xl text-5xl font-black tracking-tight text-slate-950">Bring transparent cash prices to more patients.</h1><p className="mt-5 max-w-3xl text-xl leading-8 text-slate-600">Claim your IPNUS pharmacy profile, publish cash prices, and receive reservation requests from patients searching nearby.</p><Link href="/contact" className="mt-8 inline-block rounded-xl bg-emerald-700 px-6 py-3 font-bold text-white">Claim Your Pharmacy</Link><div className="mt-16 grid gap-6 md:grid-cols-2">{sections.map(([title, copy]) => <section key={title} className="rounded-2xl border border-slate-200 p-6"><h2 className="text-xl font-black text-slate-950">{title}</h2><p className="mt-2 leading-7 text-slate-600">{copy}</p></section>)}</div><p className="mt-10"><Link href="/pricing" className="font-bold text-emerald-700">View pharmacy pricing →</Link></p></div></PublicPage>; }

@@ -1,57 +1,20 @@
-'use client';
+import Link from "next/link";
+import { IPN_TOP300_DRUGS } from "./lib/ipn-drugs-top300";
+import { PublicPage } from "./lib/public-page";
+import { SearchFormClient } from "./search/search-form-client";
 
-import Link from 'next/link';
-import { getTopDrugSuggestions } from './lib/ipn-mock-data';
-import { SearchFormClient } from './search/search-form-client';
+const drugs = IPN_TOP300_DRUGS.map((drug) => ({ name: drug.canonicalGenericName }));
+const steps = [["1", "Search your medication", "Enter your medication, strength, quantity, and ZIP."], ["2", "Compare published cash prices", "See cash prices from participating independent pharmacies."], ["3", "Reserve directly", "Send a reservation request so the pharmacy can confirm availability and prescription requirements."]];
 
 export default function Home() {
-  const drugs = getTopDrugSuggestions();
-
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="border-b bg-white sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="text-3xl font-bold text-emerald-600">IPNUS</div>
-            <span className="text-gray-500 font-medium">Independent Pharmacy Network</span>
-          </div>
-          <div className="flex items-center gap-8 text-sm font-medium">
-            <Link href="/search" className="hover:text-emerald-600">Search Prices</Link>
-            <Link href="/claim" className="hover:text-emerald-600">Claim Your Pharmacy</Link>
-            <Link href="/pricing" className="hover:text-emerald-600">For Pharmacies</Link>
-            <Link href="/login" className="text-emerald-600 font-semibold">Sign in</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-10">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <div className="flex items-start gap-3">
-              <div>
-                <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 leading-tight">
-                  Find the <span className="text-emerald-600">lowest cash price</span>
-                  for your prescription
-                </h1>
-                <p className="text-base sm:text-lg text-gray-600 mt-3 max-w-xl">
-                  Compare <span className="text-emerald-600 font-semibold">real prescription prices</span> from <span className="text-emerald-600 font-semibold">independent pharmacies</span> near you.
-                </p>
-                <div className="mt-4 text-sm text-gray-700">
-                  <span className="text-emerald-600 font-semibold">Real prices</span> • No hidden fees • <span className="text-emerald-600 font-semibold">Independent pharmacies</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative rounded-3xl overflow-hidden shadow-xl">
-            <SearchFormClient drugs={drugs} showLocationButton={false} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <PublicPage>
+    <section className="bg-gradient-to-br from-emerald-50 via-white to-amber-50"><div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
+      <div><p className="font-bold uppercase tracking-widest text-emerald-700">Local prices. Direct reservations.</p><h1 className="mt-4 text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-6xl">Find low cash prescription prices from independent pharmacies near you.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">Compare published cash prices, skip the coupon maze, and reserve directly with local pharmacies.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/search" className="rounded-xl bg-emerald-700 px-6 py-3 font-bold text-white hover:bg-emerald-800">Find Prices</Link><Link href="/claim" className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-bold text-slate-800 hover:border-emerald-600">For Pharmacies</Link></div><p className="mt-6 text-sm font-semibold text-slate-600">Published pharmacy prices • No coupon cards • Support local independents</p></div>
+      <SearchFormClient drugs={drugs} />
+    </div></section>
+    <section className="mx-auto max-w-7xl px-6 py-20"><h2 className="text-3xl font-black text-slate-950">How IPNUS works</h2><div className="mt-10 grid gap-6 md:grid-cols-3">{steps.map(([number, title, copy]) => <div key={number} className="rounded-2xl border border-slate-200 p-6"><span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 font-black text-emerald-800">{number}</span><h3 className="mt-4 text-xl font-bold text-slate-900">{title}</h3><p className="mt-2 text-slate-600">{copy}</p></div>)}</div></section>
+    <section className="bg-slate-50"><div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2"><div><h2 className="text-3xl font-black text-slate-950">Prescription cash prices can vary by pharmacy.</h2><p className="mt-4 leading-7 text-slate-600">The same medication may have different cash prices at different pharmacies. IPNUS helps you compare published prices before you call, drive, or overpay.</p></div><div><h2 className="text-3xl font-black text-slate-950">Built for local independent pharmacies.</h2><p className="mt-4 leading-7 text-slate-600">IPNUS helps independent pharmacies publish transparent cash prices, accept reservation requests, and compete without sending patients through coupon-card confusion.</p></div></div></section>
+    <section className="mx-auto max-w-7xl px-6 py-20"><div className="rounded-3xl bg-emerald-800 p-8 text-white md:p-12"><h2 className="text-3xl font-black">Own or manage an independent pharmacy?</h2><p className="mt-3 max-w-2xl text-emerald-50">Claim your profile, publish cash prices, and receive reservation requests from patients searching nearby.</p><Link href="/claim" className="mt-7 inline-block rounded-xl bg-white px-6 py-3 font-bold text-emerald-800">Claim Your Pharmacy</Link></div></section>
+    <section className="mx-auto max-w-7xl px-6 pb-20"><h2 className="text-3xl font-black text-slate-950">Questions before you search?</h2><p className="mt-3 max-w-2xl text-slate-600">Prices are published by participating pharmacies and may require confirmation before pickup, delivery, or prescription fulfillment.</p><Link href="/faq" className="mt-5 inline-block font-bold text-emerald-700 hover:underline">Read FAQ →</Link></section>
+  </PublicPage>;
 }
-
-

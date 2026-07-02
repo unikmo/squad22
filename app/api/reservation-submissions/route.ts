@@ -98,6 +98,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing strength" }, { status: 400 });
     }
 
+    if (!firstName || !lastName || !phone || !email) {
+      return NextResponse.json(
+        { error: "First name, last name, phone, and email are required" },
+        { status: 400 },
+      );
+    }
+
     if (!allowedFulfillmentMethods.has(fulfillmentMethod)) {
       return NextResponse.json(
         { error: "Invalid fulfillmentMethod" },
@@ -105,30 +112,23 @@ export async function POST(req: Request) {
       );
     }
 
-    const pharmacy = await db.pharmacy.upsert({
+    const pharmacy = await db.pharmacy.findUnique({
       where: { npi: pharmacyNpi },
-      update: {},
-      create: {
-        id: `ph-${pharmacyNpi}`,
-        npi: pharmacyNpi,
-        name: "Unknown pharmacy",
-        address1: "",
-        address2: null,
-        city: "",
-        state: "TX",
-        zip: "",
-        phone: "",
-        profileStatus: "unclaimed",
-        pricingPublished: false,
-        reservationsEnabled: true,
-      },
       select: {
         npi: true,
+        reservationsEnabled: true,
         deliveryEnabled: true,
         deliveryRadiusMiles: true,
         deliveryFeeCents: true,
       },
     });
+
+    if (!pharmacy || !pharmacy.reservationsEnabled) {
+      return NextResponse.json(
+        { error: "This pharmacy is not accepting reservation requests" },
+        { status: 400 },
+      );
+    }
 
     if (fulfillmentMethod === "local_delivery") {
       if (!pharmacy.deliveryEnabled) {

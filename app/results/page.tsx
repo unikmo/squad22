@@ -1,203 +1,87 @@
-import { IPNNav } from "../lib/ipn-nav";
-import type { SearchParams } from "../lib/ipn-types";
-import { getPharmacyProfile } from "../lib/ipn-pharmacy-profile";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { db } from "../lib/ipn-db";
+import { PublicPage } from "../lib/public-page";
 
-function getParam(params: URLSearchParams, key: keyof SearchParams): string | undefined {
-  return params.get(String(key)) ?? undefined;
-}
+export const metadata: Metadata = {
+  title: "Prescription Cash Price Results",
+  description: "Compare published cash prices from participating independent pharmacies.",
+};
+
+type Query = Record<string, string | string[] | undefined>;
+const getValue = (query: Query, key: string) =>
+  typeof query[key] === "string" ? query[key] : "";
 
 export default async function ResultsPage({
   searchParams,
 }: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
+  searchParams: Promise<Query>;
 }) {
-  const params = await searchParams;
+  const query = await searchParams;
+  const drug = getValue(query, "drug").trim();
+  const strength = getValue(query, "strength").trim();
+  const zip = getValue(query, "zip").trim();
+  const quantity = Math.max(1, Number(getValue(query, "quantity")) || 30);
 
-  const sp = new URLSearchParams();
-  for (const [k, v] of Object.entries(params)) {
-    if (typeof v === "string") sp.set(k, v);
-  }
-
-  const drug = getParam(sp, "drug");
-  const strength = sp.get("strength") ?? undefined;
-  const quantityRaw = sp.get("quantity");
-  const zip = sp.get("zip");
-
-  const quantity = quantityRaw ? Math.max(1, Number(quantityRaw)) : 30;
-  const safeDrug = (drug ?? "").trim();
-  const safeZip = (zip ?? "").trim();
-
-  const pharmacies = await db.pharmacy.findMany({ orderBy: { npi: "asc" } });
-
-  // Avoid PrismaClient typing mismatches by using $queryRaw directly.
-  // DrugPrice is the single source of truth for consumer pricing.
-  const rows = await db.$queryRaw<Array<{
-    pharmacyNpi: string;
-    cashPriceCents: number;
-  }>>`
-    SELECT pharmacyNpi, cashPriceCents
-    FROM DrugPrice
-    WHERE status = 'active'
-      AND drugName = ${safeDrug || ''}
-      AND strength = ${strength ? String(strength) : ''}
-      AND quantity = ${quantity}
-  `;
-
-  const bestPriceByPharmacy = new Map<string, number>();
-  for (const row of rows) {
-    // If multiple matches exist, keep the lowest cash price.
-    const prev = bestPriceByPharmacy.get(row.pharmacyNpi);
-    if (prev == null || row.cashPriceCents < prev) bestPriceByPharmacy.set(row.pharmacyNpi, row.cashPriceCents);
-  }
-
-  const results = pharmacies.map((ph) => {
-    const cashPriceCents = bestPriceByPharmacy.get(ph.npi);
-    const hasPublished = cashPriceCents != null;
-    return {
-      pharmacyNpi: ph.npi,
-      pharmacyId: `ph-${ph.npi}`,
-      hasPublished,
-      reservePrice: cashPriceCents == null ? null : cashPriceCents / 100,
-      drug: safeDrug,
-      strength: strength ? String(strength) : undefined,
-      quantity,
-      zip: safeZip,
-    };
-  });
-
-  results.sort((a, b) => {
-    if (a.reservePrice == null && b.reservePrice == null) return 0;
-    if (a.reservePrice == null) return 1;
-    if (b.reservePrice == null) return -1;
-    return a.reservePrice - b.reservePrice;
-  });
+  const rows = drug
+    ? await db.drugPrice.findMany({
+        where: { drugName: drug, strength, quantity, status: "active" },
+        include: { pharmacy: true },
+        orderBy: { cashPriceCents: "asc" },
+      })
+    : [];
+  const results = [...new Map(rows.map((row) => [row.pharmacyNpi, row])).values()];
 
   return (
-    <div className="min-h-screen bg-white">
-      <IPNNav />
+    <PublicPage>
+      <div className="mx-auto max-w-6xl px-6 py-14">
+        <p className="text-sm font-bold uppercase tracking-wider text-emerald-700">Published cash prices</p>
+        <h1 className="mt-2 text-4xl font-black tracking-tight text-slate-950">
+          {drug || "Search results"}{strength ? ` · ${strength}` : ""}
+        </h1>
+        <p className="mt-3 text-slate-600">Quantity: <strong>{quantity}</strong>{zip ? ` · ZIP: ${zip}` : ""}</p>
 
-      <div className="max-w-6xl mx-auto px-6 py-10">
-        <div className="mb-6">
-          <div className="text-sm text-gray-500">Cash prices</div>
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 mt-1">
-            {safeDrug ? safeDrug : "Search"}
-            {strength ? <span className="text-gray-700"> • {strength}</span> : null}
-          </h1>
-          <p className="text-gray-600 mt-2">
-            Quantity: <span className="font-medium text-gray-900">{quantity}</span> • ZIP: {safeZip || "—"}
-            <span className="block text-xs text-gray-500 mt-2">
-              Showing only published DrugPrice cash prices.
-            </span>
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          {results.map((r) => {
-            const prof = getPharmacyProfile(r.pharmacyId);
-
-            return (
-              <div key={r.pharmacyNpi} className="rounded-2xl border bg-white p-5 shadow-sm">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <div className="text-lg font-semibold text-gray-900">
-                        <Link href={`/pharmacy/${encodeURIComponent(r.pharmacyId)}`}>{r.pharmacyNpi}</Link>
+        {results.length > 0 ? (
+          <>
+            <p className="mt-8 font-semibold text-slate-700">Sorted by lowest published cash price from participating pharmacies.</p>
+            <div className="mt-5 grid gap-5">
+              {results.map((row) => {
+                const pharmacy = row.pharmacy;
+                const reserveHref = `/reserve?${new URLSearchParams({ pharmacyNpi: pharmacy.npi, drug, strength, quantity: String(quantity), zip })}`;
+                return (
+                  <article key={pharmacy.npi} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <div className="flex flex-col justify-between gap-6 md:flex-row">
+                      <div>
+                        <h2 className="text-xl font-black text-slate-950"><Link href={`/pharmacy/${encodeURIComponent(pharmacy.npi)}`} className="hover:text-emerald-700">{pharmacy.name}</Link></h2>
+                        <address className="mt-2 not-italic leading-6 text-slate-600">{pharmacy.address1}{pharmacy.address2 ? <><br />{pharmacy.address2}</> : null}<br />{pharmacy.city}, {pharmacy.state} {pharmacy.zip}</address>
+                        <a href={`tel:${pharmacy.phone}`} className="mt-2 inline-block font-semibold text-emerald-700">{pharmacy.phone}</a>
+                        <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold">
+                          <span className="rounded-full bg-emerald-50 px-3 py-1 text-emerald-800">Published pricing</span>
+                          <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{pharmacy.profileStatus === "claimed" ? "Claimed profile" : "Profile not claimed"}</span>
+                          {pharmacy.reservationsEnabled ? <span className="rounded-full bg-emerald-50 px-3 py-1 text-emerald-800">Reservations available</span> : null}
+                          {pharmacy.deliveryEnabled ? <span className="rounded-full bg-blue-50 px-3 py-1 text-blue-800">Delivery available</span> : null}
+                        </div>
                       </div>
-
-                      <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
-                        Independent Pharmacy
-                      </span>
-
-                      {prof.tier === "claimed" ? (
-                        <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
-                          ✓ Claimed Profile
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center rounded-full bg-gray-50 text-gray-700 px-3 py-1 text-xs font-semibold border border-gray-200">
-                          Profile not yet claimed
-                        </span>
-                      )}
+                      <div className="md:text-right">
+                        <p className="text-sm font-semibold text-slate-600">Published cash price</p>
+                        <p className="mt-1 text-4xl font-black text-slate-950">${(row.cashPriceCents / 100).toFixed(2)}</p>
+                        {pharmacy.reservationsEnabled ? <Link href={reserveHref} className="mt-4 inline-block rounded-xl bg-emerald-700 px-5 py-3 font-bold text-white hover:bg-emerald-800">Reserve this price</Link> : <a href={`tel:${pharmacy.phone}`} className="mt-4 inline-block rounded-xl border border-slate-300 px-5 py-3 font-bold text-slate-800">Call pharmacy</a>}
+                      </div>
                     </div>
-
-                    <div className="mt-3 flex flex-col gap-2">
-                      {prof.tier === "claimed" ? (
-                        r.hasPublished && r.reservePrice != null ? (
-                          <>
-                            <div className="text-sm text-gray-600">
-                              Cash price:{" "}
-                              <span className="font-semibold text-gray-900">USD {r.reservePrice.toFixed(2)}</span>
-                            </div>
-                            <div className="flex flex-wrap gap-2">
-                              <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
-                                ✓ Cash Prices Available
-                              </span>
-                              <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
-                                ✓ Prescription Reservations
-                              </span>
-                              <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-semibold border border-emerald-100">
-                                ✓ Responds within {prof.respondsWithinHours ?? 2} hours
-                              </span>
-                            </div>
-                          </>
-                        ) : (
-                          <div className="text-sm text-gray-600">
-                            <span className="font-semibold text-amber-800">Price not published yet.</span>
-                          </div>
-                        )
-                      ) : (
-                        <div className="text-sm text-gray-600">Profile not yet claimed.</div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:items-end gap-2">
-                    {prof.tier === "claimed" && r.hasPublished && r.reservePrice != null ? (
-                      <>
-                        <div className="text-sm text-gray-600">
-                            <span className="text-gray-500">Pharmacy: </span>
-                            <span className="font-medium text-gray-900">{r.pharmacyNpi}</span>
-                            <div className="text-xs text-gray-500">Pickup/delivery availability: confirmed after reserve.</div>
-                          </div>
-                          <div className="text-sm text-gray-700">
-                            <span className="text-xs text-gray-500">Cash price</span>
-                            <div className="text-2xl font-bold text-gray-900 leading-tight">USD {r.reservePrice.toFixed(2)}</div>
-                          </div>
-                          <a
-                            href={
-                              `/reserve?pharmacyId=${encodeURIComponent(r.pharmacyId)}` +
-                              `&drug=${encodeURIComponent(r.drug)}` +
-                              `&strength=${encodeURIComponent(r.strength ?? "")}` +
-                              `&quantity=${encodeURIComponent(String(r.quantity))}` +
-                              `&zip=${encodeURIComponent(r.zip)}`
-                            }
-                            className="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-4 rounded-xl font-semibold text-base transition"
-                          >
-                            Reserve this price
-                          </a>
-                          <div className="text-xs text-gray-500">
-                            Pickup/Delivery: we’ll confirm availability after you reserve.
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="inline-flex items-center justify-center bg-white border border-amber-200 text-amber-800 px-6 py-3 rounded-xl font-semibold transition">
-                            Call pharmacy
-                          </div>
-                          <div className="text-xs text-gray-500">Price may not be published for this match.</div>
-                        </>
-                      )}
-                    </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                  </article>
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-8">
+            <h2 className="text-2xl font-black text-slate-950">No published price found for this exact search.</h2>
+            <p className="mt-3 text-slate-600">Try a different strength or quantity, or check back as more independent pharmacies publish prices.</p>
+            <Link href="/search" className="mt-6 inline-block rounded-xl bg-emerald-700 px-5 py-3 font-bold text-white">Start a new search</Link>
+          </div>
+        )}
+        <p className="mt-8 text-sm text-slate-500">Prices are published by participating pharmacies and may require confirmation before pickup, delivery, or prescription fulfillment.</p>
       </div>
-    </div>
+    </PublicPage>
   );
 }
-
-
-
