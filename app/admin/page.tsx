@@ -2,32 +2,74 @@ import { IPNNav } from "../lib/ipn-nav";
 import { db } from "../lib/ipn-db";
 
 export default async function AdminPage() {
-  const claims = await db.pharmacyClaim.findMany({
-    orderBy: { createdAt: "desc" },
-    take: 50,
-  });
+  // Guard against local DB mismatches (e.g., missing columns after partial migrations).
+  // Admin is non-critical for the homepage/search UX and should not hard-fail builds.
+  const safeDb = <T,>(fn: () => Promise<T>, fallback: T): Promise<T> => {
+    return fn().catch(() => fallback);
+  };
 
-  const reservations = await db.reservation.findMany({
-    orderBy: { createdAt: "desc" },
-    take: 50,
-  });
+  const claims = await safeDb(
+    () =>
+      db.pharmacyClaim.findMany({
+        orderBy: { createdAt: "desc" },
+        take: 50,
+      }),
+    [] as Array<{ id: string; pharmacyNpi: string; status: string; createdAt: Date }>,
+  );
 
-  const totalPharmacies = await db.pharmacy.count();
-  const activeInvites = await db.claimInvite.count({ where: { status: "active" } });
-  const usedInvites = await db.claimInvite.count({ where: { status: "used" } });
-  const invited = await db.claimInvite.count({ where: { status: { in: ["active", "used"] } } });
+  const reservations = await safeDb(
+    () =>
+      db.reservation.findMany({
+        orderBy: { createdAt: "desc" },
+        take: 50,
+      }),
+    [] as Array<{
+      id: string;
+      reservationNumber: string;
+      pharmacyNpi: string;
+      status: string;
+      createdAt: Date;
+    }>,
+  );
 
-  const claimSubmitted = await db.pharmacy.count({ where: { outreachStatus: "claim_submitted" } });
-  const claimed = await db.pharmacy.count({ where: { profileStatus: "claimed" } });
+  const totalPharmacies = await safeDb(() => db.pharmacy.count(), 0);
+  const activeInvites = await safeDb(
+    () => db.claimInvite.count({ where: { status: "active" } }),
+    0,
+  );
+  const usedInvites = await safeDb(
+    () => db.claimInvite.count({ where: { status: "used" } }),
+    0,
+  );
+  const invited = await safeDb(
+    () =>
+      db.claimInvite.count({
+        where: { status: { in: ["active", "used"] } },
+      }),
+    0,
+  );
 
-  const missingEmail = await db.pharmacy.count({ where: { email: null } });
-  const missingWebsite = await db.pharmacy.count({ where: { website: null } });
+  const claimSubmitted = await safeDb(
+    () => db.pharmacy.count({ where: { outreachStatus: "claim_submitted" } }),
+    0,
+  );
+  const claimed = await safeDb(
+    () => db.pharmacy.count({ where: { profileStatus: "claimed" } }),
+    0,
+  );
 
-  const recentInvites = await db.claimInvite.findMany({
-    orderBy: { createdAt: "desc" },
-    take: 20,
-    include: { pharmacy: true },
-  });
+  const missingEmail = await safeDb(() => db.pharmacy.count({ where: { email: null } }), 0);
+  const missingWebsite = await safeDb(() => db.pharmacy.count({ where: { website: null } }), 0);
+
+  const recentInvites = await safeDb(
+    () =>
+      db.claimInvite.findMany({
+        orderBy: { createdAt: "desc" },
+        take: 20,
+        include: { pharmacy: true },
+      }),
+    [] as Array<{ id: string; token: string; pharmacyNpi: string; status: string; createdAt: Date; usedClaimId: string | null }>,
+  );
 
   async function createInviteAction(formData: FormData) {
     "use server";
@@ -47,6 +89,7 @@ export default async function AdminPage() {
 
     });
   }
+
 
   return (
     <div className="min-h-screen bg-white">

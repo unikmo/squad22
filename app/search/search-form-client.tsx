@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
 };
 
 export function SearchFormClient({ drugs, showLocationButton = true }: Props) {
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [drug, setDrug] = useState("");
   const [strength, setStrength] = useState("");
   const [quantity, setQuantity] = useState<number>(30);
@@ -42,29 +43,64 @@ export function SearchFormClient({ drugs, showLocationButton = true }: Props) {
   }
 
   return (
-    <form onSubmit={submit} className="rounded-2xl border bg-white p-4 shadow-sm">
-      <div className="grid gap-4">
+    <form onSubmit={submit} className="bg-white p-0 shadow-sm">
+      <div className="grid gap-3">
+        {/* Upload/scan (no extra frame) */}
         <div className="space-y-1">
-          <label className="block text-sm font-medium text-gray-900">Medication</label>
-          <div className="text-xs text-gray-500">You can also scan your prescription (optional).</div>
+          <div className="text-sm font-medium text-gray-900">Upload prescription</div>
+          <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-center">
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="text-sm bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-semibold transition inline-flex items-center justify-center"
+            >
+              Upload / scan
+            </button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*,application/pdf"
+              className="hidden"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
 
-          <div className="mt-2 rounded-xl border bg-gray-50 p-3">
-            <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-              <span aria-hidden>📷</span>
-              <span>Scan / upload prescription</span>
-              <input
-                type="file"
-                accept="image/*,application/pdf"
-                className="hidden"
-                onChange={() => {
-                  // MVP: file is collected on the client, but pricing search still uses the entered fields.
-                }}
-              />
-            </label>
+                const fd = new FormData();
+                fd.append("prescription", file);
+
+                try {
+                  const res = await fetch("/api/ocr", {
+                    method: "POST",
+                    body: fd,
+                  });
+
+                  if (!res.ok) return;
+
+                  const data = (await res.json()) as {
+                    drug?: string | null;
+                    strength?: string | null;
+                    quantity?: number | null;
+                  };
+
+                  if (data.drug) {
+                    setDrug(data.drug);
+                    setQuery(data.drug);
+                  }
+                  if (data.strength) setStrength(data.strength);
+                  if (typeof data.quantity === "number" && Number.isFinite(data.quantity)) {
+                    setQuantity(data.quantity);
+                  }
+                } catch {
+                  // ignore
+                }
+              }}
+            />
           </div>
         </div>
 
-        <div>
+        {/* Medication */}
+        <div className="space-y-1">
+          <label className="block text-sm font-medium text-gray-900">Medication</label>
           <div className="relative">
             <input
               id="drug-search-input"
@@ -79,18 +115,18 @@ export function SearchFormClient({ drugs, showLocationButton = true }: Props) {
               }}
               onFocus={() => setShowSuggestions(true)}
               onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
-              placeholder="Start typing…"
-              className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
+              placeholder="Medication"
+              className="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200"
               autoComplete="off"
             />
 
             {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute z-10 mt-2 w-full rounded-xl border bg-white shadow-lg overflow-hidden">
+              <div className="absolute z-10 mt-2 w-full rounded-lg border bg-white shadow-sm overflow-hidden">
                 {suggestions.map((s) => (
                   <button
                     key={s}
                     type="button"
-                    className="block w-full text-left px-4 py-2 hover:bg-gray-50"
+                    className="block w-full text-left px-3 py-2 hover:bg-gray-50"
                     onMouseDown={(ev) => {
                       ev.preventDefault();
                       setDrug(s);
@@ -106,72 +142,69 @@ export function SearchFormClient({ drugs, showLocationButton = true }: Props) {
           </div>
 
           <input type="hidden" value={drug} />
-          {!drug.trim() && (
-            <div className="text-xs text-amber-700 mt-2">Select a suggestion to continue.</div>
-          )}
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-900">ZIP code</label>
+        {/* Strength + quantity: tighter, no big frame */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div>
+            <label className="block text-xs font-medium text-gray-900">Strength</label>
+            <input
+              value={strength}
+              onChange={(e) => setStrength(e.target.value)}
+              placeholder="Optional"
+              className="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200"
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-medium text-gray-900">Quantity</label>
+            <input
+              type="number"
+              min={1}
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
+              className="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200"
+            />
+          </div>
+        </div>
+
+        {/* ZIP LAST */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-900">ZIP</label>
           <input
             value={zip}
             onChange={(e) => setZip(e.target.value)}
-            placeholder="e.g. 22110"
-            className="mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-200"
+            placeholder="ZIP"
+            className="w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200"
             inputMode="numeric"
             autoComplete="postal-code"
           />
 
           {showLocationButton ? (
-            <div className="mt-2">
-              <button
-                type="button"
-                onClick={() => {
-                  // No geolocation support in this MVP.
-                }}
-                className="text-sm text-gray-500 bg-gray-100 hover:bg-gray-200 border border-gray-200 px-3 py-1.5 rounded-lg"
-                aria-disabled="true"
-                title="Current location search is coming soon. Please enter a ZIP code."
-              >
-                Use my current location
-              </button>
-              <div className="mt-2 text-xs text-amber-800">
-                Current location search is coming soon. Please enter a ZIP code.
-              </div>
-            </div>
+            <button
+              type="button"
+              onClick={() => {
+                if (!navigator.geolocation) return;
+
+                navigator.geolocation.getCurrentPosition(
+                  (pos) => {
+                    // MVP placeholder without reverse geocoding.
+                    setZip(String(Math.round(pos.coords.latitude)) || "");
+                  },
+                  () => {},
+                  { enableHighAccuracy: false, timeout: 6000, maximumAge: 30000 }
+                );
+              }}
+              className="text-sm text-gray-500 bg-gray-100 hover:bg-gray-200 border border-gray-200 px-3 py-1.5 rounded-lg"
+              title="Use your current location"
+            >
+              Use my current location
+            </button>
           ) : null}
-
-          <div className="mt-2 text-xs text-gray-500">Optional details below</div>
-
-          <div className="mt-3 rounded-xl border bg-gray-50 p-3">
-            <div className="text-xs font-semibold text-gray-700 mb-2">Optional details</div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label className="block text-xs font-medium text-gray-900">Strength</label>
-                <input
-                  value={strength}
-                  onChange={(e) => setStrength(e.target.value)}
-                  placeholder="10mg"
-                  className="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-gray-900">Quantity</label>
-                <input
-                  type="number"
-                  min={1}
-                  value={quantity}
-                  onChange={(e) => setQuantity(Number(e.target.value))}
-                  className="mt-1 w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-200"
-                />
-              </div>
-            </div>
-          </div>
         </div>
 
         <button
           type="submit"
-          className="mt-2 inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-semibold transition"
+          className="mt-1 inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-semibold transition"
         >
           Search prices
         </button>

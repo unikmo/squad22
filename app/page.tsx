@@ -30,24 +30,22 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div>
             <div className="flex items-start gap-3">
-              <div className="text-2xl pt-1" aria-hidden>
-                🏷️
-              </div>
               <div>
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 leading-tight mb-4">
-                  Find the lowest cash price for your prescription
+                <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 leading-tight">
+                  Find the <span className="text-emerald-600">lowest cash price</span>
+                  for your prescription
                 </h1>
-                <p className="text-lg text-gray-600 max-w-xl">
-                  Compare real prices from independent pharmacies near you. No coupons. No memberships.
+                <p className="text-base sm:text-lg text-gray-600 mt-3 max-w-xl">
+                  Compare <span className="text-emerald-600 font-semibold">real prescription prices</span> from <span className="text-emerald-600 font-semibold">independent pharmacies</span> near you.
                 </p>
                 <div className="mt-4 text-sm text-gray-700">
-                  No coupons · No memberships · Independent pharmacies
+                  <span className="text-emerald-600 font-semibold">Real prices</span> • No hidden fees • <span className="text-emerald-600 font-semibold">Independent pharmacies</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+          <div className="relative rounded-3xl overflow-hidden shadow-xl">
             <SearchFormClient drugs={drugs} showLocationButton={false} />
           </div>
         </div>
