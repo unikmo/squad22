@@ -36,10 +36,11 @@ export default async function ResultsPage({
     <PublicPage>
       <div className="mx-auto max-w-6xl px-6 py-14">
         <p className="text-sm font-bold uppercase tracking-wider text-emerald-700">Published cash prices</p>
-        <h1 className="mt-2 text-4xl font-black tracking-tight text-slate-950">
-          {drug || "Search results"}{strength ? ` · ${strength}` : ""}
-        </h1>
+        <h1 className="mt-2 text-4xl font-black tracking-tight text-slate-950">Published cash prices near you</h1>
+        {drug ? <p className="mt-2 text-lg font-semibold text-slate-800">{drug}{strength ? ` · ${strength}` : ""}</p> : null}
         <p className="mt-3 text-slate-600">Quantity: <strong>{quantity}</strong>{zip ? ` · ZIP: ${zip}` : ""}</p>
+
+        {drug ? <aside className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6"><h2 className="text-xl font-black text-slate-950">Need help paying?</h2><p className="mt-2 text-slate-700">Cash price still too high? You may be able to ask about manufacturer assistance, foundation support, public programs, or local pharmacy help.</p><Link href="/assistance" className="mt-4 inline-block font-bold text-emerald-800 hover:underline">Check Assistance Options →</Link><p className="mt-3 text-xs text-slate-500">Eligibility and availability vary. The pharmacy or program provider must confirm details.</p></aside> : null}
 
         {results.length > 0 ? (
           <>
@@ -57,9 +58,11 @@ export default async function ResultsPage({
                         <a href={`tel:${pharmacy.phone}`} className="mt-2 inline-block font-semibold text-emerald-700">{pharmacy.phone}</a>
                         <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold">
                           <span className="rounded-full bg-emerald-50 px-3 py-1 text-emerald-800">Published pricing</span>
+                          <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{row.productType === "otc" ? "OTC" : "Prescription"}</span>
                           <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{pharmacy.profileStatus === "claimed" ? "Claimed profile" : "Profile not claimed"}</span>
                           {pharmacy.reservationsEnabled ? <span className="rounded-full bg-emerald-50 px-3 py-1 text-emerald-800">Reservations available</span> : null}
                           {pharmacy.deliveryEnabled ? <span className="rounded-full bg-blue-50 px-3 py-1 text-blue-800">Delivery available</span> : null}
+                          {pharmacy.assistanceSupportEnabled ? <span className="rounded-full bg-amber-50 px-3 py-1 text-amber-800">✓ Helps with assistance options</span> : null}
                         </div>
                       </div>
                       <div className="md:text-right">

@@ -3,16 +3,12 @@ import Link from "next/link";
 import { db } from "../../../app/lib/ipn-db";
 import { redirect } from "next/navigation";
 
-function getTokenFromParams(params: { token: string }) {
-  return params.token;
-}
-
 export default async function ClaimInvitePage({
   params,
 }: {
-  params: { token: string };
+  params: Promise<{ token: string }>;
 }) {
-  const token = getTokenFromParams(params);
+  const { token } = await params;
 
   const claimInvite = await db.claimInvite.findUnique({
     where: { token },

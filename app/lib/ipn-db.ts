@@ -6,19 +6,16 @@ import { PrismaClient } from '@prisma/client';
 
 
 
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
+import { PrismaPg } from '@prisma/adapter-pg';
 
 let prisma: PrismaClient | undefined;
 
 function getPrisma() {
   if (prisma) return prisma;
 
-  const adapter = new PrismaBetterSqlite3({
-    // For Prisma CLI + route handlers, DATABASE_URL must exist.
-    // In local dev we fall back to file:./dev.db.
-    url: process.env.DATABASE_URL ?? 'file:./dev.db',
-
-  });
+  const connectionString = process.env.DATABASE_URL;
+  if (!connectionString) throw new Error('Missing DATABASE_URL');
+  const adapter = new PrismaPg({ connectionString });
 
   prisma = new PrismaClient({
     adapter,

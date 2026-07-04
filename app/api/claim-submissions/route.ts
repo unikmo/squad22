@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { db } from "../../lib/ipn-db";
+import type { Prisma } from "@prisma/client";
 
 
 function getString(form: FormData, key: string) {
@@ -20,6 +21,11 @@ export async function POST(req: Request) {
     const phone = getString(form, "phone").trim();
     const message = getString(form, "message").trim();
     const inviteToken = getString(form, "inviteToken").trim();
+    const assistanceSupportEnabled = getString(form, "assistanceSupportEnabled") === "true";
+    const manufacturerAssistanceHelp = getString(form, "manufacturerAssistanceHelp") === "true";
+    const foundationAssistanceHelp = getString(form, "foundationAssistanceHelp") === "true";
+    const publicProgramHelp = getString(form, "publicProgramHelp") === "true";
+    const localAssistanceHelp = getString(form, "localAssistanceHelp") === "true";
 
     if (!pharmacyNpiRaw && !inviteToken) {
       return NextResponse.json({ error: "Missing npi" }, { status: 400 });
@@ -86,13 +92,18 @@ export async function POST(req: Request) {
           phone,
           message: message || null,
           inviteToken: inviteToken || null,
+          assistanceSupportEnabled,
+          manufacturerAssistanceHelp,
+          foundationAssistanceHelp,
+          publicProgramHelp,
+          localAssistanceHelp,
         },
       },
       select: { id: true, createdAt: true, pharmacyNpi: true, status: true },
     });
 
     if (inviteToken && claimInvite) {
-      await db.$transaction(async (tx) => {
+      await db.$transaction(async (tx: Prisma.TransactionClient) => {
         await tx.claimInvite.update({
           where: { token: inviteToken },
           data: { status: "used", usedClaimId: created.id },
@@ -122,4 +133,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: e instanceof Error ? e.message : "Unknown error" }, { status: 500 });
   }
 }
-

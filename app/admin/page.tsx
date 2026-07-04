@@ -1,7 +1,10 @@
 import { IPNNav } from "../lib/ipn-nav";
 import { db } from "../lib/ipn-db";
+import { isAdmin } from "../lib/ipn-authorization";
+import { redirect } from "next/navigation";
 
 export default async function AdminPage() {
+  if (!(await isAdmin())) redirect("/login?callbackUrl=/admin");
   // Guard against local DB mismatches (e.g., missing columns after partial migrations).
   // Admin is non-critical for the homepage/search UX and should not hard-fail builds.
   const safeDb = <T,>(fn: () => Promise<T>, fallback: T): Promise<T> => {
@@ -60,6 +63,23 @@ export default async function AdminPage() {
 
   const missingEmail = await safeDb(() => db.pharmacy.count({ where: { email: null } }), 0);
   const missingWebsite = await safeDb(() => db.pharmacy.count({ where: { website: null } }), 0);
+  const publishedPharmacies = await safeDb(() => db.pharmacy.count({ where: { pricingPublished: true } }), 0);
+  const reservationPharmacies = await safeDb(() => db.pharmacy.count({ where: { reservationsEnabled: true } }), 0);
+  const activeListings = await safeDb(() => db.drugPrice.count({ where: { status: "active" } }), 0);
+  const prescriptionListings = await safeDb(() => db.drugPrice.count({ where: { status: "active", productType: "prescription" } }), 0);
+  const otcListings = await safeDb(() => db.drugPrice.count({ where: { status: "active", productType: "otc" } }), 0);
+  const totalReservations = await safeDb(() => db.reservation.count(), 0);
+  const completedReservations = await safeDb(() => db.reservation.count({ where: { status: "COMPLETED" } }), 0);
+  const noShows = await safeDb(() => db.reservation.count({ where: { status: "NO_SHOW" } }), 0);
+  const noShowFees = await safeDb(() => db.reservation.aggregate({ _sum: { reservationFeeCents: true }, where: { reservationFeeStatus: "charged" } }), { _sum: { reservationFeeCents: null } });
+  const pendingReservations = await safeDb(() => db.reservation.count({ where: { status: { in: ["pending", "PHARMACY_CONFIRMED", "READY_FOR_PICKUP"] } } }), 0);
+  const purchaseTotals = await safeDb(() => db.reservation.aggregate({ _sum: { actualPurchaseCents: true }, where: { status: "COMPLETED" } }), { _sum: { actualPurchaseCents: null } });
+  const earnedRewards = await safeDb(() => db.rewardTransaction.aggregate({ _sum: { points: true, fundingCents: true }, where: { type: "earned" } }), { _sum: { points: null, fundingCents: null } });
+  const redeemedRewards = await safeDb(() => db.rewardTransaction.aggregate({ _sum: { points: true }, where: { type: "redeemed" } }), { _sum: { points: null } });
+
+  const completionRate = totalReservations > 0 ? Math.round((completedReservations / totalReservations) * 100) : 0;
+  const noShowRate = totalReservations > 0 ? Math.round((noShows / totalReservations) * 100) : 0;
+  const money = (cents: number | null | undefined) => `$${((cents ?? 0) / 100).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
   const recentInvites = await safeDb(
     () =>
@@ -73,6 +93,7 @@ export default async function AdminPage() {
 
   async function createInviteAction(formData: FormData) {
     "use server";
+    if (!(await isAdmin())) throw new Error("Forbidden");
     const pharmacyNpi = String(formData.get("pharmacyNpi") ?? "").trim();
     if (!pharmacyNpi) return;
 
@@ -102,6 +123,21 @@ export default async function AdminPage() {
         </div>
 
         <div className="grid gap-8">
+          <section>
+            <h2 className="text-xl font-semibold text-gray-900">Network health and business KPIs</h2>
+            <div className="mt-3 grid grid-cols-2 gap-4 md:grid-cols-4">
+              <Kpi label="Participating pharmacies" value={reservationPharmacies.toLocaleString()} detail={`${claimed.toLocaleString()} claimed · ${publishedPharmacies.toLocaleString()} publishing`} />
+              <Kpi label="Active product listings" value={activeListings.toLocaleString()} detail={`${prescriptionListings.toLocaleString()} Rx · ${otcListings.toLocaleString()} OTC`} />
+              <Kpi label="Reservations" value={totalReservations.toLocaleString()} detail={`${pendingReservations.toLocaleString()} currently open`} />
+              <Kpi label="Completion rate" value={`${completionRate}%`} detail={`${completedReservations.toLocaleString()} completed`} />
+              <Kpi label="No-show rate" value={`${noShowRate}%`} detail={`${noShows.toLocaleString()} no-shows`} />
+              <Kpi label="No-show fee revenue" value={money(noShowFees._sum.reservationFeeCents)} detail="Captured for IPNUS" />
+              <Kpi label="Confirmed purchase value" value={money(purchaseTotals._sum.actualPurchaseCents)} detail="Completed reservations" />
+              <Kpi label="IP Points issued" value={(earnedRewards._sum.points ?? 0).toLocaleString()} detail={`${money(earnedRewards._sum.fundingCents)} pharmacy funding`} />
+              <Kpi label="IP Points redeemed" value={Math.abs(redeemedRewards._sum.points ?? 0).toLocaleString()} detail="Network-wide redemption" />
+            </div>
+          </section>
+
           <section>
             <h2 className="text-xl font-semibold text-gray-900">Outreach pipeline</h2>
 
@@ -323,6 +359,10 @@ export default async function AdminPage() {
       </div>
     </div>
   );
+}
+
+function Kpi({ label, value, detail }: { label: string; value: string; detail: string }) {
+  return <div className="rounded-xl border bg-white p-4"><div className="text-sm text-gray-500">{label}</div><div className="mt-1 text-2xl font-bold text-gray-950">{value}</div><div className="mt-1 text-xs text-gray-500">{detail}</div></div>;
 }
 
 

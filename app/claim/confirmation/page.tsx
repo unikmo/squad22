@@ -14,9 +14,9 @@ import { db } from "../../lib/ipn-db";
 export default async function ClaimConfirmationPage({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const sp = readQuery(searchParams);
+  const sp = readQuery(await searchParams);
   const claimId = sp.get("claimId") ?? "";
   const npi = sp.get("npi") ?? "";
 

@@ -1,6 +1,8 @@
 import { IPNNav } from "../../../app/lib/ipn-nav";
 import { db } from "../../../app/lib/ipn-db";
 import Link from "next/link";
+import { canManagePharmacy } from "../../../app/lib/ipn-authorization";
+import { redirect } from "next/navigation";
 
 function fmtMoneyFromCents(cents: unknown) {
   const n = typeof cents === "number" && Number.isFinite(cents) ? cents : null;
@@ -32,9 +34,11 @@ function toNumberOrNull(v: unknown): number | null {
 export default async function PharmacyDashboardPage({
   params,
 }: {
-  params: { npi: string };
+  params: Promise<{ npi: string }>;
 }) {
-  const npi = params.npi;
+  const { npi } = await params;
+  const access = await canManagePharmacy(npi);
+  if (!access.allowed) redirect(access.reason === "unauthenticated" ? `/login?callbackUrl=${encodeURIComponent(`/pharmacy-dashboard/${npi}`)}` : "/");
 
   const pharmacy = await db.pharmacy.findUnique({ where: { npi } });
   const claims = await db.pharmacyClaim.findMany({
@@ -50,6 +54,11 @@ export default async function PharmacyDashboardPage({
     include: {
       // priceResult / reservationInput are stored as Json; Prisma returns them as unknown.
     },
+  });
+  const prices = await db.drugPrice.findMany({
+    where: { pharmacyNpi: npi },
+    orderBy: [{ drugName: "asc" }, { strength: "asc" }, { quantity: "asc" }],
+    take: 500,
   });
 
   const maxMilesRule = 20;
@@ -178,12 +187,13 @@ export default async function PharmacyDashboardPage({
 
         {/* Price management */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold text-gray-900">Price management</h2>
+          <h2 className="text-xl font-semibold text-gray-900">Unified pharmacy price list</h2>
+          <p className="mt-1 text-sm text-gray-600">Prescription and OTC products live in one catalog and one upload.</p>
           <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="rounded-xl border p-4">
               <div className="font-semibold text-gray-900">CSV upload (default bulk pricing)</div>
               <div className="text-sm text-gray-600 mt-1">
-                Upload a CSV to set bulk cash prices for your pharmacy. (This does not introduce a second pricing engine.)
+                Upload one mixed product list. Required columns: drugName, strength, quantity, cashPrice. Optional columns: productType, ndc.
               </div>
 
               <form
@@ -224,6 +234,10 @@ export default async function PharmacyDashboardPage({
                 <input type="hidden" name="pharmacyNpi" value={npi} />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label className="block">
+                    <span className="text-sm font-medium text-gray-900">Product type</span>
+                    <select name="productType" className="mt-2 w-full rounded-xl border px-4 py-3"><option value="prescription">Prescription</option><option value="otc">OTC / non-prescription</option></select>
+                  </label>
                   <label className="block">
                     <span className="text-sm font-medium text-gray-900">Drug name</span>
                     <input
@@ -281,6 +295,15 @@ export default async function PharmacyDashboardPage({
               </form>
             </div>
           </div>
+          <div className="mt-6 overflow-x-auto rounded-xl border">
+            <table className="min-w-full text-sm">
+              <thead className="bg-gray-50"><tr><th className="p-3 text-left">Product</th><th className="p-3 text-left">Type</th><th className="p-3 text-left">Strength</th><th className="p-3 text-left">Quantity</th><th className="p-3 text-left">Cash price</th><th className="p-3 text-left">Status</th></tr></thead>
+              <tbody>
+                {prices.map((price) => <tr key={price.id} className="border-t"><td className="p-3 font-semibold">{price.drugName}</td><td className="p-3">{price.productType === "otc" ? "OTC" : "Prescription"}</td><td className="p-3">{price.strength}</td><td className="p-3">{price.quantity}</td><td className="p-3">{fmtMoneyFromCents(price.cashPriceCents)}</td><td className="p-3">{price.status}</td></tr>)}
+                {prices.length === 0 ? <tr><td colSpan={6} className="p-4 text-gray-500">No products uploaded yet.</td></tr> : null}
+              </tbody>
+            </table>
+          </div>
         </section>
 
         {/* Reservation management + Prescription review queue */}
@@ -331,6 +354,8 @@ const cashPriceCents = toNumberOrNull((priceResult as { cashPriceCents?: unknown
                   const deliveryZip = toStringOrDash(deliveryAddress.zip);
 
                   const rewardPointsEstimated = toNumberOrNull(r.rewardPointsEstimated);
+                  const pointsRedeemed = toNumberOrNull(r.pointsRedeemed) ?? 0;
+                  const rewardDiscountCents = toNumberOrNull(r.rewardDiscountCents) ?? 0;
 
                   // Doctor referral ID/referralCode may live inside reservationInput; best-effort.
                   const referralCode =
@@ -351,6 +376,7 @@ const cashPriceCents = toNumberOrNull((priceResult as { cashPriceCents?: unknown
                       : `${fmtMoneyFromCents(cashPriceCents)} / ${reservePriceCents == null ? "—" : fmtMoneyFromCents(reservePriceCents)}`;
 
                   const showDelivery = fulfillmentMethod === "local_delivery";
+                  const noShowEligible = Boolean(r.noShowEligibleAt && new Date(r.noShowEligibleAt) <= new Date());
 
                   return (
                     <tr key={r.id}>
@@ -383,7 +409,10 @@ const cashPriceCents = toNumberOrNull((priceResult as { cashPriceCents?: unknown
                         <div className="text-xs text-gray-500 mt-1">cashPriceCents / reservePrice</div>
                       </td>
                       <td className="p-3 border-b align-top">
-                        <div className="font-semibold">{rewardPointsEstimated == null ? "—" : `${rewardPointsEstimated} pts`}</div>
+                        <div className="font-semibold">Earn: {rewardPointsEstimated == null ? "—" : `${rewardPointsEstimated} pts`}</div>
+                        {pointsRedeemed > 0 ? <div className="text-xs text-emerald-700 mt-1">Redeem: {pointsRedeemed} pts (${(rewardDiscountCents / 100).toFixed(2)} off)</div> : null}
+                        {r.assistanceRequested ? <div className="mt-2 rounded bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-800">Assistance requested</div> : null}
+                        <div className="mt-2 text-xs text-gray-600">$5 fee: <strong>{r.reservationFeeStatus}</strong>{r.noShowEligibleAt ? ` · eligible ${new Date(r.noShowEligibleAt).toLocaleString()}` : ""}</div>
                         <div className="text-xs text-gray-500 mt-1">{referralDisplay}</div>
                       </td>
                       <td className="p-3 border-b align-top">
@@ -408,6 +437,7 @@ const cashPriceCents = toNumberOrNull((priceResult as { cashPriceCents?: unknown
                           <form action="/api/pharmacy-reservation-actions" method="post">
                             <input type="hidden" name="reservationId" value={r.id} />
                             <input type="hidden" name="action" value="COMPLETED" />
+                            <input name="actualPurchase" type="number" min="0" step="0.01" required aria-label="Final purchase total" placeholder="Final $" className="w-20 rounded-lg border px-2 py-1 text-xs" />
                             <button type="submit" className="px-2 py-1 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-semibold">
                               Complete
                             </button>
@@ -424,8 +454,8 @@ const cashPriceCents = toNumberOrNull((priceResult as { cashPriceCents?: unknown
                           <form action="/api/pharmacy-reservation-actions" method="post">
                             <input type="hidden" name="reservationId" value={r.id} />
                             <input type="hidden" name="action" value="NO_SHOW" />
-                            <button type="submit" className="px-2 py-1 rounded-lg bg-gray-600 hover:bg-gray-700 text-white text-xs font-semibold">
-                              No-show
+                            <button type="submit" disabled={!noShowEligible || r.reservationFeeStatus !== "authorized"} className="px-2 py-1 rounded-lg bg-gray-600 hover:bg-gray-700 text-white text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-40">
+                              {noShowEligible ? "No-show" : "No-show after 48h"}
                             </button>
                           </form>
                         </div>

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { db } from "../../../lib/ipn-db";
 import { parse } from "csv-parse/sync";
+import { canManagePharmacy } from "../../../lib/ipn-authorization";
 
 function dollarsToCents(dollars: number) {
   return Math.round(dollars * 100);
@@ -32,6 +33,13 @@ export async function POST(req: Request) {
     const pharmacyNpi = (form.get("pharmacyNpi") ?? "").toString().trim();
     if (!pharmacyNpi) {
       return NextResponse.json({ error: "Missing pharmacyNpi" }, { status: 400 });
+    }
+    const access = await canManagePharmacy(pharmacyNpi);
+    if (!access.allowed) {
+      return NextResponse.json(
+        { error: access.reason === "unauthenticated" ? "Authentication required" : "Forbidden" },
+        { status: access.reason === "unauthenticated" ? 401 : 403 },
+      );
     }
 
     const file = form.get("file");
@@ -93,8 +101,9 @@ export async function POST(req: Request) {
       const quantity = toInt(r.quantity);
       const cashPriceDollars = toFloat(r.cashPrice);
       const ndc = (r.ndc ?? "").toString().trim() || null;
+      const productType = (r.productType ?? "prescription").trim().toLowerCase();
 
-      if (!drugName || !strength || quantity === null || cashPriceDollars === null) {
+      if (!drugName || !strength || quantity === null || cashPriceDollars === null || !["prescription", "otc"].includes(productType)) {
         errors.push({ row: rowNum, error: "Missing or invalid required fields" });
         continue;
       }
@@ -124,6 +133,7 @@ export async function POST(req: Request) {
               cashPriceCents,
               ndc,
               source,
+              productType,
               effectiveDate: new Date(),
             },
           });
@@ -140,6 +150,7 @@ export async function POST(req: Request) {
               cashPriceCents,
               ndc,
               source,
+              productType,
               status,
               effectiveDate: new Date(),
             },
@@ -151,6 +162,13 @@ export async function POST(req: Request) {
       errors.push({ row: rowNum, error: e instanceof Error ? e.message : "Unknown error" });
 
       }
+    }
+
+    if (created + updated > 0) {
+      await db.pharmacy.update({
+        where: { npi: pharmacyNpi },
+        data: { pricingPublished: true, reservationsEnabled: true },
+      });
     }
 
     return NextResponse.json(

@@ -1,5 +1,9 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { db } from "../../lib/ipn-db";
+import type { Prisma } from "@prisma/client";
+import { auth } from "../../../auth";
+import { calculateRedemptionCents } from "../../lib/ipn-rewards";
+import { stripe } from "../../lib/ipn-stripe";
 
 function getString(form: FormData, key: string) {
   const value = form.get(key);
@@ -53,6 +57,10 @@ function parseDeliveryAddress(raw: string) {
 
 export async function POST(req: Request) {
   try {
+    const session = await auth();
+    if (!session?.user?.id || !session.user.email) {
+      return NextResponse.json({ error: "Sign in is required" }, { status: 401 });
+    }
     const form = await req.formData();
 
     const pharmacyNpi = getString(form, "npi").trim();
@@ -79,6 +87,9 @@ export async function POST(req: Request) {
 
     const phone = getString(form, "phone").trim();
     const email = getString(form, "email").trim();
+    const pointsRedeemed = Math.max(0, Math.trunc(Number(getString(form, "pointsRedeemed") || "0")));
+    const assistanceRequested = getString(form, "assistanceRequested").trim() === "true";
+    const stripePaymentIntentId = getString(form, "stripePaymentIntentId").trim();
     const notes = getString(form, "notes").trim();
 
     const doctorName = getString(form, "doctorName").trim();
@@ -104,6 +115,16 @@ export async function POST(req: Request) {
         { status: 400 },
       );
     }
+    if (email.toLowerCase() !== session.user.email.toLowerCase()) {
+      return NextResponse.json({ error: "Reservation email must match the signed-in account" }, { status: 400 });
+    }
+    if (!stripePaymentIntentId) return NextResponse.json({ error: "A $5 no-show payment authorization is required" }, { status: 400 });
+    const paymentIntent = await stripe().paymentIntents.retrieve(stripePaymentIntentId);
+    if (paymentIntent.amount !== 500 || paymentIntent.currency !== "usd" || paymentIntent.capture_method !== "manual" || paymentIntent.status !== "requires_capture" || paymentIntent.metadata.ipnusUserId !== session.user.id || paymentIntent.metadata.purpose !== "reservation_no_show_fee") {
+      return NextResponse.json({ error: "The $5 no-show payment authorization is invalid or incomplete" }, { status: 400 });
+    }
+    let rewardDiscountCents = 0;
+    try { rewardDiscountCents = calculateRedemptionCents(pointsRedeemed); } catch { return NextResponse.json({ error: "Points must be redeemed in increments of 100" }, { status: 400 }); }
 
     if (!allowedFulfillmentMethods.has(fulfillmentMethod)) {
       return NextResponse.json(
@@ -117,6 +138,7 @@ export async function POST(req: Request) {
       select: {
         npi: true,
         reservationsEnabled: true,
+        rewardsEnabled: true,
         deliveryEnabled: true,
         deliveryRadiusMiles: true,
         deliveryFeeCents: true,
@@ -197,6 +219,10 @@ export async function POST(req: Request) {
     const cashPriceCents = activePrice.cashPriceCents;
     const reservePrice = Math.round((cashPriceCents / 100) * 100) / 100;
     const productType = activePrice.productType;
+    const rewardBalance = pointsRedeemed > 0 ? await db.rewardTransaction.aggregate({ where: { userId: session.user.id }, _sum: { points: true } }) : null;
+    if (pointsRedeemed > 0 && (!pharmacy.rewardsEnabled || (rewardBalance?._sum.points ?? 0) < pointsRedeemed || rewardDiscountCents > cashPriceCents)) {
+      return NextResponse.json({ error: "The requested points redemption is not available" }, { status: 400 });
+    }
 
     let prescriptionStatus: string;
 
@@ -225,14 +251,6 @@ export async function POST(req: Request) {
     const rewardStatus = "pending";
 
     const yyMMdd = todayYYMMDD();
-
-    const counter = await db.reservationCounter.findUnique({
-      where: { yyMMdd },
-      select: { nextNumber: true },
-    });
-
-    const nextNumber = counter?.nextNumber ?? 1;
-    const reservationNumber = reservationNumberFromParts(yyMMdd, nextNumber);
 
     const deliveryAddressFinal =
       fulfillmentMethod === "local_delivery" ? deliveryAddress : null;
@@ -265,15 +283,31 @@ export async function POST(req: Request) {
       doctorReferralId = doctorReferral.id;
     }
 
-    const created = await db.reservation.create({
+    const created = await db.$transaction(async (tx: Prisma.TransactionClient) => {
+      const counter = await tx.reservationCounter.findUnique({ where: { yyMMdd }, select: { nextNumber: true } });
+      const nextNumber = counter?.nextNumber ?? 1;
+      const reservationNumber = reservationNumberFromParts(yyMMdd, nextNumber);
+      if (pointsRedeemed > 0) {
+        const currentBalance = await tx.rewardTransaction.aggregate({ where: { userId: session.user.id }, _sum: { points: true } });
+        if ((currentBalance._sum.points ?? 0) < pointsRedeemed) throw new Error("Insufficient IP Points balance");
+      }
+      const reservation = await tx.reservation.create({
       data: {
         id: createdIdForReservation(reservationNumber, pharmacyNpi),
         reservationNumber,
         status: "pending",
         reservationFeeCents: 500,
-        reservationFeeStatus: "waived",
+        reservationFeeStatus: "authorized",
+        stripePaymentIntentId,
+        stripePaymentStatus: paymentIntent.status,
+        stripeAuthorizedAt: new Date(),
+        noShowEligibleAt: new Date(Date.now() + 48 * 60 * 60 * 1000),
 
         pharmacyNpi,
+        patientId: session.user.id,
+        pointsRedeemed,
+        rewardDiscountCents,
+        assistanceRequested,
 
         fulfillmentMethod,
         deliveryAddress: deliveryAddressFinal,
@@ -300,6 +334,7 @@ export async function POST(req: Request) {
           doctorReferralId,
           doctorName: doctorName || null,
           referralCode: referralCode || null,
+          assistanceRequested,
         },
 
         priceResult: {
@@ -324,17 +359,14 @@ export async function POST(req: Request) {
         id: true,
         reservationNumber: true,
       },
+      });
+      if (pointsRedeemed > 0) {
+        await tx.rewardTransaction.create({ data: { userId: session.user.id, pharmacyNpi, reservationId: reservation.id, type: "redeemed", points: -pointsRedeemed, description: "Points reserved for purchase" } });
+      }
+      await tx.reservationCounter.upsert({ where: { yyMMdd }, update: { nextNumber: nextNumber + 1 }, create: { id: yyMMdd, yyMMdd, nextNumber: nextNumber + 1 } });
+      return reservation;
     });
-
-    await db.reservationCounter.upsert({
-      where: { yyMMdd },
-      update: { nextNumber: nextNumber + 1 },
-      create: {
-        id: yyMMdd,
-        yyMMdd,
-        nextNumber: nextNumber + 1,
-      },
-    });
+    await stripe().paymentIntents.update(stripePaymentIntentId, { metadata: { ...paymentIntent.metadata, ipnusReservationId: created.id, reservationNumber: created.reservationNumber } });
 
     return NextResponse.redirect(
       new URL(

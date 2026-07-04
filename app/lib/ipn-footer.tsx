@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const links = [["Search Prices", "/search"], ["How It Works", "/how-it-works"], ["For Pharmacies", "/claim"], ["Pricing", "/pricing"], ["FAQ", "/faq"], ["Contact", "/contact"], ["Privacy", "/privacy"], ["Terms", "/terms"]] as const;
+const links = [["Search Prices", "/search"], ["Assistance", "/assistance"], ["How It Works", "/how-it-works"], ["For Pharmacies", "/claim"], ["FAQ", "/faq"], ["Contact", "/contact"], ["Privacy", "/privacy"], ["Terms", "/terms"]] as const;
 
 export function IPNFooter() {
   return (
@@ -10,7 +10,8 @@ export function IPNFooter() {
           <div><div className="text-xl font-black text-white">IPNUS</div><p className="mt-2 max-w-md">Low cash prescription prices from participating independent pharmacies.</p></div>
           <div className="flex max-w-xl flex-wrap gap-x-6 gap-y-3 text-sm">{links.map(([label, href]) => <Link key={href} href={href} className="hover:text-white">{label}</Link>)}</div>
         </div>
-        <p className="mt-8 border-t border-slate-800 pt-6 text-xs text-slate-400">Prices are published by participating pharmacies and may require confirmation before fulfillment.</p>
+        <p className="mt-8 border-t border-slate-800 pt-6 text-xs text-slate-400">Prices are published by participating pharmacies and may require confirmation. Assistance options vary and are not guaranteed.</p>
+        <p className="mt-2 text-xs text-slate-500">IPNUS does not determine eligibility, guarantee medication availability, or guarantee assistance approval. Prices and assistance options must be confirmed by the pharmacy or relevant program provider.</p>
       </div>
     </footer>
   );

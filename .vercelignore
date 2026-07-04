@@ -1,0 +1,16 @@
+npidata.csv
+npidata-*.csv
+*.db
+*.db-journal
+data/
+scripts/cache/
+prisma/migrations-sqlite/
+.next/
+node_modules/
+*.log
+*.lnk
+docs/
+
+.env
+.env.*
+!.env.example
