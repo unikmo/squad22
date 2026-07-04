@@ -19,10 +19,16 @@ const steps = [
 
 export default function Home() {
   return <PublicPage>
-    <section className="bg-gradient-to-br from-emerald-50 via-white to-amber-50"><div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
-      <div><p className="font-bold uppercase tracking-widest text-emerald-700">Local prices. Clear choices.</p><h1 className="mt-4 text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-6xl">Find low cash prescription prices from independent pharmacies near you.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">Compare published pharmacy prices, skip coupon cards, support local independents, and check if assistance options may be available.</p><Link href="#price-search" className="mt-8 inline-block rounded-xl bg-emerald-700 px-6 py-3 font-bold text-white hover:bg-emerald-800">Find Prices</Link><ul className="mt-7 grid gap-2 text-sm font-semibold text-slate-700 sm:grid-cols-2"><li>✓ Low cash prices</li><li>✓ No coupon cards</li><li>✓ Local independent pharmacies</li><li>✓ Assistance options check</li></ul></div>
-      <div id="price-search"><SearchFormClient drugs={drugs} /></div>
-    </div></section>
+    <section className="bg-gradient-to-br from-emerald-50 via-white to-amber-50">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] lg:items-center lg:gap-16 lg:py-20">
+        <div className="max-w-xl lg:justify-self-end">
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-700">Local independent pharmacies. Local prices. Clear choices.</p>
+          <h1 className="mt-4 text-3xl font-black leading-[1.12] tracking-tight text-slate-950 sm:text-4xl lg:text-[2.75rem]">Find low cash prescription prices from independent pharmacies near you.</h1>
+          <p className="mt-5 text-lg leading-8 text-slate-600">Compare published pharmacy prices, skip coupon cards, support local independents, and check if assistance options may be available.</p>
+        </div>
+        <div id="price-search" className="w-full max-w-xl lg:justify-self-start"><SearchFormClient drugs={drugs} /></div>
+      </div>
+    </section>
 
     <section className="mx-auto max-w-7xl px-6 py-20"><h2 className="text-3xl font-black text-slate-950">How IPNUS works</h2><p className="mt-3 max-w-3xl leading-7 text-slate-600">Search your medication, compare published cash prices from participating independent pharmacies, and send a reservation request directly to the pharmacy.</p><div className="mt-10 grid gap-6 md:grid-cols-3">{steps.map(([number, title, copy]) => <div key={number} className="rounded-2xl border border-slate-200 p-6"><span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 font-black text-emerald-800">{number}</span><h3 className="mt-4 text-xl font-bold text-slate-900">{title}</h3><p className="mt-2 text-slate-600">{copy}</p></div>)}</div></section>
 
