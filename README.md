@@ -1,85 +1,138 @@
-# IPNUS
+# ⚽ Squad22 - Card Game for Football Fans
 
-IPNUS helps patients compare published cash prescription prices from participating independent pharmacies and reserve directly with local pharmacies.
+Squad22 is a strategic card game where players build their ultimate football squad by playing cards strategically. Reach your target score to win!
 
-## Stack
+## 🎮 Game Features
 
-- Next.js
-- React
-- Prisma
-- PostgreSQL (Supabase)
-- Tailwind CSS
+- **58-Card Deck**: 54 player cards (GK, DEF, MID, STR) + 4 staff cards
+- **Strategic Gameplay**: Position pairs & trait triples for powerful combinations
+- **Multiplayer**: Challenge friends in real-time battles
+- **League System**: 36-game tournaments with rankings
+- **Live Leaderboard**: Track global player standings
 
-## Local setup
+## 🚀 Quick Start
 
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Local Development
 ```bash
+# Install dependencies
 npm install
+
+# Set up environment (copy .env.example to .env.local)
+cp .env.example .env.local
+
+# Add your Supabase credentials to .env.local
+
+# Run development server
 npm run dev
+
+# Open http://localhost:3000
 ```
 
-## Database
-
-Set `DATABASE_URL` in `.env`:
-
-```dotenv
-DATABASE_URL="postgresql://postgres.PROJECT_REF:PASSWORD@POOLER_HOST:6543/postgres?pgbouncer=true"
-DIRECT_URL="postgresql://postgres.PROJECT_REF:PASSWORD@POOLER_HOST:5432/postgres"
-AUTH_SECRET="replace-with-a-long-random-secret"
-RESEND_API_KEY="re_replace_me"
-AUTH_EMAIL_FROM="IPNUS <signin@your-verified-domain.com>"
-```
-
-Run Prisma setup:
-
+### Deploy to Vercel
 ```bash
-npx prisma generate
-npx prisma migrate dev
+# 1. Push to GitHub
+git add .
+git commit -m "Squad22 deployment"
+git push origin main
+
+# 2. Go to vercel.com and import the repo
+# 3. Add environment variables
+# 4. Deploy!
 ```
 
-## Seed data
+## 📖 How to Play
 
-```bash
-npm run seed:pharmacies
+### Turn Structure
+1. **DRAW Phase**: Draw 1 card from pile or open pile
+2. **PLAY Phase**: Play valid combinations (position pairs or trait triples)
+3. **DISCARD Phase**: Discard 1 card face-up
+
+### Scoring
+- **Common Cards**: +10 on table, -10 in hand
+- **Rare Cards**: +5 on table, -5 in hand
+- **Flex Cards**: 0 on table, -15 in hand
+- **Staff Cards**: +10 on table, -10 in hand
+
+### Winning
+- Reach target score (300, 500, or 600) to win
+- Lose if hand is empty and draw pile is empty
+
+## 🏗️ Tech Stack
+
+- **Frontend**: Next.js 15 + React 19
+- **Backend**: Next.js API Routes
+- **Database**: Supabase (PostgreSQL)
+- **Deployment**: Vercel
+- **Language**: TypeScript
+
+## 📁 Project Structure
+
+```
+squad22/
+├── app/                    # Next.js app directory
+│   ├── api/               # API endpoints
+│   ├── game/              # Game pages
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Styles
+├── lib/                   # Utilities & logic
+│   ├── cards.ts           # Card database
+│   ├── gameLogic.ts       # Game mechanics
+│   └── supabase.ts        # Database client
+├── public/                # Static assets
+│   └── images/cards/      # Card images
+└── SUPABASE_SCHEMA.sql   # Database setup
 ```
 
-## NPI/NPPES data policy
+## 🔧 Environment Variables
 
-Do not commit raw NPPES/NPI CSV files. Large datasets such as `npidata.csv` must stay local and ignored by Git.
+```env
+# Supabase (get from supabase.com)
+NEXT_PUBLIC_SUPABASE_URL=your_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+SUPABASE_SERVICE_ROLE_KEY=your_key
 
-## Useful scripts
-
-```bash
-npm run dev
-npm run build
-npm run lint
-npm run smoke:ipn
-npm run import:nppes
-npm run import:nppes:summary
-npm run import:nppes:retail-outreach
+# Game Config
+NEXT_PUBLIC_GAME_TARGET_SCORE=300
+NEXT_PUBLIC_MAX_PLAYERS_PER_GAME=2
 ```
 
-## Authentication and IP Rewards
+## 📋 Roadmap
 
-Patient accounts use passwordless email links through Auth.js and Resend. Configure a verified sending domain and the environment variables above before testing sign-in.
+- [x] Core game logic (draw, play, discard)
+- [x] 58-card deck system
+- [ ] WebSocket multiplayer
+- [ ] User authentication
+- [ ] League system
+- [ ] Leaderboard
+- [ ] Payment integration ($15/season)
+- [ ] Card marketplace ($49.99/$99.99 packs)
 
-Eligible purchases earn 1 IP Point per dollar after the pharmacy confirms the final purchase total. Every 100 points provides $1 in redemption value at participating IPNUS pharmacies. Rewards are stored in an auditable transaction ledger.
+## 🐛 Troubleshooting
 
-Pharmacy CSV price uploads require `drugName`, `strength`, `quantity`, `cashPrice`, and `productType`. Use `prescription` or `otc` for `productType`.
+**Issue**: "Module not found"
+- Run `npm install` to install dependencies
 
-## Current MVP routes
+**Issue**: "Supabase connection failed"
+- Check `.env.local` has correct credentials
+- Verify Supabase project is active
 
-- `/`
-- `/search`
-- `/results`
-- `/reserve`
-- `/claim`
-- `/pricing`
-- `/how-it-works`
-- `/faq`
-- `/contact`
+**Issue**: "Card images not found"
+- Ensure images are in `public/images/cards/`
+- Check paths in `lib/cards.ts`
 
-## Known limitations
+## 📄 License
 
-- ZIP distance filtering is not yet implemented.
-- Reservation requests require pharmacy confirmation.
-- Prices are published by participating pharmacies and may change.
+MIT - See LICENSE file for details
+
+## 👤 Author
+
+Built by Tichi (@mbanwie@googlemail.com)
+
+---
+
+**Ready to play? Start with `npm run dev` and head to http://localhost:3000! ⚽**

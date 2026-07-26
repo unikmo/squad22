@@ -1,43 +1,68 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { IPN_TOP300_DRUGS } from "./lib/ipn-drugs-top300";
-import { PublicPage } from "./lib/public-page";
-import { SearchFormClient } from "./search/search-form-client";
+'use client';
 
-export const metadata: Metadata = {
-  title: "IPNUS | Low Cash Prescription Prices from Independent Pharmacies",
-  description: "Search low cash prescription prices from participating independent pharmacies near you. Compare published prices, skip coupon cards, support local pharmacies, and check assistance options.",
-  keywords: ["low cash prescription prices", "independent pharmacies near me", "prescription assistance", "help paying for medication", "no coupon card prescription prices", "local pharmacy prescription prices"],
-};
-
-const drugs = IPN_TOP300_DRUGS.map((drug) => ({ name: drug.canonicalGenericName }));
-const steps = [
-  ["1", "Search your medication", "Enter your medication, strength, quantity, and ZIP."],
-  ["2", "Compare published cash prices", "See prices from participating independent pharmacies."],
-  ["3", "Reserve directly", "Send a reservation request so the pharmacy can confirm availability, prescription requirements, and pickup or delivery options."],
-];
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
-  return <PublicPage>
-    <section className="bg-gradient-to-br from-emerald-50 via-white to-amber-50">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] lg:items-center lg:gap-16 lg:py-20">
-        <div className="max-w-xl lg:justify-self-end">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-emerald-700">Local independent pharmacies. Local prices. Clear choices.</p>
-          <h1 className="mt-4 text-3xl font-black leading-[1.12] tracking-tight text-slate-950 sm:text-4xl lg:text-[2.75rem]">Find low cash prescription prices from independent pharmacies near you.</h1>
-          <p className="mt-5 text-lg leading-8 text-slate-600">Compare published pharmacy prices, skip coupon cards, support local independents, and check if assistance options may be available.</p>
+  const [username, setUsername] = useState('');
+
+  return (
+    <main>
+      <header>
+        <h1>⚽ Squad22</h1>
+        <p>A strategic card game for football enthusiasts</p>
+      </header>
+
+      <div style={{ maxWidth: '400px', margin: '50px auto' }}>
+        <div className="card">
+          <h2>Welcome to Squad22</h2>
+          <p style={{ marginTop: '15px', marginBottom: '25px' }}>
+            Build your ultimate squad and outsmart your opponent. Play cards strategically to reach the target score!
+          </p>
+
+          <div style={{ marginBottom: '20px' }}>
+            <label style={{ display: 'block', marginBottom: '8px' }}>
+              Enter your username:
+            </label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Your name"
+              style={{
+                width: '100%',
+                padding: '10px',
+                borderRadius: '5px',
+                border: '1px solid #ddd',
+                fontSize: '16px',
+              }}
+            />
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+            <Link href={`/game?mode=ai&player=${encodeURIComponent(username)}`}>
+              <button style={{ width: '100%' }} disabled={!username}>
+                Play vs AI
+              </button>
+            </Link>
+            <Link href={`/game?mode=multiplayer&player=${encodeURIComponent(username)}`}>
+              <button style={{ width: '100%' }} disabled={!username}>
+                Multiplayer
+              </button>
+            </Link>
+          </div>
+
+          <div style={{ marginTop: '30px', padding: '15px', background: '#f5f5f5', borderRadius: '5px' }}>
+            <h3>How to Play</h3>
+            <ul style={{ marginTop: '10px', paddingLeft: '20px' }}>
+              <li>Draw 1 card to start your turn</li>
+              <li>Play position pairs (2 cards same position) or trait triples (3 cards same trait, different positions)</li>
+              <li>Discard 1 card to end your turn</li>
+              <li>Reach the target score to win!</li>
+            </ul>
+          </div>
         </div>
-        <div id="price-search" className="w-full max-w-xl lg:justify-self-start"><SearchFormClient drugs={drugs} /></div>
       </div>
-    </section>
-
-    <section className="mx-auto max-w-7xl px-6 py-20"><h2 className="text-3xl font-black text-slate-950">How IPNUS works</h2><p className="mt-3 max-w-3xl leading-7 text-slate-600">Search your medication, compare published cash prices from participating independent pharmacies, and send a reservation request directly to the pharmacy.</p><div className="mt-10 grid gap-6 md:grid-cols-3">{steps.map(([number, title, copy]) => <div key={number} className="rounded-2xl border border-slate-200 p-6"><span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 font-black text-emerald-800">{number}</span><h3 className="mt-4 text-xl font-bold text-slate-900">{title}</h3><p className="mt-2 text-slate-600">{copy}</p></div>)}</div></section>
-
-    <section className="bg-slate-50"><div className="mx-auto max-w-7xl px-6 py-20"><h2 className="text-3xl font-black text-slate-950">Prescription cash prices can vary by pharmacy.</h2><p className="mt-4 max-w-3xl leading-7 text-slate-600">The same medication may have different cash prices at different pharmacies. IPNUS helps you compare published prices before you call, drive, or overpay.</p></div></section>
-
-    <section className="mx-auto max-w-7xl px-6 py-20"><div className="rounded-3xl border border-amber-200 bg-amber-50 p-8 md:p-12"><p className="font-bold uppercase tracking-widest text-amber-800">Assistance options</p><h2 className="mt-3 text-3xl font-black text-slate-950">Cash price still too high?</h2><p className="mt-4 max-w-3xl leading-7 text-slate-700">Some patients may qualify for manufacturer assistance, foundation support, public programs, or local pharmacy help. IPNUS helps surface what to ask about before you give up on a medication.</p><Link href="/assistance" className="mt-7 inline-block rounded-xl bg-slate-950 px-6 py-3 font-bold text-white">Learn About Assistance Options</Link></div></section>
-
-    <section className="bg-emerald-900 text-white"><div className="mx-auto max-w-7xl px-6 py-20"><h2 className="text-3xl font-black">For independent pharmacies</h2><p className="mt-4 max-w-3xl leading-7 text-emerald-50">Publish cash prices, receive reservation requests, and help patients discover assistance options when medication is still hard to afford.</p><Link href="/claim" className="mt-7 inline-block rounded-xl bg-white px-6 py-3 font-bold text-emerald-900">Claim Your Pharmacy</Link></div></section>
-
-    <section className="mx-auto max-w-7xl px-6 py-20"><h2 className="text-3xl font-black text-slate-950">Questions before you search?</h2><p className="mt-3 max-w-2xl text-slate-600">Prices are published by participating pharmacies and may require confirmation before pickup, delivery, or prescription fulfillment.</p><Link href="/faq" className="mt-5 inline-block font-bold text-emerald-700 hover:underline">Read FAQ →</Link></section>
-  </PublicPage>;
+    </main>
+  );
 }
