@@ -1,10 +1,52 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
+// Shared loading shell — also used as the Suspense fallback below.
+function GameLoading({ message = 'Loading…' }: { message?: string }) {
+  return (
+    <main style={{
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #0f1c32 0%, #1a3a52 50%, #0f2847 100%)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <div style={{ textAlign: 'center', color: '#00ff00' }}>
+        <div style={{
+          fontSize: '48px',
+          marginBottom: '20px',
+          animation: 'pulse 1.5s ease-in-out infinite'
+        }}>
+          ⚽
+        </div>
+        <h1 style={{
+          fontSize: '32px',
+          marginBottom: '10px',
+          fontWeight: 'bold',
+          textShadow: '0 0 20px rgba(0, 255, 0, 0.5)'
+        }}>
+          SQUAD22
+        </h1>
+        <p style={{ fontSize: '18px', color: '#aaa' }}>{message}</p>
+      </div>
+    </main>
+  );
+}
+
+// useSearchParams() opts this subtree into client-side rendering, so it must sit
+// inside a Suspense boundary or `next build` fails prerendering /game.
 export default function GamePage() {
+  return (
+    <Suspense fallback={<GameLoading message="Loading game…" />}>
+      <GameContent />
+    </Suspense>
+  );
+}
+
+function GameContent() {
   const searchParams = useSearchParams();
   const [gameState, setGameState] = useState<any>(null);
   const [selectedCards, setSelectedCards] = useState<number[]>([]);
@@ -34,42 +76,7 @@ export default function GamePage() {
   }, [searchParams]);
 
   if (!gameState) {
-    return (
-      <main style={{
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #0f1c32 0%, #1a3a52 50%, #0f2847 100%)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <div style={{
-          textAlign: 'center',
-          color: '#00ff00'
-        }}>
-          <div style={{
-            fontSize: '48px',
-            marginBottom: '20px',
-            animation: 'pulse 1.5s ease-in-out infinite'
-          }}>
-            ⚽
-          </div>
-          <h1 style={{
-            fontSize: '32px',
-            marginBottom: '10px',
-            fontWeight: 'bold',
-            textShadow: '0 0 20px rgba(0, 255, 0, 0.5)'
-          }}>
-            SQUAD22
-          </h1>
-          <p style={{
-            fontSize: '18px',
-            color: '#aaa'
-          }}>
-            {status}
-          </p>
-        </div>
-      </main>
-    );
+    return <GameLoading message={status} />;
   }
 
   const traitColors: any = {
